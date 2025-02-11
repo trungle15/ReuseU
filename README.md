@@ -7,15 +7,17 @@
 ### Languages
 
 #### Setup
-Node Version >= 15.5.
+__Node Version >= 15.5.__
+
 Download the latest version here: https://nodejs.org/en/download
 
-Python 3.10 or newer
+__Python 3.10 or newer__
+
 Download the latest version here: https://www.python.org/downloads/
 
-We will use Node Package Manager, (npm), that comes with the Nodejs installation.
+We will use __Node Package Manager__, (npm), which comes with the Nodejs installation.
 
-navigate to the app:
-install react, reavctdom, typescript templates with this command: 
+__Navigate to the app:__
 
-npm install react react-dom typescript @types/react @types/react-dom
+- Install _react, reavctdom, typescript_ templates with this command:
+  - npm install react react-dom typescript @types/react @types/react-dom
