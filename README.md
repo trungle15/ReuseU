@@ -14,6 +14,7 @@
  
 
  ## Issues
+ [Issue tracking](https://github.com/dicarlosofia/ReuseU/issues)
 
 ## Design
 
