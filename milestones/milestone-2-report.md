@@ -4,7 +4,7 @@
 
 _Create a *Trello board* and start creating issues in it, based on our discussion of agile development._
 - Instead of making a Trello board, we discovered that the features it offers are already offered within our GitHub Repo, so we have decided to do our agile development planning there with Leah's counsel. 
-
+- https://github.com/dicarlosofia/ReuseU/issues
 <!--
 ## Start experimenting and setting up resources:
 
