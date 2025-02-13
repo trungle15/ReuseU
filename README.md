@@ -2,14 +2,6 @@
  ## Description
  _ReuseU is a web-based platform that lets students on college campuses reduce their spending and environmental impact by creating a small-scale, highly local online marketplace where they can trade personal belongings with other students on their campus._
 
- ## Repository Layout
- 
- * The repository contains the folder _milestones_ which contains detailed reports for each milestone in individual markdown files.
- * It will contain another folder named _src_ which will contain all of the source code and additional resources
- * Other miscellaneous files contained within the directory:
-   - this README.md file
-   - Licence
-   - .gitignore
  
  
 

@@ -35,3 +35,11 @@ Your write-up should be written in markdown and should include:
     - **Authentication + User Management**: Firebase Auth
 - _How we chose to settle on those technologies:_
   - We wanted to choose these technologies in particular because they already had some functionalities in place that we would not have to do ourselves, such as how Next.js is a React framework that provides features like server side rendering, easy api routes, and some automatic optimizations.
+## Repository Layout
+ 
+ * The repository contains the folder _milestones_ which contains detailed reports for each milestone in individual markdown files.
+ * It will contain other folders, frontend, backend which will contain all of the source code and additional resources/notes
+ * Other miscellaneous files contained within the directory:
+   - this README.md file
+   - Licence
+   - .gitignore
