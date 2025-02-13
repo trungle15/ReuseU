@@ -29,9 +29,9 @@ Your write-up should be written in markdown and should include:
 - _A summary of important decisions that our team made_:
   - We chose which programming languages to work on, and which platforms to use for our databases, frontend hosting, and authentication + user management. We also got our Private Teams channel organized and begun using sprints. 
 - _Which programming languages and tools we are using:_
-  - Our languages of choice will be Javascript, HTML, CSS, and Python. 
-    - **Databases**: 
-    - **Frontend hosting**: 
-    - **Authentication + User Management**: 
+  - Our languages of choice will be Javascript, Typescript, HTML, CSS, and Python. 
+    - **Databases**: TBD
+    - **Frontend hosting**: TBD
+    - **Authentication + User Management**: TBD
 - _How we chose to settle on those technologies:_
   - We wanted to choose these technologies in particular because they already had some functionalities in place that we would not have to do ourselves, such as how Next.js is a React framework that provides features like server side rendering, easy api routes, and some automatic optimizations.
