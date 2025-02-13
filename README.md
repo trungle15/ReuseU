@@ -6,6 +6,10 @@
  
  * The repository contains the folder _milestones_ which contains detailed reports for each milestone in individual markdown files.
  * It will contain another folder named _src_ which will contain all of the source code and additional resources
+ * Other miscellaneous files contained within the directory:
+   - this README.md file
+   - Licence
+   - .gitignore
  
  
 
