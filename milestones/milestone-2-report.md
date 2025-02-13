@@ -30,7 +30,7 @@ Your write-up should be written in markdown and should include:
   - We chose which programming languages to work on, and which platforms to use for our databases, frontend hosting, and authentication + user management. We also got our Private Teams channel organized and began using sprints. 
 - _Which programming languages and tools we are using:_
   - Our languages of choice will be Javascript, Typescript, HTML, CSS, and Python. 
-    - **Databases**: Firebase Auth
+    - **Databases**: Firestore (Firebase)
     - **Frontend hosting**: Vercel
     - **Authentication + User Management**: Firebase Auth
 - _How we chose to settle on those technologies:_

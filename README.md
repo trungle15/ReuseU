@@ -29,6 +29,9 @@ __Python 3.10 or newer__
 
 Download the latest version here: https://www.python.org/downloads/
 
+
+
+
 We will use __Node Package Manager__, (npm), which comes with the Nodejs installation.
 
 __Navigate to the app:__
