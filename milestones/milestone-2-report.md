@@ -20,18 +20,18 @@ Your write-up should be written in markdown and should include:
 -->
 
 - _The work that each team member completed for this milestone:_
-  - **Sofia**: Compiled this writeup, and helped create the first round of Issues for our first sprint. Also provided tutorial resources for the team to use in getting familiar with Python, Javascript, CSS, and HTML.
+  - **Sofia**: Compiled this writeup, and helped create the first round of Issues for our first sprint. She also provided tutorial resources for the team to use for getting familiar with Python, Javascript, CSS, and HTML.
   - **Howie**: Created a comprehensive list of options for what platforms to use for our databases, frontend hosting, and authentication + user management, and helped explain why they would benefit us.
-  - **Peter**:
-  - **Trung**: Helped keep track of user story progression for sprint 1. 
+  - **Peter**: Helped mediate the discussion for our tech choices for ReuseU
+  - **Trung**: Helped keep track of user story progression for sprint 1. He also proposed Firebase Auth and helped us get familiar with how they work for the team.
   - **Krishna**: Created the beta concept for our mascot.
-  - **Timur**:
+  - **Timur**: Introduced and pitched database management options and how to simply SQL querying. 
 - _A summary of important decisions that our team made_:
-  - We chose which programming languages to work on, and which platforms to use for our databases, frontend hosting, and authentication + user management. We also got our Private Teams channel organized and begun using sprints. 
+  - We chose which programming languages to work on, and which platforms to use for our databases, frontend hosting, and authentication + user management. We also got our Private Teams channel organized and began using sprints. 
 - _Which programming languages and tools we are using:_
   - Our languages of choice will be Javascript, Typescript, HTML, CSS, and Python. 
-    - **Databases**: TBD
-    - **Frontend hosting**: TBD
-    - **Authentication + User Management**: TBD
+    - **Databases**: Firebase Auth
+    - **Frontend hosting**: Vercel
+    - **Authentication + User Management**: Firebase Auth
 - _How we chose to settle on those technologies:_
   - We wanted to choose these technologies in particular because they already had some functionalities in place that we would not have to do ourselves, such as how Next.js is a React framework that provides features like server side rendering, easy api routes, and some automatic optimizations.
