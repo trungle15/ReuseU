@@ -34,12 +34,12 @@ Use Case  1   (Timur)
 Use Case  3    (Howie)           
 | Section          | Description                                                                                                                  |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Actor            | Dexter (he/him) - Casual User, Sneakerhead                                                                                   |
-| Goal             | Dexter wants to efficiently browse and track sneaker listings to find good deals                                             |
-| Trigger          | Dexter visits the site to check for new shoe listings                                                                        |
-| Preconditions    | Dexter has an account and is logged in. Listings for shoes exist on the platform.                                            |
-| Postconditions   | Dexter can view shoe listings, check their condition via photos, save interesting ones, and revisit later                    |
-| Flow             | Dexter navigates to the marketplace, filters to display sneakers, inspects conditions using provided images, saves listings. |
+| Actor            | Dexter (he/him) - Casual User, Laptop                                                                                   |
+| Goal             | Dexter wants to efficiently browse and track laptop listings to find good deals                                             |
+| Trigger          | Dexter visits the site to check for new laptop listings                                                                        |
+| Preconditions    | Dexter has an account and is logged in. Listing for a laptop exists on the platform.                                            |
+| Postconditions   | Dexter can view laptop listings, check their condition via photos, save interesting ones, and revisit later                    |
+| Flow             | Dexter navigates to the marketplace, filters to display laptops, inspects conditions using provided images, saves listings. |
 | Alternative Flow | If no listings match the filters, Dexter adjusts search criteria/looks for new things or just logs out.                      |
 
 
