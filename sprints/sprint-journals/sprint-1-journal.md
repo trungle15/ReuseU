@@ -4,7 +4,7 @@
     Navigate to ReuseU/milestones/ to see updates to our requirements document in milestone 1.
 
 ## Part 2: Use Cases
-| Use Case  1                |
+Use Case  1               
 | ------------------| ---------|
 | Actor             | asdf     |
 | Goal              | aasdf    |
@@ -15,7 +15,7 @@
 | Alternative Flow  | asfd     |
 
 
-| Use Case  2                |
+ Use Case  2                
 | ------------------| ---------|
 | Actor             | asdf     |
 | Goal              | aasdf    |
