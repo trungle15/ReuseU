@@ -37,7 +37,7 @@ Use Case  3    (Howie)
 | Goal              | Dexter wants to efficiently browse and track sneaker listings to find good deals   |
 | Trigger           | Dexter visits the site to check for new shoe listings     |
 | Preconditions     | Dexter has an account and is logged in. Listings for shoes exist on the platform.     |
-| Postconditions    | Dexter can view shoe listings, check their condition, save interesting ones, and revisit later     |
+| Postconditions    | Dexter can view shoe listings, check their condition via photos, save interesting ones, and revisit later     |
 | Flow              | Dexter navigates to the marketplace, filters to display sneakers, inspects conditions using provided images, saves listings.
 | Alternative Flow  | If no listings match the filters, Dexter adjusts search criteria/looks for new things or just logs out.    |
 
