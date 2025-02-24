@@ -28,19 +28,19 @@ Use Case  1   (Timur)
 | Preconditions    | Jack must be a registered, logged-in user with his college-email                                                                                        |
 | Postconditions   | Jack sends a message to a seller, the transaction happens offline                                                                                       |
 | Flow             | Logging in and navigating to the item; Sorting by price and browse listing; Check details and seller legitimacy; Message the seller to arrange a meetup |
-| Alternative Flow | Accounted for scenarios where no suitable lamp is found, unverified seller and Jack needing more information before purchasing                          |
+| Alternative Flow | Jacks skips unverified seller and look for different listings                                                                                           |
 
 
 Use Case  3    (Howie)           
-| Section          | Description                                                                                                                  |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Actor            | Dexter (he/him) - Casual User, Laptop                                                                                   |
+| Section          | Description                                                                                                                 |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Actor            | Dexter (he/him) - Casual User, Laptop                                                                                       |
 | Goal             | Dexter wants to efficiently browse and track laptop listings to find good deals                                             |
-| Trigger          | Dexter visits the site to check for new laptop listings                                                                        |
-| Preconditions    | Dexter has an account and is logged in. Listing for a laptop exists on the platform.                                            |
-| Postconditions   | Dexter can view laptop listings, check their condition via photos, save interesting ones, and revisit later                    |
+| Trigger          | Dexter visits the site to check for new laptop listings                                                                     |
+| Preconditions    | Dexter has an account and is logged in. Listing for a laptop exists on the platform.                                        |
+| Postconditions   | Dexter can view laptop listings, check their condition via photos, save interesting ones, and revisit later                 |
 | Flow             | Dexter navigates to the marketplace, filters to display laptops, inspects conditions using provided images, saves listings. |
-| Alternative Flow | If no listings match the filters, Dexter adjusts search criteria/looks for new things or just logs out.                      |
+| Alternative Flow | If no listings match the filters, Dexter adjusts search criteria/looks for new things or just logs out.                     |
 
 
  Use Case  4  (Sofia)
@@ -56,15 +56,15 @@ Use Case  3    (Howie)
 | Alternative Flow | asfd        |
 
 Use Case  5    (Peter)          
-| Section          | Description |
-| ---------------- | ----------- |
-| Actor            | Arsene (he/him) - Hardcore User, Merchant        |
-| Goal             | Arsene wants to turn a profit using the marketplace. Ideally he buys items for cheap and sells the for a profit                       |
-| Trigger          | Arsene hears about a booming new used marketplace and is excited for a new opportunity to use his finance trading skills              |
-| Preconditions    | Arsene must be a registered, logged-in user with his college-email and has a method in mind to find underpriced items                 |
-| Postconditions   | asfd                                                                                                                                  |
-| Flow             | asfd                                                                                                                                  |
-| Alternative Flow | asfd                                                                                                                                  |
+| Section          | Description                                                                                                              |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Actor            | Arsene (he/him) - Hardcore User, Merchant                                                                                |
+| Goal             | Arsene wants to turn a profit using the marketplace. Ideally he buys items for cheap and sells the for a profit          |
+| Trigger          | Arsene hears about a booming new used marketplace and is excited for a new opportunity to use his finance trading skills |
+| Preconditions    | Arsene must be a registered, logged-in user with his college-email and has a method in mind to find underpriced items    |
+| Postconditions   | asfd                                                                                                                     |
+| Flow             | asfd                                                                                                                     |
+| Alternative Flow | asfd                                                                                                                     |
 
 
  Use Case  6  (Krishna)
