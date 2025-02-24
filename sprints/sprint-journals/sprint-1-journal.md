@@ -5,8 +5,9 @@
 
 ## Part 2: Use Cases
 Use Case  1               
-| ------------------| ---------|
+
 | Actor             | asdf     |
+| ------------------| ---------|
 | Goal              | aasdf    |
 | Trigger           | asdf     |
 | Preconditions     | asfd     |
@@ -16,8 +17,9 @@ Use Case  1
 
 
  Use Case  2                
-| ------------------| ---------|
+
 | Actor             | asdf     |
+| ------------------| ---------|
 | Goal              | aasdf    |
 | Trigger           | asdf     |
 | Preconditions     | asfd     |
