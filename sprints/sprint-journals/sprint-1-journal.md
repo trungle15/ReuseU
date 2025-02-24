@@ -8,13 +8,14 @@
 Use Case  1   (Timur)            
 | Section           | Description |
 | ------------------| ---------|
-| Actor             | asdf     |
-| Goal              | aasdf    |
-| Trigger           | asdf     |
-| Preconditions     | asfd     |
-| Postconditions    | asfd     |
-| Flow              | asfd     |
-| Alternative Flow  | asfd     |
+| Actor             | Lucy (she/her)  Merchant/ Causal User.     |
+| Goal              | Add items to sell quickly.   |
+| Trigger           | Lucy decides she wants to sell an item of hers (e.g. phone) and takes some pictures of it to upload on ReuseU.     |
+| Preconditions     | Lucy has a specific item in mind to sell, and she has at least one photo of it.     |
+| Postconditions    | Lucy can see her phone as an active listing on her listings page.     |
+| Flow              | Sign up / Login > Create a Listing > Upload Photos, put up descriptions and price > Submit > Check the listing as active in "My Listings"     |
+| Alternative Flow  A | Lucy does not know the price she should charge for the phone. The website offers a suggestion  for her when she creates a listing. |
+| Alternative Flow B | Lucy wants to check the listing is active by searching it up instead of finding it in her active listings | 
 
 
  Use Case  2  (Trung)
