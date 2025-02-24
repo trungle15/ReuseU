@@ -56,15 +56,15 @@ Use Case  3    (Howie)
 | Alternative Flow | asfd        |
 
 Use Case  5    (Peter)          
-| Section          | Description                                                                                                              |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| Actor            | Arsene (he/him) - Hardcore User, Merchant                                                                                |
-| Goal             | Arsene wants to turn a profit using the marketplace. Ideally he buys items for cheap and sells the for a profit          |
-| Trigger          | Arsene hears about a booming new used marketplace and is excited for a new opportunity to use his finance trading skills |
-| Preconditions    | Arsene must be a registered, logged-in user with his college-email and has a method in mind to find underpriced items    |
-| Postconditions   | asfd                                                                                                                     |
-| Flow             | asfd                                                                                                                     |
-| Alternative Flow | asfd                                                                                                                     |
+| Section          | Description |
+| ---------------- | ----------- |
+| Actor            | Arsene (he/him) - Hardcore User, Merchant        |
+| Goal             | Arsene wants to turn a profit using the marketplace. Ideally he buys items for cheap and sells the for a profit                       |
+| Trigger          | Arsene hears about a booming new used marketplace and is excited for a new opportunity to use his finance trading skills              |
+| Preconditions    | Arsene must be a registered, logged-in user with his college-email and has a method in mind to find underpriced items                 |
+| Postconditions   | Arsene can use different filters, look at similar items to determine the true used value, can create and track listings               |
+| Flow             | asfd                                                                                                                                  |
+| Alternative Flow1| Arsene's account gets permanently banned due to siginificant reports because he refuses to sell items in person for the listed price. |
 
 
  Use Case  6  (Krishna)
