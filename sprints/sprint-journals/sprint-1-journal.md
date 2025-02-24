@@ -58,13 +58,13 @@ Use Case  3    (Howie)
 Use Case  5    (Peter)          
 | Section          | Description |
 | ---------------- | ----------- |
-| Actor            | asdf        |
-| Goal             | aasdf       |
-| Trigger          | asdf        |
-| Preconditions    | asfd        |
-| Postconditions   | asfd        |
-| Flow             | asfd        |
-| Alternative Flow | asfd        |
+| Actor            | Arsene (he/him) - Hardcore User, Merchant        |
+| Goal             | Arsene wants to turn a profit using the marketplace. Ideally he buys items for cheap and sells the for a profit                       |
+| Trigger          | Arsene hears about a booming new used marketplace and is excited for a new opportunity to use his finance trading skills              |
+| Preconditions    | Arsene must be a registered, logged-in user with his college-email and has a method in mind to find underpriced items                 |
+| Postconditions   | asfd                                                                                                                                  |
+| Flow             | asfd                                                                                                                                  |
+| Alternative Flow | asfd                                                                                                                                  |
 
 
  Use Case  6  (Krishna)
