@@ -6,78 +6,78 @@
 ## Part 2: Use Cases
 
 Use Case  1   (Timur)            
-| Section           | Description |
-| ------------------| ---------|
-| Actor             | Lucy (she/her)  Merchant/ Causal User.     |
-| Goal              | Add items to sell quickly.   |
-| Trigger           | Lucy decides she wants to sell an item of hers (e.g. phone) and takes some pictures of it to upload on ReuseU.     |
-| Preconditions     | Lucy has a specific item in mind to sell, and she has at least one photo of it.     |
-| Postconditions    | Lucy can see her phone as an active listing on her listings page.     |
-| Flow              | Sign up / Login > Create a Listing > Upload Photos, put up descriptions and price > Submit > Check the listing as active in "My Listings"     |
-| Alternative Flow  A | Lucy does not know the price she should charge for the phone. The website offers a suggestion  for her when she creates a listing. |
-| Alternative Flow B | Lucy wants to check the listing is active by searching it up instead of finding it in her active listings | 
+| Section             | Description                                                                                                                               |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Actor               | Lucy (she/her)  Merchant/ Causal User.                                                                                                    |
+| Goal                | Add items to sell quickly.                                                                                                                |
+| Trigger             | Lucy decides she wants to sell an item of hers (e.g. phone) and takes some pictures of it to upload on ReuseU.                            |
+| Preconditions       | Lucy has a specific item in mind to sell, and she has at least one photo of it.                                                           |
+| Postconditions      | Lucy can see her phone as an active listing on her listings page.                                                                         |
+| Flow                | Sign up / Login > Create a Listing > Upload Photos, put up descriptions and price > Submit > Check the listing as active in "My Listings" |
+| Alternative Flow  A | Lucy does not know the price she should charge for the phone. The website offers a suggestion  for her when she creates a listing.        |
+| Alternative Flow B  | Lucy wants to check the listing is active by searching it up instead of finding it in her active listings                                 |
 
 
  Use Case  2  (Trung)
 
-| Section           | Description |            
-| ------------------| ---------|
-| Actor             | asdf     |
-| Goal              | aasdf    |
-| Trigger           | asdf     |
-| Preconditions     | asfd     |
-| Postconditions    | asfd     |
-| Flow              | asfd     |
-| Alternative Flow  | asfd     |
+| Section          | Description                                                                                                                                             |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Actor            | Jack (he/him) Casual User / First Year Student. Budget-conscious. Needs to furnish his dorm quickly and cheaply.                                        |
+| Goal             | Jacks wants to find a lamp, is durable enough to last and can fits his budget                                                                           |
+| Trigger          | With classes starting soon, Jack’s urgency to furnish his dorm drives him to use ReuseU.                                                                |
+| Preconditions    | Jack must be a registered, logged-in user with his college-email                                                                                        |
+| Postconditions   | Jack sends a message to a seller, the transaction happens offline                                                                                       |
+| Flow             | Logging in and navigating to the item; Sorting by price and browse listing; Check details and seller legitimacy; Message the seller to arrange a meetup |
+| Alternative Flow | Accounted for scenarios where no suitable lamp is found, unverified seller and Jack needing more information before purchasing                          |
 
 
 Use Case  3    (Howie)           
-| Section           | Description |
-| ------------------| ---------|
-| Actor             | Dexter (he/him) - Casual User, Sneakerhead     |
-| Goal              | Dexter wants to efficiently browse and track sneaker listings to find good deals   |
-| Trigger           | Dexter visits the site to check for new shoe listings     |
-| Preconditions     | Dexter has an account and is logged in. Listings for shoes exist on the platform.     |
-| Postconditions    | Dexter can view shoe listings, check their condition via photos, save interesting ones, and revisit later     |
-| Flow              | Dexter navigates to the marketplace, filters to display sneakers, inspects conditions using provided images, saves listings.
-| Alternative Flow  | If no listings match the filters, Dexter adjusts search criteria/looks for new things or just logs out.    |
+| Section          | Description                                                                                                                  |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Actor            | Dexter (he/him) - Casual User, Sneakerhead                                                                                   |
+| Goal             | Dexter wants to efficiently browse and track sneaker listings to find good deals                                             |
+| Trigger          | Dexter visits the site to check for new shoe listings                                                                        |
+| Preconditions    | Dexter has an account and is logged in. Listings for shoes exist on the platform.                                            |
+| Postconditions   | Dexter can view shoe listings, check their condition via photos, save interesting ones, and revisit later                    |
+| Flow             | Dexter navigates to the marketplace, filters to display sneakers, inspects conditions using provided images, saves listings. |
+| Alternative Flow | If no listings match the filters, Dexter adjusts search criteria/looks for new things or just logs out.                      |
 
 
  Use Case  4  (Sofia)
    
-| Section           | Description |            
-| ------------------| ---------|
-| Actor             | asdf     |
-| Goal              | aasdf    |
-| Trigger           | asdf     |
-| Preconditions     | asfd     |
-| Postconditions    | asfd     |
-| Flow              | asfd     |
-| Alternative Flow  | asfd     |
+| Section          | Description |
+| ---------------- | ----------- |
+| Actor            | asdf        |
+| Goal             | aasdf       |
+| Trigger          | asdf        |
+| Preconditions    | asfd        |
+| Postconditions   | asfd        |
+| Flow             | asfd        |
+| Alternative Flow | asfd        |
 
 Use Case  5    (Peter)          
-| Section           | Description |
-| ------------------| ---------|
-| Actor             | asdf     |
-| Goal              | aasdf    |
-| Trigger           | asdf     |
-| Preconditions     | asfd     |
-| Postconditions    | asfd     |
-| Flow              | asfd     |
-| Alternative Flow  | asfd     |
+| Section          | Description |
+| ---------------- | ----------- |
+| Actor            | asdf        |
+| Goal             | aasdf       |
+| Trigger          | asdf        |
+| Preconditions    | asfd        |
+| Postconditions   | asfd        |
+| Flow             | asfd        |
+| Alternative Flow | asfd        |
 
 
  Use Case  6  (Krishna)
    
-| Section           | Description |            
-| ------------------| ---------|
-| Actor             | asdf     |
-| Goal              | aasdf    |
-| Trigger           | asdf     |
-| Preconditions     | asfd     |
-| Postconditions    | asfd     |
-| Flow              | asfd     |
-| Alternative Flow  | asfd     |
+| Section          | Description |
+| ---------------- | ----------- |
+| Actor            | asdf        |
+| Goal             | aasdf       |
+| Trigger          | asdf        |
+| Preconditions    | asfd        |
+| Postconditions   | asfd        |
+| Flow             | asfd        |
+| Alternative Flow | asfd        |
 
 
 ## Part 3: Paper Prototype
