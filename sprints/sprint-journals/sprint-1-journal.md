@@ -84,7 +84,16 @@ Use Case  5    (Peter)
 
 ### Photos:
 
-### Prototype's connection to Use Cases:
+### Use Cases Modeled:
+
+1. Use case 1, Lucy creating a listing to sell a phone and then check that it's active
+2. Use case 2, Jack finding a lamp from a verified/non-suspicious user that is within his budget.
+3. Use case 3, Dexter searching for laptops on ReuseU, checking their conditions through photos, and favoriting listings.
+
+### Demonstrations:
+
+Demonstrations of all three use cases were held in class on February 24th with Destany (da) Best.
+
 
 
 ## Part 4: Test and revise (practice)
