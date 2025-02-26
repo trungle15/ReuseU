@@ -8,7 +8,7 @@
 Use Case  1   (Timur)            
 | Section             | Description                                                                                                                               |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Actor               | Lucy (she/her)  Merchant/ Casual User.                                                                                                    |
+| Actor               | Lucy (she/her)  Merchant/ Casual User / Not Tech Savvy / Does not need her old phone                                                      |
 | Goal                | Add items to sell quickly.                                                                                                                |
 | Trigger             | Lucy decides she wants to sell an item of hers (e.g. phone) and takes some pictures of it to upload on ReuseU.                            |
 | Preconditions       | Lucy has a specific item in mind to sell, and she has at least one photo of it.                                                           |
@@ -34,7 +34,7 @@ Use Case  1   (Timur)
 Use Case  3    (Howie)           
 | Section          | Description                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| Actor            | Dexter (he/him) - Casual User, Laptop, Sneakerhead                                                                                    |
+| Actor            | Dexter (he/him) - Casual User, Needs a new Laptop after his current one ran out of storage                                  |
 | Goal             | Dexter wants to efficiently browse and track laptop listings to find good deals                                             |
 | Trigger          | Dexter visits the site to check for new laptop listings                                                                     |
 | Preconditions    | Dexter has an account and is logged in. Listing for a laptop exists on the platform.                                        |
@@ -58,7 +58,7 @@ Use Case  3    (Howie)
 Use Case  5    (Peter)          
 | Section          | Description |
 | ---------------- | ----------- |
-| Actor            | Arsene (he/him) - Hardcore User, Merchant, Finance Guru       |
+| Actor            | Arsene (he/him) - Hardcore User, Merchant, Finance Guru                                                                               |
 | Goal             | Arsene wants to turn a profit using the marketplace. Ideally he buys items for cheap and sells the for a profit                       |
 | Trigger          | Arsene hears about a booming new used marketplace and is excited for a new opportunity to use his finance trading skills              |
 | Preconditions    | Arsene must be a registered, logged-in user with his college-email and has a method in mind to find underpriced items                 |
