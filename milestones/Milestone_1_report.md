@@ -174,6 +174,10 @@ Use Case  5    (Peter)
     - A **category-based search and filter should be implemented for easy item searching**
     - interface should be **mobile-friendly**
 
+### REQUIREMENT UPDATES FROM CIDER LAB
+    - preferred payment method tags will be added as to not be restrictive
+    - there will be an optional "delivery method" tag that can be used if items are large/far away, etc.
+
 ### PHYSICAL REQUIREMENTS FROM PROTOTYPE TESTING
     - Report functionality for a listing/user
     - Profile section with settings

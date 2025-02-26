@@ -291,19 +291,19 @@ _After_
 
 * Critique
 What assumptions about users were identified during the critique stage?
-  1. 
-  2. 
-  3. 
+  1. Seller has a preferred payment method?
+  2. Users must be comfortable in a social interaction with others
+  3. Seller might not have a mode of transportation
 
 * Imagine
 Which assumption(s) did you choose to expand on for this phase?
 How might that assumption exclude users?
 
-  1. Assumption: 
-  2. Assumption: 
+  1. Assumption: Specific payment methods could be restrictive, users might not have cash/venmo
+  2. Assumption: Selling something large (i.e. a couch, lamp) without a reliable mode of transportation could be difficult
 
 * Design
 What are your ideas for redesigning your product based on critique?
 
-  1. 
-  2. 
+  1. We will make preferred payment method tags 
+  2. We will add an optional "delivery method" tag
