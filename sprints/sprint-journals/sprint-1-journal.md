@@ -1,7 +1,8 @@
 # Sprint 1 Journal
 
 ## Part 1: Revising requirements based on feedback
-    Navigate to ReuseU/milestones/ to see updates to our requirements document in milestone 1.
+   
+ Navigate to ReuseU/milestones/ to see updates to our requirements document in milestone 1.
 
 ## Part 2: Use Cases
 
@@ -137,9 +138,80 @@ The team worked collectively on this improvement process.
 
 
 ## Part 5: Test and revise (with real stakeholders)
+Who you tested it with. - melina 
+A narrative describing the test.
+What roles did each team member play during the test?
+Which user stories were activated?
+Additional notes describing the session, e.g. observations of the test user's behavior.
+The feedback you got from the tester
+Notes on how to revise your testing procedure for the next user
+Not only will your prototype change, but also, you might choose to change the way you present it to your user.
+Describe changes to your prototype
+how your prototype changed based on user feedback
+other changes your team decided to make from your own thoughts and ideas from the testing session
+other things you added to your prototype, not necessarily based on the testing session
+Include one or more photos of your revised prototype where the difference between the original and revised version can be plainly seen
 
+Who you tested it with. - cam
+A narrative describing the test.
+What roles did each team member play during the test?
+Which user stories were activated?
+Additional notes describing the session, e.g. observations of the test user's behavior.
+The feedback you got from the tester
+Notes on how to revise your testing procedure for the next user
+Not only will your prototype change, but also, you might choose to change the way you present it to your user.
+Describe changes to your prototype
+how your prototype changed based on user feedback
+other changes your team decided to make from your own thoughts and ideas from the testing session
+other things you added to your prototype, not necessarily based on the testing session
+Include one or more photos of your revised prototype where the difference between the original and revised version can be plainly seen
 
-
+Who you tested it with. - mason
+A narrative describing the test.
+What roles did each team member play during the test?
+Which user stories were activated?
+Additional notes describing the session, e.g. observations of the test user's behavior.
+The feedback you got from the tester
+Notes on how to revise your testing procedure for the next user
+Not only will your prototype change, but also, you might choose to change the way you present it to your user.
+Describe changes to your prototype
+how your prototype changed based on user feedback
+other changes your team decided to make from your own thoughts and ideas from the testing session
+other things you added to your prototype, not necessarily based on the testing session
+Include one or more photos of your revised prototype where the difference between the original and revised version can be plainly seen
 ## Part 6: Storyboard
+
+### Comic 1
+
+![alt text](<../../assets/panel 0.jpeg>)
+![alt text](<../../assets/panel 1.png>)
+![alt text](<../../assets/panel 2.jpeg>) 
+![alt text](<../../assets/panel 3.jpeg>) 
+![alt text](<../../assets/panel 4.jpeg>) 
+![alt text](<../../assets/panel 5.jpeg>) 
+![alt text](<../../assets/panel 6.jpeg>) 
+![alt text](<../../assets/panel 7.jpeg>) 
+![alt text](<../../assets/panel 8.jpeg>) 
+![alt text](<../../assets/panel 9.jpeg>) 
+![alt text](<../../assets/panel 10.jpeg>) 
+![alt text](<../../assets/panel 11.jpeg>) 
+![alt text](<../../assets/panel 12.jpeg>)
+
+### Comic 2
+
+![alt text](<../../assets/comic2 0.jpeg>) 
+![alt text](<../../assets/comic2 1.jpeg>) 
+![alt text](<../../assets/comic2 2.jpeg>) 
+![alt text](<../../assets/comic2 3.jpeg>) 
+![alt text](<../../assets/comic2 4.jpeg>) 
+![alt text](<../../assets/comic2 5.jpeg>) 
+![alt text](<../../assets/comic2 6.jpeg>) 
+![alt text](<../../assets/comic2 7.jpeg>) 
+![alt text](<../../assets/comic2 8.jpeg>) 
+![alt text](<../../assets/comic2 9.jpeg>)
+![alt text](<../../assets/panel 9.jpeg>) 
+![alt text](<../../assets/panel 10.jpeg>) 
+![alt text](<../../assets/panel 11.jpeg>) 
+![alt text](<../../assets/panel 12.jpeg>)
 
 ## Part 7: CIDER Technique
