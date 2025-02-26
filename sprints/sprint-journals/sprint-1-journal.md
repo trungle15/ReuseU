@@ -149,15 +149,41 @@ Who you tested it with. - melina
 A narrative describing the test.
 What roles did each team member play during the test?
 Which user stories were activated?
+
+1. Use case 4, Chara who navigates to the website about page, and looks at a buyer to see if their rating is good, we accept a buy and message them.
+3. Use case 3, Dexter searching for laptops on ReuseU, checking their conditions through photos, and favoriting listings.
+
 Additional notes describing the session, e.g. observations of the test user's behavior.
+- Had a tough time navigating the UI, seemed stuck at times and did not know what to do
+- Did not go to 'your listings' easily. Didn't know that there were many options in the settings menu.
+- Claimed things took to long to load (suboptimal scene organization during testing)
+- Did not like transitions between scenes
+
 The feedback you got from the tester
+- Things should load faster
+- The bar on the side to hide the left product filters was way too small
+- Coudlnd't tell what was editable on the profile page: email and password is both editable or only password?
+
 Notes on how to revise your testing procedure for the next user
+- Guide the user on what their goal is instead of freely roaming the website
+
 Not only will your prototype change, but also, you might choose to change the way you present it to your user.
+- We need to organize small paper tabs such as buttons together, we need to create 'scenes' that we can quickly swapped out.
+
 Describe changes to your prototype
-how your prototype changed based on user feedback
-other changes your team decided to make from your own thoughts and ideas from the testing session
-other things you added to your prototype, not necessarily based on the testing session
-Include one or more photos of your revised prototype where the difference between the original and revised version can be plainly seen
+- We added animations when loading certain elements such as adding a listing to a add a sense of personality
+- Changed the look of the filter minimizing bar to be easily seen
+- Addded a lot of back buttons to prevent the user from being stuck in a screen without a way to go back
+- 
+How your prototype changed based on user feedback
+- Made the search bar a bit larger
+- Removed some whitespace on the create listing page by making certain text boxes larger
+
+Other changes your team decided to make from your own thoughts and ideas from the testing session
+- Add some sort of report button
+  
+Other things you added to your prototype, not necessarily based on the testing session
+- NA
 
 Who you tested it with. - cam
 
