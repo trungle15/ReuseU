@@ -100,7 +100,47 @@ Demonstrations of all three use cases were held in class on February 24th with D
 ## Part 4: Test and revise (practice)
 
 ## Part 5: Test and revise (with real stakeholders)
+Who you tested it with. - melina 
+A narrative describing the test.
+What roles did each team member play during the test?
+Which user stories were activated?
+Additional notes describing the session, e.g. observations of the test user's behavior.
+The feedback you got from the tester
+Notes on how to revise your testing procedure for the next user
+Not only will your prototype change, but also, you might choose to change the way you present it to your user.
+Describe changes to your prototype
+how your prototype changed based on user feedback
+other changes your team decided to make from your own thoughts and ideas from the testing session
+other things you added to your prototype, not necessarily based on the testing session
+Include one or more photos of your revised prototype where the difference between the original and revised version can be plainly seen
 
+Who you tested it with. - cam
+A narrative describing the test.
+What roles did each team member play during the test?
+Which user stories were activated?
+Additional notes describing the session, e.g. observations of the test user's behavior.
+The feedback you got from the tester
+Notes on how to revise your testing procedure for the next user
+Not only will your prototype change, but also, you might choose to change the way you present it to your user.
+Describe changes to your prototype
+how your prototype changed based on user feedback
+other changes your team decided to make from your own thoughts and ideas from the testing session
+other things you added to your prototype, not necessarily based on the testing session
+Include one or more photos of your revised prototype where the difference between the original and revised version can be plainly seen
+
+Who you tested it with. - mason
+A narrative describing the test.
+What roles did each team member play during the test?
+Which user stories were activated?
+Additional notes describing the session, e.g. observations of the test user's behavior.
+The feedback you got from the tester
+Notes on how to revise your testing procedure for the next user
+Not only will your prototype change, but also, you might choose to change the way you present it to your user.
+Describe changes to your prototype
+how your prototype changed based on user feedback
+other changes your team decided to make from your own thoughts and ideas from the testing session
+other things you added to your prototype, not necessarily based on the testing session
+Include one or more photos of your revised prototype where the difference between the original and revised version can be plainly seen
 ## Part 6: Storyboard
 
 ## Part 7: CIDER Technique
