@@ -67,17 +67,18 @@ Use Case  5    (Peter)
 | Alternative Flow1| Arsene's account gets permanently banned due to siginificant reports because he refuses to sell items in person for the listed price. |
 
 
- Use Case  6  (Krishna)
+  Use Case  6  (Krishna)
    
 | Section          | Description |
 | ---------------- | ----------- |
-| Actor            | asdf        |
-| Goal             | aasdf       |
-| Trigger          | asdf        |
-| Preconditions    | asfd        |
-| Postconditions   | asfd        |
-| Flow             | asfd        |
-| Alternative Flow | asfd        |
+| Actor            | Chamomile (xi, xir) - Consumer, Hardcore User    |
+| Goal             | Chamomile wants to be able to use the website with the lowest specs available, while also being able to communicate with a large amount of people at once. Xir goal is to communicate with people for information on products and people in need of certain items in order to turn a profit.      |
+| Trigger          | Short on cash and possessing only low-end technology, Chamomile sees an opportunity to gain profit with this new marketplace and improve his situation.    |
+| Preconditions    | Having enrolled at Grinnell, Chamomile has access to an account with the site, and a means of communicating with collaborators.        |
+| Postconditions   | Chamomile can check listings and buy and sell based on the information given by the collaborators.        |
+| Flow             | Chamomile logs in, and goes to the chat where xi can communicate with xir 40 collaborators. The group exchanges information, then Chamomile returns to the home page to begin his buying and selling efforts.   |
+| Alternative Flow | Chamomile finds xirself with a banned account after xi keeps forgetting to meet xir buyers in person.     |
+
 
 
 ## Part 3: Paper Prototype
