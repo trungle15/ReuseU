@@ -288,3 +288,22 @@ _After_
 ![alt text](<../../assets/panel 12.jpeg>)
 
 ## Part 7: CIDER Technique
+
+* Critique
+What assumptions about users were identified during the critique stage?
+  1. 
+  2. 
+  3. 
+
+* Imagine
+Which assumption(s) did you choose to expand on for this phase?
+How might that assumption exclude users?
+
+  1. Assumption: 
+  2. Assumption: 
+
+* Design
+What are your ideas for redesigning your product based on critique?
+
+  1. 
+  2. 
