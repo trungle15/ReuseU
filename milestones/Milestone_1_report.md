@@ -1,10 +1,82 @@
-# Sprint 1 Journal
+# ReuseU: Milestone 1
 
-## Part 1: Revising requirements based on feedback
-    Navigate to ReuseU/milestones/ to see updates to our requirements document in milestone 1.
+## 1. Product Description with User Roles
 
-## Part 2: Use Cases
+### Product Description
+Each year, students discard tons of usable items they no longer need and cannot otherwise get rid of. At the same time, students buy countless items to make their daily college lives more comfortable. Such practices of massive consumption and discarding are detrimental to both the planet and students’ wallets. 
 
+Introducing **ReuseU**, a web-based platform that lets students on college campuses reduce their spending and environmental impact by creating a small-scale, highly local online marketplace where they can trade personal belongings with other students on their campus. Instead of relying on poorly timed yard sales, ReuseU allows both sellers and buyers to use the platform at a time that works for them, 24/7, all year long.
+
+ReuseU is similar to the "for-sale" section of Craigslist but on a more highly local and community-based scale, populated by students and for students. It has the advantage of college-email verified users, making seller-buyer relationships more transparent and reliable. There is no need to travel to a neighboring city to make a purchase, as everything being sold is within the vicinity of the campus. 
+
+Since the items sold on ReuseU come from college students themselves, they are much more likely to find a new use among other students than items available at other online marketplaces or local garage sales.
+
+### Other Products That Inspired and Informed ReuseU
+
+- **Craigslist** – A well-known, crowd-sourced, US-based advertisement website with a for-sale section where users can sell and buy used items. Although it lacks an appealing UI, it has fundamental features that ReuseU can adopt.
+- **Facebook Marketplace** – A Meta-based platform similar to Craigslist’s for-sale section.
+- **Mercari** – A marketplace website and app created by the Japanese e-commerce company Mercari, launched in 2013. It features a more appealing design compared to FB Marketplace or Craigslist, a feature ReuseU aims to emulate.
+- **OLX.uz** – A marketplace website and app based in Uzbekistan. It features intuitive and helpful separation of products into categories, another feature ReuseU plans to adopt.
+
+Unlike these platforms, each of which operates on a massive scale (national or international), ReuseU takes a different approach by creating **unlinked instances of its website**, each specific to a unique college or university.
+
+### User Roles
+
+1. **Merchant** – A student listing their personal items for sale on ReuseU.
+2. **Consumer** – A student purchasing or inheriting items from another student.
+
+## 2. User Personas and User Stories (Functional Requirements)
+
+### User Personas
+
+#### **Lucy (she/her) – Merchant || Casual User (Senior On The Rush)**
+- **Scenario**: A fourth-year student living off-campus and graduating in two weeks. Busy with exams and needs to quickly sell belongings accumulated over four years.
+- **Needs**:
+  - Easily add multiple products for sale.
+  - Adjust webpage size for better readability.
+  - Remove sold items to avoid unnecessary requests.
+  - Allow price suggestions from buyers for quick sales.
+
+#### **Jack (he/him) – Consumer || Broke First-Year**
+- **Scenario**: A first-year student needing to furnish a dorm room quickly and cheaply.
+- **Needs**:
+  - Locate cheap deals.
+  - Verify seller legitimacy.
+  - Read detailed product descriptions.
+  - Sort items by price to find the cheapest options.
+
+#### **Arsene (any) – Consumer & Merchant || The Scalper**
+- **Scenario**: Buys cheap items and resells them at high prices.
+- **Needs**:
+  - Ability to resell items.
+  - Negotiate prices.
+  - Upload custom images to improve item presentation.
+  - Look up items for potential resale.
+
+#### **Dexter (he/him) – Consumer || Casual User**
+- **Scenario**: A second-year sneakerhead periodically checking used marketplaces for deals on shoes.
+- **Needs**:
+  - See the condition of potential shoe purchases.
+  - Filter listings to only show shoes.
+  - Save listings for later review.
+  - See if past sellers have additional items available.
+
+#### **Chamomile (xi/xir) – Consumer || Hardcore User**
+- **Scenario**: A 35-year-old freshman returning to college after a long break, previously worked in underground crypto development.
+- **Needs**:
+  - Navigate the website with a 40% keyboard.
+  - Send messages to multiple users.
+  - Access the site with minimal Wi-Fi.
+  - Native Linux support.
+
+#### **Chara (she/her) – Merchant || Hoarder**
+- **Scenario**: Emotionally attached to items and wants to ensure they go to good hands.
+- **Needs**:
+  - Find appreciative buyers.
+  - Ensure buyers are within the same university community.
+  - Securely list items to avoid trouble with school authorities.
+
+## In Depth User Personas Made for Sprint 1:
 Use Case  1   (Timur)            
 | Section             | Description                                                                                                                               |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
@@ -81,65 +153,52 @@ Use Case  5    (Peter)
 
 
 
-## Part 3: Paper Prototype
+## 3. Non-functional Requirements
 
-### Photos:
+1. Users must have a **.edu email address** for security.
+2. Each university’s email network should have a **separate webpage/database** accessible only by users of that university.
+3. User emails should be hidden from other users—only usernames should be visible.
 
-### Use Cases Modeled:
+## 4. External Requirements
 
-1. Use case 1, Lucy creating a listing to sell a phone and then check that it's active
-2. Use case 2, Jack finding a lamp from a verified/non-suspicious user that is within his budget.
-3. Use case 3, Dexter searching for laptops on ReuseU, checking their conditions through photos, and favoriting listings.
+- ReuseU will be a web-based platform accessible via a public URL.
+- Instructions will be provided for setting up another instance of the website on a local server.
+- Security measures will be implemented, including requiring a university email.
+- The project will include documentation to facilitate contributions and system understanding.
 
-### Demonstrations:
+### REQUIREMENT UPDATES FROM PEER FEEDBACK
+    - to prevent malignant usage and emphasize code stability, ReuseU will not be made open source.
+    - Users should be able to list items for sale and trade with price parameters they define themselves
+    - A **moderation** system should allow administrators to report or remove inappropriate listings
+    - Listings should **expire automatically** after a set period to prevent outdated post clutter
+    - A **category-based search and filter should be implemented for easy item searching**
+    - interface should be **mobile-friendly**
 
-Demonstrations of all three use cases were held in class on February 24th with Destany (da) Best.
+### PHYSICAL REQUIREMENTS FROM PROTOTYPE TESTING
+    - Report functionality for a listing/user
+    - Profile section with settings
+    - back buttons
+    - better tag placement
 
+## 5. Scope and Feature List
 
+### **Major Features**
+1. Unique **Databases** for each university **.edu address**.
+2. Page displaying **available products** at each university.
+3. **Login implementation** with unique users grouped by university.
+4. Separate **buying and selling interfaces**.
 
-## Part 4: Test and revise (practice)
+### **Stretch Goals**
+1. **Rating system** for sellers/buyers.
+2. **Report system** for user experiences.
 
+### **Out of Scope**
+1. Support for external digital payments (e.g., PayPal, Klarna, Apple Pay, etc.).
+2. Offline support.
 
-For this part, we tested our prototype with Destany, who was the first person to ever experience our paper website. We prepared a preliminary prototype with multiple pages, set up all of the prototype's components, decided on the team roles for the test and invited Destany to test it during class. The team members took on the following roles during this test:
-1. Trung - note taker, wrote down all the feedback and suggestions from Destany (and the team) during the test
-2. Howie - also a note taker, same as above.
-3. Sofia - facilitator, helped change pages/elements of the website as Destany was interacting with it.
-4. Krishna - was involved in creating the Storyboard, otherwise observed the test and offered feedback too.
-5. Peter - video recorder.
-6. Timur - facilitator also, same as Sofia.
+## 6. Citations
 
-### A short synapsis of the test:
-Destany immediately decided to test our website to the limit and decided to create the account instead of logging in with an existing one (our sign up procedure wasn't yet developed at the time but the log in was). She then proceeded to play along with filters and the interface, clicked on a couple listings and was able to message a user she wasy trying to a buy an item for. Destany succesfully pointed out many underdeveloped parts of our prototype and gave us a lot of new elements to develop over the next couple of days. At the time, Lucy's story about creating a listing was activated, as well as Dexter's story about buying a laptop.
-
-### Specific feedback received:
-Below are some examples of the specific feedback we received from Destany:
-
-* Noted that there should be a button to create a listing. 
-* Wanted filters visible from the start. 
-* Disliked blocks on green background, but noted design is subjective. 
-* Asked if items can be given for free. 
-* Wanted to see an about page. 
-* Wanted to see recommended products. 
-* Wanted to see more design elements. 
-* Asked if there is a rating system or report button for bad actions.
-
-### Changing the prototype:
-Upon receiving the feedback above, the team continued to develop, expand, and improve our paper prototype to include:
-*  the submission button for when creating a listing, 
-* making filters visible form the start, 
-* creating an about page, and other details,
-* introducing the settings drop down menu with languages and dark mode (though not actually implemented),
-* sign up page with email verification and password creation,
-* profile page with editing. 
-
-The team worked collectively on this improvement process.
-
-
-
-## Part 5: Test and revise (with real stakeholders)
-
-
-
-## Part 6: Storyboard
-
-## Part 7: CIDER Technique
+- Craigslist, 1995, [www.desmoines.craigslist.org](https://www.desmoines.craigslist.org/)
+- Facebook Marketplace, Oct. 2016, [www.facebook.com/marketplace](https://www.facebook.com/marketplace/)
+- Mercari, 1 Feb. 2013, [www.mercari.com](https://www.mercari.com/)
+- OLX.uz, 16 Feb. 2006, [www.olx.uz](https://www.olx.uz/)
