@@ -48,12 +48,12 @@ Use Case  3    (Howie)
 | Section          | Description |
 | ---------------- | ----------- |
 | Actor            | Chara (she/her) - Casual User, Merchant, Hoarder |
-| Goal             | Chara is trying to get rid of her precious items to a trusted community/platform since she graduated                                                 |
-| Trigger          | Chara is pressured by her familty to get rid of the clutter from her room as she is graduating and can't fit everything from her room in her car.    |
-| Preconditions    | asfd        |
-| Postconditions   | asfd        |
-| Flow             |         |
-| Alternative Flow | asfd        |
+| Goal             | Chara is trying to get rid of her precious items to a trusted community/platform since she graduated                                                                                                          |
+| Trigger          | Chara is pressured by her familty to get rid of the clutter from her room as she is graduating and can't fit everything from her room in her car.                                                             |
+| Preconditions    | Chara needs to be login in using an account from her college email.                                                                                                                                           |
+| Postconditions   | Chara needs to see the about page, create a listing, cancel a listing, and look at people's profiles                                                                                                          |
+| Flow             | Chara needs to make sure the website she wants to sell her precious items from has good intentions, so she navigates to the about page. Afte reading the about page she creates a listing for a hello kitty squishmellow from a free cost. After a buyer attempts to buy she looks at their profile to see if they had a high rating. She sees the high rating and accepts the requests and sends the buyer a message.                         |
+| Alternative Flow | Chara sees that the user trying to buy her item has a poor buyer rating. She cancels the buy requests and relists the item so someone else can buy it.                                                        |
 
 Use Case  5    (Peter)          
 | Section          | Description |
