@@ -99,6 +99,43 @@ Demonstrations of all three use cases were held in class on February 24th with D
 
 ## Part 4: Test and revise (practice)
 
+
+For this part, we tested our prototype with Destany, who was the first person to ever experience our paper website. We prepared a preliminary prototype with multiple pages, set up all of the prototype's components, decided on the team roles for the test and invited Destany to test it during class. The team members took on the following roles during this test:
+1. Trung - note taker, wrote down all the feedback and suggestions from Destany (and the team) during the test
+2. Howie - also a note taker, same as above.
+3. Sofia - facilitator, helped change pages/elements of the website as Destany was interacting with it.
+4. Krishna - was involved in creating the Storyboard, otherwise observed the test and offered feedback too.
+5. Peter - video recorder.
+6. Timur - facilitator also, same as Sofia.
+
+### A short synapsis of the test:
+Destany immediately decided to test our website to the limit and decided to create the account instead of logging in with an existing one (our sign up procedure wasn't yet developed at the time but the log in was). She then proceeded to play along with filters and the interface, clicked on a couple listings and was able to message a user she wasy trying to a buy an item for. Destany succesfully pointed out many underdeveloped parts of our prototype and gave us a lot of new elements to develop over the next couple of days. At the time, Lucy's story about creating a listing was activated, as well as Dexter's story about buying a laptop.
+
+### Specific feedback received:
+Below are some examples of the specific feedback we received from Destany:
+
+* Noted that there should be a button to create a listing. 
+* Wanted filters visible from the start. 
+* Disliked blocks on green background, but noted design is subjective. 
+* Asked if items can be given for free. 
+* Wanted to see an about page. 
+* Wanted to see recommended products. 
+* Wanted to see more design elements. 
+* Asked if there is a rating system or report button for bad actions.
+
+### Changing the prototype:
+Upon receiving the feedback above, the team continued to develop, expand, and improve our paper prototype to include:
+*  the submission button for when creating a listing, 
+* making filters visible form the start, 
+* creating an about page, and other details,
+* introducing the settings drop down menu with languages and dark mode (though not actually implemented),
+* sign up page with email verification and password creation,
+* profile page with editing. 
+
+The team worked collectively on this improvement process.
+
+
+
 ## Part 5: Test and revise (with real stakeholders)
 Who you tested it with. - melina 
 A narrative describing the test.
