@@ -48,11 +48,11 @@ Use Case  3    (Howie)
 | Section          | Description |
 | ---------------- | ----------- |
 | Actor            | Chara (she/her) - Casual User, Merchant, Hoarder |
-| Goal             | aasdf       |
-| Trigger          | asdf        |
+| Goal             | Chara is trying to get rid of her precious items to a trusted community/platform since she graduated                                                 |
+| Trigger          | Chara is pressured by her familty to get rid of the clutter from her room as she is graduating and can't fit everything from her room in her car.    |
 | Preconditions    | asfd        |
 | Postconditions   | asfd        |
-| Flow             | asfd        |
+| Flow             |         |
 | Alternative Flow | asfd        |
 
 Use Case  5    (Peter)          
