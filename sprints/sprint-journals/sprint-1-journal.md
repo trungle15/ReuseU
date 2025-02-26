@@ -181,4 +181,37 @@ other things you added to your prototype, not necessarily based on the testing s
 Include one or more photos of your revised prototype where the difference between the original and revised version can be plainly seen
 ## Part 6: Storyboard
 
+### Comic 1
+
+![alt text](<../../assets/panel 0.jpeg>)
+![alt text](<../../assets/panel 1.png>)
+![alt text](<../../assets/panel 2.jpeg>) 
+![alt text](<../../assets/panel 3.jpeg>) 
+![alt text](<../../assets/panel 4.jpeg>) 
+![alt text](<../../assets/panel 5.jpeg>) 
+![alt text](<../../assets/panel 6.jpeg>) 
+![alt text](<../../assets/panel 7.jpeg>) 
+![alt text](<../../assets/panel 8.jpeg>) 
+![alt text](<../../assets/panel 9.jpeg>) 
+![alt text](<../../assets/panel 10.jpeg>) 
+![alt text](<../../assets/panel 11.jpeg>) 
+![alt text](<../../assets/panel 12.jpeg>)
+
+### Comic 2
+
+![alt text](<../../assets/comic2 0.jpeg>) 
+![alt text](<../../assets/comic2 1.jpeg>) 
+![alt text](<../../assets/comic2 2.jpeg>) 
+![alt text](<../../assets/comic2 3.jpeg>) 
+![alt text](<../../assets/comic2 4.jpeg>) 
+![alt text](<../../assets/comic2 5.jpeg>) 
+![alt text](<../../assets/comic2 6.jpeg>) 
+![alt text](<../../assets/comic2 7.jpeg>) 
+![alt text](<../../assets/comic2 8.jpeg>) 
+![alt text](<../../assets/comic2 9.jpeg>)
+![alt text](<../../assets/panel 9.jpeg>) 
+![alt text](<../../assets/panel 10.jpeg>) 
+![alt text](<../../assets/panel 11.jpeg>) 
+![alt text](<../../assets/panel 12.jpeg>)
+
 ## Part 7: CIDER Technique
