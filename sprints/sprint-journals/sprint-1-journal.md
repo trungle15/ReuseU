@@ -46,45 +46,52 @@ Use Case  3    (Howie)
 
  Use Case  4  (Sofia)
    
-| Section          | Description |
-| ---------------- | ----------- |
-| Actor            | Chara (she/her) - Casual User, Merchant, Hoarder |
-| Goal             | Chara is trying to get rid of her precious items to a trusted community/platform since she graduated                                                                                                          |
-| Trigger          | Chara is pressured by her familty to get rid of the clutter from her room as she is graduating and can't fit everything from her room in her car.                                                             |
-| Preconditions    | Chara needs to be login in using an account from her college email.                                                                                                                                           |
-| Postconditions   | Chara needs to see the about page, create a listing, cancel a listing, and look at people's profiles                                                                                                          |
-| Flow             | Chara needs to make sure the website she wants to sell her precious items from has good intentions, so she navigates to the about page. Afte reading the about page she creates a listing for a hello kitty squishmellow from a free cost. After a buyer attempts to buy she looks at their profile to see if they had a high rating. She sees the high rating and accepts the requests and sends the buyer a message.                         |
-| Alternative Flow | Chara sees that the user trying to buy her item has a poor buyer rating. She cancels the buy requests and relists the item so someone else can buy it.                                                        |
+| Section          | Description                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Actor            | Chara (she/her) - Casual User, Merchant, Hoarder                                                                                                                                                                                                                                                                                                                                                                       |
+| Goal             | Chara is trying to get rid of her precious items to a trusted community/platform since she graduated                                                                                                                                                                                                                                                                                                                   |
+| Trigger          | Chara is pressured by her familty to get rid of the clutter from her room as she is graduating and can't fit everything from her room in her car.                                                                                                                                                                                                                                                                      |
+| Preconditions    | Chara needs to be login in using an account from her college email.                                                                                                                                                                                                                                                                                                                                                    |
+| Postconditions   | Chara needs to see the about page, create a listing, cancel a listing, and look at people's profiles                                                                                                                                                                                                                                                                                                                   |
+| Flow             | Chara needs to make sure the website she wants to sell her precious items from has good intentions, so she navigates to the about page. Afte reading the about page she creates a listing for a hello kitty squishmellow from a free cost. After a buyer attempts to buy she looks at their profile to see if they had a high rating. She sees the high rating and accepts the requests and sends the buyer a message. |
+| Alternative Flow | Chara sees that the user trying to buy her item has a poor buyer rating. She cancels the buy requests and relists the item so someone else can buy it.                                                                                                                                                                                                                                                                 |
 
 Use Case  5    (Peter)          
-| Section          | Description |
-| ---------------- | ----------- |
-| Actor            | Arsene (he/him) - Hardcore User, Merchant, Finance Guru                                                                               |
-| Goal             | Arsene wants to turn a profit using the marketplace. Ideally he buys items for cheap and sells the for a profit                       |
-| Trigger          | Arsene hears about a booming new used marketplace and is excited for a new opportunity to use his finance trading skills              |
-| Preconditions    | Arsene must be a registered, logged-in user with his college-email and has a method in mind to find underpriced items                 |
-| Postconditions   | Arsene can use different filters, look at similar items to determine the true used value, can create and track listings               |
-| Flow             | Arsene logs in, and filters the items with the lowest price. He then searches for similar items to the one that appeals to him to determine the true price. He then navigates back to his profile, where he can determine items he has both bought and sold. The prices for both bought and sold items are displayed, allowing Arsene to keep track of his profits. |
-| Alternative Flow1| Arsene's account gets permanently banned due to siginificant reports because he refuses to sell items in person for the listed price. |
+| Section           | Description                                                                                                                                                                                                                                                                                                                                                         |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Actor             | Arsene (he/him) - Hardcore User, Merchant, Finance Guru                                                                                                                                                                                                                                                                                                             |
+| Goal              | Arsene wants to turn a profit using the marketplace. Ideally he buys items for cheap and sells the for a profit                                                                                                                                                                                                                                                     |
+| Trigger           | Arsene hears about a booming new used marketplace and is excited for a new opportunity to use his finance trading skills                                                                                                                                                                                                                                            |
+| Preconditions     | Arsene must be a registered, logged-in user with his college-email and has a method in mind to find underpriced items                                                                                                                                                                                                                                               |
+| Postconditions    | Arsene can use different filters, look at similar items to determine the true used value, can create and track listings                                                                                                                                                                                                                                             |
+| Flow              | Arsene logs in, and filters the items with the lowest price. He then searches for similar items to the one that appeals to him to determine the true price. He then navigates back to his profile, where he can determine items he has both bought and sold. The prices for both bought and sold items are displayed, allowing Arsene to keep track of his profits. |
+| Alternative Flow1 | Arsene's account gets permanently banned due to siginificant reports because he refuses to sell items in person for the listed price.                                                                                                                                                                                                                               |
 
 
   Use Case  6  (Krishna)
    
-| Section          | Description |
-| ---------------- | ----------- |
-| Actor            | Chamomile (xi, xir) - Consumer, Hardcore User    |
-| Goal             | Chamomile wants to be able to use the website with the lowest specs available, while also being able to communicate with a large amount of people at once. Xir goal is to communicate with people for information on products and people in need of certain items in order to turn a profit.      |
-| Trigger          | Short on cash and possessing only low-end technology, Chamomile sees an opportunity to gain profit with this new marketplace and improve his situation.    |
-| Preconditions    | Having enrolled at Grinnell, Chamomile has access to an account with the site, and a means of communicating with collaborators.        |
-| Postconditions   | Chamomile can check listings and buy and sell based on the information given by the collaborators.        |
-| Flow             | Chamomile logs in, and goes to the chat where xi can communicate with xir 40 collaborators. The group exchanges information, then Chamomile returns to the home page to begin his buying and selling efforts.   |
-| Alternative Flow | Chamomile finds xirself with a banned account after xi keeps forgetting to meet xir buyers in person.     |
+| Section          | Description                                                                                                                                                                                                                                                                                  |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Actor            | Chamomile (xi, xir) - Consumer, Hardcore User                                                                                                                                                                                                                                                |
+| Goal             | Chamomile wants to be able to use the website with the lowest specs available, while also being able to communicate with a large amount of people at once. Xir goal is to communicate with people for information on products and people in need of certain items in order to turn a profit. |
+| Trigger          | Short on cash and possessing only low-end technology, Chamomile sees an opportunity to gain profit with this new marketplace and improve his situation.                                                                                                                                      |
+| Preconditions    | Having enrolled at Grinnell, Chamomile has access to an account with the site, and a means of communicating with collaborators.                                                                                                                                                              |
+| Postconditions   | Chamomile can check listings and buy and sell based on the information given by the collaborators.                                                                                                                                                                                           |
+| Flow             | Chamomile logs in, and goes to the chat where xi can communicate with xir 40 collaborators. The group exchanges information, then Chamomile returns to the home page to begin his buying and selling efforts.                                                                                |
+| Alternative Flow | Chamomile finds xirself with a banned account after xi keeps forgetting to meet xir buyers in person.                                                                                                                                                                                        |
 
 
 
 ## Part 3: Paper Prototype
 
 ### Photos:
+
+![Photo 1](<../../assets/prototype/prototype1.jpeg>)
+![Photo 2](<../../assets/prototype/prototype2.jpeg>)
+![Photo 3](<../../assets/prototype/prototype3.jpeg>)
+![Photo 4](<../../assets/prototype/prototype4.jpeg>)
+![Photo 5](<../../assets/prototype/prototype5.jpeg>)
+![Photo 6](<../../assets/prototype/prototype6.jpeg>)
 
 ### Use Cases Modeled:
 
