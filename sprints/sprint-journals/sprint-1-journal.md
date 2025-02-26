@@ -152,18 +152,33 @@ other things you added to your prototype, not necessarily based on the testing s
 Include one or more photos of your revised prototype where the difference between the original and revised version can be plainly seen
 
 Who you tested it with. - cam
-A narrative describing the test.
+
+A narrative describing the test. - 
+  Cam came up and took control by the reigns. He logged in, and immediately browsed all of our available listings, commenting on each and every one of them
+  and their prices. He then wanted to purchase a listing, and was routed to the "buy a computer" listing, commenting on wanting to be able to view a 
+  person's profile. He then browsed for a little longer. 
 What roles did each team member play during the test?
+  Howie - Note taker, Trung - Note taker, Peter - Facilitator, Timur - animation, Sofia - Facilitator, Krishna - handler
 Which user stories were activated?
+  We used Dexter's user story, navigating to the computer, and buying it.
 Additional notes describing the session, e.g. observations of the test user's behavior.
+N/A - he just moved fast
 The feedback you got from the tester
+ - overall well done, *told us to work on our animations and load speed*
 Notes on how to revise your testing procedure for the next user
+- This one went pretty smoothly, not a lot of notes.
 Not only will your prototype change, but also, you might choose to change the way you present it to your user.
 Describe changes to your prototype
+- We will have a profile section for one's profile, and other people's profiles
 how your prototype changed based on user feedback
+- Profile section included
 other changes your team decided to make from your own thoughts and ideas from the testing session
+- Back button implementation
 other things you added to your prototype, not necessarily based on the testing session
+- N/A
 Include one or more photos of your revised prototype where the difference between the original and revised version can be plainly seen
+assets/ProfilePhotoAddedCam.jpg
+
 
 Who you tested it with. - mason
 A narrative describing the test.
