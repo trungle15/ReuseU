@@ -1,7 +1,8 @@
 # Sprint 1 Journal
 
 ## Part 1: Revising requirements based on feedback
-    Navigate to ReuseU/milestones/ to see updates to our requirements document in milestone 1.
+   
+ Navigate to ReuseU/milestones/ to see updates to our requirements document in milestone 1.
 
 ## Part 2: Use Cases
 
