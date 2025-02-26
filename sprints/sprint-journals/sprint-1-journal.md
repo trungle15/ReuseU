@@ -214,19 +214,44 @@ Include one or more photos of your revised prototype where the difference betwee
 assets/ProfilePhotoAddedCam.jpg
 
 
-Who you tested it with. - mason
+**Who you tested it with.** 
+- Mason
+
 A narrative describing the test.
+- He was interested mainly in the buying aspect of the prototype. He was a very thorough and tried almost everything that we had to offer.
+  
 What roles did each team member play during the test?
+- Sofia & Peter: facilitator
+- Timur: animator/handler
+- Peter: facilitator
+- Trung & Howie: note-taker
+
 Which user stories were activated?
+- Use case 2
+
 Additional notes describing the session, e.g. observations of the test user's behavior.
+- Mason was very inquisitive and explored heavily when it came to navigating through our "paper" website.
+
 The feedback you got from the tester
+- It would be nice to have all our listing page links in one tab (My Listings, Favorites, Make a Listing).
+- Give more ReuseU flavor to the prototype, for example: make a dark mode.
+
 Notes on how to revise your testing procedure for the next user
-Not only will your prototype change, but also, you might choose to change the way you present it to your user.
-Describe changes to your prototype
-how your prototype changed based on user feedback
-other changes your team decided to make from your own thoughts and ideas from the testing session
-other things you added to your prototype, not necessarily based on the testing session
-Include one or more photos of your revised prototype where the difference between the original and revised version can be plainly seen
+- Revise the top bar for better user navigation.
+
+_Describe changes to your prototype_
+- how your prototype changed based on user feedback
+  - Added a top panel
+- other changes your team decided to make from your own thoughts and ideas from the testing session
+  - Report button on view profile page.
+- other things you added to your prototype, not necessarily based on the testing session
+  - Made the back buttons more obvious
+- **Include one or more photos of your revised prototype where the difference between the original and revised version can be plainly seen**
+_Before_
+![alt text](<../../assets/Top Bar Before.JPG>) 
+_After_
+![alt text](<../../assets/Top Bar After.JPG>)
+
 ## Part 6: Storyboard
 
 ### Comic 1
