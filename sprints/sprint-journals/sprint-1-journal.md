@@ -8,7 +8,7 @@
 Use Case  1   (Timur)            
 | Section             | Description                                                                                                                               |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Actor               | Lucy (she/her)  Merchant/ Causal User.                                                                                                    |
+| Actor               | Lucy (she/her)  Merchant/ Casual User / Not Tech Savvy / Does not need her old phone                                                      |
 | Goal                | Add items to sell quickly.                                                                                                                |
 | Trigger             | Lucy decides she wants to sell an item of hers (e.g. phone) and takes some pictures of it to upload on ReuseU.                            |
 | Preconditions       | Lucy has a specific item in mind to sell, and she has at least one photo of it.                                                           |
@@ -34,7 +34,7 @@ Use Case  1   (Timur)
 Use Case  3    (Howie)           
 | Section          | Description                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| Actor            | Dexter (he/him) - Casual User, Laptop                                                                                       |
+| Actor            | Dexter (he/him) - Casual User, Needs a new Laptop after his current one ran out of storage                                  |
 | Goal             | Dexter wants to efficiently browse and track laptop listings to find good deals                                             |
 | Trigger          | Dexter visits the site to check for new laptop listings                                                                     |
 | Preconditions    | Dexter has an account and is logged in. Listing for a laptop exists on the platform.                                        |
@@ -47,18 +47,18 @@ Use Case  3    (Howie)
    
 | Section          | Description |
 | ---------------- | ----------- |
-| Actor            | asdf        |
-| Goal             | aasdf       |
-| Trigger          | asdf        |
+| Actor            | Chara (she/her) - Casual User, Merchant, Hoarder |
+| Goal             | Chara is trying to get rid of her precious items to a trusted community/platform since she graduated                                                 |
+| Trigger          | Chara is pressured by her familty to get rid of the clutter from her room as she is graduating and can't fit everything from her room in her car.    |
 | Preconditions    | asfd        |
 | Postconditions   | asfd        |
-| Flow             | asfd        |
+| Flow             |         |
 | Alternative Flow | asfd        |
 
 Use Case  5    (Peter)          
 | Section          | Description |
 | ---------------- | ----------- |
-| Actor            | Arsene (he/him) - Hardcore User, Merchant        |
+| Actor            | Arsene (he/him) - Hardcore User, Merchant, Finance Guru                                                                               |
 | Goal             | Arsene wants to turn a profit using the marketplace. Ideally he buys items for cheap and sells the for a profit                       |
 | Trigger          | Arsene hears about a booming new used marketplace and is excited for a new opportunity to use his finance trading skills              |
 | Preconditions    | Arsene must be a registered, logged-in user with his college-email and has a method in mind to find underpriced items                 |
@@ -84,7 +84,16 @@ Use Case  5    (Peter)
 
 ### Photos:
 
-### Prototype's connection to Use Cases:
+### Use Cases Modeled:
+
+1. Use case 1, Lucy creating a listing to sell a phone and then check that it's active
+2. Use case 2, Jack finding a lamp from a verified/non-suspicious user that is within his budget.
+3. Use case 3, Dexter searching for laptops on ReuseU, checking their conditions through photos, and favoriting listings.
+
+### Demonstrations:
+
+Demonstrations of all three use cases were held in class on February 24th with Destany (da) Best.
+
 
 
 ## Part 4: Test and revise (practice)
