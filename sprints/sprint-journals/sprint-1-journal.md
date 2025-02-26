@@ -86,12 +86,12 @@ Use Case  5    (Peter)
 
 ### Photos:
 
-![Photo 1](<../../assets/prototype/prototype1.jpeg>)
-![Photo 2](<../../assets/prototype/prototype2.jpeg>)
-![Photo 3](<../../assets/prototype/prototype3.jpeg>)
-![Photo 4](<../../assets/prototype/prototype4.jpeg>)
-![Photo 5](<../../assets/prototype/prototype5.jpeg>)
-![Photo 6](<../../assets/prototype/prototype6.jpeg>)
+![Photo 1](../../assets/prototype/prototype1.jpeg)
+![Photo 2](../../assets/prototype/prototype2.jpeg)
+![Photo 3](../../assets/prototype/prototype3.jpeg)
+![Photo 4](../../assets/prototype/prototype4.jpeg)
+![Photo 5](../../assets/prototype/prototype5.jpeg)
+![Photo 6](../../assets/prototype/prototype6.jpeg)
 
 ### Use Cases Modeled:
 
