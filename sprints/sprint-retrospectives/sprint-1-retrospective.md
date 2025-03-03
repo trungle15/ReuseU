@@ -10,7 +10,7 @@ Write 2-3 sentences to answer each question, except as labeled:
     * Peter:
     * Howie:
     * Sofia:
-    * Trung:
+    * Trung: I was the primary notetaker for testing, helped created storyboard and recruited people for testing. I also made contribution for completing the reports
 2. What went well or as expected last sprint?
     * Team work and communication, we have good dynamics and work effectively together including the communication, and the separation of responsibilities.
     * ...
