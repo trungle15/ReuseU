@@ -7,7 +7,7 @@ Write 2-3 sentences to answer each question, except as labeled:
 1. What did each team member do last sprint? (one sentence per team member)
     * Timur: I was helping with creating and improving the paper prototype, facilitating the testing, recruiting ppeople for tests, creating the files for sprint 1 journal and reports, as well as heavilty contributing to all the journal and report sections.
     * Krishna: Led creation of the storyboard, helped test and improve on paper prototype, contributed to report, and began work on some visual elements such as mascot
-    * Peter:
+    * Peter: Helped design certain elements of the paper prototype (most selling components of the site). Helped the testers not get stuck during paper prototype testing, recorded the sessions. Wrote two of the user stories. 
     * Howie:
     * Sofia:
     * Trung:
