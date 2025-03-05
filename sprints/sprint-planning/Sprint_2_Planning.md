@@ -45,5 +45,5 @@ __What will each team member do this sprint?__
 * Trung - 
 
 ## Issue Tracker:
-__How can your instructor view the results of your sprint planning using your issue tracker?__
+Refer to the goal and task breakdown section for the linked issues on our issue tracker
 
