@@ -30,15 +30,21 @@ https://github.com/dicarlosofia/ReuseU/issues/38 (specify interfaces between com
 
 ## Task breakdown:
 __For the work you plan to do this sprint, summarize the component parts. (Ok to just refer to your issue tracker.)__
-Howie - 
-Timur - I will work on goal 1, coding guidelines and will create the document for it, as well as adjust the README.md file to indicate the guidelines' existence and how to find them.
-Sofia -
-Peter -
-Krishna -
-Trung - 
+* Howie - 
+* Timur - I will work on goal 1, coding guidelines and will create the document for it, as well as adjust the README.md file to indicate the guidelines' existence and how to find them.
+* Sofia -
+* Peter -
+* Krishna -
+* Trung - 
 
 ## Assignment:
 __What will each team member do this sprint?__
+* Howie - 
+* Timur - I will work on goal 1, coding guidelines and will create the document for it, as well as adjust the README.md file to indicate the guidelines' existence and how to find them.
+* Sofia -
+* Peter -
+* Krishna -
+* Trung - 
 
 ## Issue Tracker:
 __How can your instructor view the results of your sprint planning using your issue tracker?__
