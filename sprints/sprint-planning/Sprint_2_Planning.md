@@ -33,14 +33,7 @@ https://github.com/dicarlosofia/ReuseU/issues/38 (specify interfaces between com
 6. Set up testing framework
 7. Create a beta model for ReuseU
 
-## Task breakdown:
-__For the work you plan to do this sprint, summarize the component parts. (Ok to just refer to your issue tracker.)__
-* Howie - 
-* Timur - I will work on goal 1, coding guidelines and will create the document for it, as well as adjust the README.md file to indicate the guidelines' existence and how to find them. I will also work on goal 2, explaining the data relation and modelling, as well potentially creating the first data schema.
-* Sofia -
-* Peter -
-* Krishna -
-* Trung - 
+
 
 ## Assignment:
 __What will each team member do this sprint?__
