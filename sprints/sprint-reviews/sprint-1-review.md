@@ -1,4 +1,8 @@
 
+# Additional Note
+
+Notice our team was a bit confused between the review and the team retrospective (as the deadlines were the same and the documents sound kind of the same). Thus we submitted this review document a bit late. In the future, when we end our team session, we will make sure to assign who does what to make sure this sprint document deadline issue does not happen again.
+
 
 # Sprint 1 Review Report
 
