@@ -13,7 +13,7 @@ longer be free on weekends to meet.
 ## Goals: 
 __Name the outcomes you plan to complete this sprint. Consider your backlog and the parameters of this week's milestone.__
 1. Coding guidelines 
-  * Subtask 1: Create a document that outlines the coding guidelines for the team to follow - (Issue Link)[https://github.com/dicarlosofia/ReuseU/issues/42]
+  * Subtask 1: Create a document that outlines the coding guidelines for the team to follow - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/42)
 2. Data modeling
 3. Software Architecture
 4. Software Design
