@@ -10,12 +10,16 @@ make sure to get more done before and after.
 - Sofia will be more busy starting *this weekend*, since her season for her sport begins, and she will no
 longer be free on weekends to meet.  
 
-## Goals: 
+## Goals and Task Breakdown: 
 __Name the outcomes you plan to complete this sprint. Consider your backlog and the parameters of this week's milestone.__
 1. Coding guidelines 
     * Subtask 1: Create a document that outlines the coding guidelines for the team to follow - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/42)
     * Subtask 2: Make sure to adjust the README.md file on the main repo page to indicate the existence of coding guidelines and how to find them - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/42)
-2. Data modeling
+2. Data modeling:
+    * Subtask 1: Draw an entity-relation diagram to explain our data relation - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/43)
+    * Subtask 2: Provide the schema or otherwise explain data storage - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/43)
+         - If using a database, give the first draft of our database schema.
+         - If not, describe how you are storing the data and its organization
 3. Software Architecture - Define a clear path for the development of the prototype.
 https://github.com/dicarlosofia/ReuseU/issues/46 (Software Architecture defining)
 https://github.com/dicarlosofia/ReuseU/issues/41 (Architecture assumptions)
