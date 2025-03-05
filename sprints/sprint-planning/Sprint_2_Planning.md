@@ -29,17 +29,10 @@ https://github.com/dicarlosofia/ReuseU/issues/39 (Major Data Storage Components)
 https://github.com/dicarlosofia/ReuseU/issues/44 (Software Design explanation)
 https://github.com/dicarlosofia/ReuseU/issues/38 (specify interfaces between components at a high level)
 5. Continuous Integration Plan
+    - Create dev and official releases containing the HTMl/CSS/React/Javascript and python code. The dev build should be a relatively up to date combination of code. The official release should have a series of unit tests that need to pass prior to being pushed. The Mocha Javascript testing library can be used for the front end components. The library unittest works well for python. 
 6. Set up testing framework
-7. Create a beta model for ReuseU
 
-## Task breakdown:
-__For the work you plan to do this sprint, summarize the component parts. (Ok to just refer to your issue tracker.)__
-* Howie - 
-* Timur - I will work on goal 1, coding guidelines and will create the document for it, as well as adjust the README.md file to indicate the guidelines' existence and how to find them. I will also work on goal 2, explaining the data relation and modelling, as well potentially creating the first data schema.
-* Sofia -
-* Peter -
-* Krishna -
-* Trung - 
+
 
 ## Assignment:
 __What will each team member do this sprint?__
@@ -51,5 +44,5 @@ __What will each team member do this sprint?__
 * Trung - 
 
 ## Issue Tracker:
-__How can your instructor view the results of your sprint planning using your issue tracker?__
+Refer to the goal and task breakdown section for the linked issues on our issue tracker
 
