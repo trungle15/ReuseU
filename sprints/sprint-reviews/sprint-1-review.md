@@ -14,4 +14,4 @@ Going through the prototyping exercise, we went through multiple iterations of e
 
 What progress have you made that is not visible to a common user?
 
-On the developers' side, we have really fine tuned our own understanding of the inputs and outputs of our website's behavior
+On the developers' side, we have really fine tuned our own understanding of the inputs and outputs of our website's behavior. More specifically, we as designers and developers have gained a much better understanding of how our website functions, how its webpages are connected to each other and to the clicklable buttons on each page that the user may interact with. We also have clearly outlined a variety of potential use cases that allowed us to fine grain specific flows that users with different use-intentions can follow. This was especially helpful for our progress as it's a more isolated and focused way to view our website and its functionalty. 
