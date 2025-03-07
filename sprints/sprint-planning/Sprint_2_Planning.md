@@ -43,7 +43,7 @@ __What will each team member do this sprint?__
 * Timur - I will work on goal 1, coding guidelines and will create the document for it, as well as adjust the README.md file to indicate the guidelines' existence and how to find them.
 * Sofia - Issue tracking, software components (co-authoring pt.2 with Howie), Epics creation, helping integrate Vercel
 * Peter - I will create a database in firebase (with some placeholder data). Will set up testing for both front and backend. Will hook up the website to the resuseu.org domain.
-* Krishna -
+* Krishna - I will perform risk assessment, make our plans for documentation, and assist with product roadmap
 * Trung - 
 
 ## Issue Tracker:
