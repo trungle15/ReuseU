@@ -30,10 +30,10 @@ https://github.com/dicarlosofia/ReuseU/issues/44 (Software Design explanation)
 https://github.com/dicarlosofia/ReuseU/issues/38 (specify interfaces between components at a high level)
 5. Continuous Integration Plan:
     * Subtask 1: Create dev and official releases containing the HTMl/CSS/React/Javascript and python code. The dev build should be a relatively up to date combination of code. The official release should have a series of unit tests that need to pass prior to being pushed.
-    * Subtask 2: We will determine how frequently we push to the official release directory (the dev one should updated frequently by all of us)
+    * Subtask 2: We will determine how frequently we push to the official release directory (the dev one should updated frequently by all of us).
 7. Set up testing framework
    * Subtask 1: The Mocha Javascript testing library needs to be setup for the front end components. These tests needs to integrated with Github to run automatically for the official release version.
-   * Subtask 2: The library Unittest works well for python (our backend language), there should also some data validation checks here as well.
+   * Subtask 2: The library Unittest works well for python (our backend language), there should also be some data validation checks here as well.
 
 
 
