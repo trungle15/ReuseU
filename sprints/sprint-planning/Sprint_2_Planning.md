@@ -28,9 +28,11 @@ https://github.com/dicarlosofia/ReuseU/issues/39 (Major Data Storage Components)
 4. Software Design - Provide additional detail about components 
 https://github.com/dicarlosofia/ReuseU/issues/44 (Software Design explanation)
 https://github.com/dicarlosofia/ReuseU/issues/38 (specify interfaces between components at a high level)
-5. Continuous Integration Plan
-    - Create dev and official releases containing the HTMl/CSS/React/Javascript and python code. The dev build should be a relatively up to date combination of code. The official release should have a series of unit tests that need to pass prior to being pushed. The Mocha Javascript testing library can be used for the front end components. The library unittest works well for python. 
-6. Set up testing framework
+5. Continuous Integration Plan:
+    * Subtask 1: Create dev and official releases containing the HTMl/CSS/React/Javascript and python code. The dev build should be a relatively up to date combination of code. The official release should have a series of unit tests that need to pass prior to being pushed. 
+7. Set up testing framework
+   * Subtask 1: The Mocha Javascript testing library needs to be setup for the front end components.
+   * Subtask 2: The libraryUunittest works well for python (our backend language), there should also some data validation checks here as well.
 
 
 
