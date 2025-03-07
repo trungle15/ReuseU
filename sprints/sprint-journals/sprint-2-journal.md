@@ -35,7 +35,7 @@ In your Requirements Document, provide a detailed definition of each of the soft
 * What packages, classes, or other units of abstraction form these components?
 * What are the responsibilities of each of those parts of a component?
 * Specify the interfaces between components in detail.
-**What kind of data gets passed between each pair of components? To minimize coupling, try to minimize the number of components that need to be connected to each other and keep the interfaces between components as small as possible.
+  * What kind of data gets passed between each pair of components? To minimize coupling, try to minimize the number of components that need to be connected to each other and keep the interfaces between components as small as possible.
 
 Note that software design is distinct from architecture because it is more specific and detailed, providing additional detail about components that may only be a single rectangle the architecture diagram.
 
