@@ -10,6 +10,18 @@ Coding guidelines should appear in your Repository alongside any existing develo
  
 ## Part 2: Software Architecture
 
+Provide an overview of your system. In your Requirements Document, add the following:
+
+* Identify and describe the major software components and their functionality at a conceptual level.
+* Specify the interfaces between components at a high level. Which components connect to which other components?
+* Identify the major data storage components and specify interfaces between data storage and software components.
+* Create a diagram of your system's architecture. Most of the above can be specified by an architecture diagram, but add notes as needed to describe the diagram.
+* If there are particular assumptions underpinning your chosen architecture, identify and describe them.
+
+Write about your design decisions. In your Sprint Journal, add an entry on the following:
+
+* For each of two decisions pertaining to your software architecture, identify and briefly describe an alternative. For each of the two alternatives, discuss its pros and cons compared to your choice.
+
 
 ## Part 3: Data Modeling
 
