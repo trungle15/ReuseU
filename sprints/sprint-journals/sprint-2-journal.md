@@ -84,6 +84,18 @@ In your Requirements Document, outline a plan for the documentation that you pla
  
 ## Part 6: Continuous Integration Plan
 
+In your Sprint Journal, write a test plan, describing:
+
+* Your test library (e.g., JUnit, Mocha, Pytest, etc).
+* A brief justification for why you chose that test library.
+* Your CI service and how your project repository is linked to it. (GitHub Actions is the recommended CI service.)
+* A brief justification for why you chose that CI service.
+
+In the Developer Guidelines section of your Repository, document what a developer needs to know about testing and CI, including:
+
+* How to add a new test to the code base.
+* Which tests will be executed in a CI build.
+* Which development actions trigger a CI build.
 
 ## Part 7: Test Automation and Continuous Integration Setup
 
