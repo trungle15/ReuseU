@@ -44,7 +44,7 @@ __What will each team member do this sprint?__
 * Sofia - Issue tracking, software components (co-authoring pt.2 with Howie), Epics creation, helping integrate Vercel
 * Peter - I will create a database in firebase (with some placeholder data). Will set up testing for both front and backend. Will hook up the website to the resuseu.org domain.
 * Krishna - I will perform risk assessment, make our plans for documentation, and assist with product roadmap
-* Trung - 
+* Trung - I will support with drafting initial database schema and set up CI/CD and testing workflow
 
 ## Issue Tracker:
 Refer to the goal and task breakdown section for the linked issues on our issue tracker
