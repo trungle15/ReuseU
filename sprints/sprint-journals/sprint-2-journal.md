@@ -98,7 +98,16 @@ In the Developer Guidelines section of your Repository, document what a develope
 * Which development actions trigger a CI build.
 
 ## Part 7: Test Automation and Continuous Integration Setup
+Add configuration to your Repository to enable automated tests and CI. You are not expected to provide an extensive test suite for your project at this point. Rather, the goal is to have the test infrastructure and CI set up with a few existing, example tests. (Your set up and the documented test-addition process should allow a developer on the team to easily add and run a new test.)
+
+
+In your Sprint Journal, include a screenshot of your successful tests to demonstrate that they have run and passed.
+
+
 
 ## Part 8: Additional Work
+Continue working towards your initial release by choosing work from your product backlog to complete this sprint. In your Sprint Planning and Sprint Review Documents you should clearly report which work is your chosen content for this sprint, and distinguish it from the required work.
 
+
+If your additional work includes code, make sure that every component in the code base has corresponding test code.
 
