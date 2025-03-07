@@ -24,10 +24,21 @@ Write about your design decisions. In your Sprint Journal, add an entry on the f
 
 
 ## Part 3: Data Modeling
+Data modeling: If your system stores data, describe in detail what data your system stores, and how. If it uses a database, give the first draft of your database schema. If not, describe how you are storing the data and its organization. To explain your data, you may find it helpful to draw an entity-relation diagram.
 
+Add the data model to your Requirements Document.
 
 
 ## Part 4: Software Design
+In your Requirements Document, provide a detailed definition of each of the software components you identified in your architecture.
+
+* What packages, classes, or other units of abstraction form these components?
+* What are the responsibilities of each of those parts of a component?
+* Specify the interfaces between components in detail.
+**What kind of data gets passed between each pair of components? To minimize coupling, try to minimize the number of components that need to be connected to each other and keep the interfaces between components as small as possible.
+
+Note that software design is distinct from architecture because it is more specific and detailed, providing additional detail about components that may only be a single rectangle the architecture diagram.
+
 
 
 
