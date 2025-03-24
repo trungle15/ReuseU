@@ -62,6 +62,13 @@ Initial database schema:
 
 ![Database Schema](../assets/Database_Schema.jpg)
 
+- The Account table holds initial account information which is filled at the time of account creation. This table contains a users personal information such as name, email and identifying information such as UserId and date of creation.
+- The Listing table holds the information present on a particular listing. We have data about the listing like title, description, category and the identifying information is listing id and user id (the seller's id).
+- The Reviews table holds 3 ids: selling, buying, listing. The content of the review is stored alongside the rating and the time of the review.
+- The Transaction table holds the same ids as the review table alongside price and date of transaction.
+- We have a seperate profile table that only holds userid and the user's rating. We may remove this table but as of now we wanted to seperate what is constant at account creation and what is added to an account later. If we add more changing fields tied to an account, they will be placed in this profile table. CHANGE FROM PHOTO: Purchased Listing and Sold Listings are stacks/arrays of listing ids included in profile.
+- We have a message table containing the userid, message id, time of chat and message content. CHANGE FROM PHOTO: we have boolean saying whether the message came from the buyer or seller.
+- Chat holds the array/stack of message ids tied to a listing.
 
 Part 4: Software Design
 Formed by: A listings homepage, populated with clickable Listings, that contain data such as price, username of the seller, a favorited option, description, etc.
