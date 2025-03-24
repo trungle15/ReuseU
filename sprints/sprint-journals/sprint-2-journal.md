@@ -28,6 +28,9 @@ Data modeling: If your system stores data, describe in detail what data your sys
 
 Add the data model to your Requirements Document.
 
+Database design:
+
+![Database Schema](../../assets/Database_Schema.jpg)
 
 ## Part 4: Software Design
 In your Requirements Document, provide a detailed definition of each of the software components you identified in your architecture.
