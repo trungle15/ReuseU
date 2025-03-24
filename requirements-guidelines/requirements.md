@@ -50,6 +50,10 @@ For each of two decisions pertaining to your software architecture, identify and
 ## Part 3: Data Modeling
 Data modeling: If your system stores data, describe in detail what data your system stores, and how. If it uses a database, give the first draft of your database schema. If not, describe how you are storing the data and its organization. To explain your data, you may find it helpful to draw an entity-relation diagram.
 
-
 Add the data model to your Requirements Document.
+
+Initial database schema:
+
+![Database Schema](../assets/Database_Schema.jpg)
+
 
