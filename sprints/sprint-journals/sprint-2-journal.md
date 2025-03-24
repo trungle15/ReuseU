@@ -65,6 +65,14 @@ Be specific. If part of your risk analysis could be included in a different team
  * To detect problem, we can attempt to post listing in place with spottier Internet and see if this causes problems
  * Mitigation idea: When creating a listing, automatically save it as a draft before posting
    * Updates as you add information, results in posting saving should you lose access
+  
+#### Risk 2: Self-reporting Timestamps when purchasing listing
+ * High likelihood of occurring
+   * Users likely to forget or neglect to add a timestamp
+ * Medium impact if it occurs
+   * Potential for scams to occur with greater frequency and ease
+   * Listed as medium on the assumption not many people will attempt to game the system
+ * To detect problem: If report is made, check timestamp sol
 
 ### 5.2. Epics
 An epic is a series of issues that come together to create an identifiable feature group. Completion of an epic may span multiple sprints.
