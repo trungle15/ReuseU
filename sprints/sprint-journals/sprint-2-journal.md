@@ -57,6 +57,15 @@ For each, give:
 * Mitigation plan should it occur
 Be specific. If part of your risk analysis could be included in a different team's sprint journal, then you are probably not being specific enough.
 
+#### Risk 1: Errors creating listings due to connection errors
+ * Medium likelihood of occurring
+   * Dependent on Internet connection, can happen often or not at all depending on where you are
+ * High impact if it occurs
+   * Potential to render website useless; if postings can't be made people can't buy things
+ * To detect problem, we can attempt to post listing in place with spottier Internet and see if this causes problems
+ * Mitigation idea: When creating a listing, automatically save it as a draft before posting
+   * Updates as you add information, results in posting saving should you lose access
+
 ### 5.2. Epics
 An epic is a series of issues that come together to create an identifiable feature group. Completion of an epic may span multiple sprints.
 
