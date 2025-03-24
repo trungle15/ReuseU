@@ -28,6 +28,17 @@ Data modeling: If your system stores data, describe in detail what data your sys
 
 Add the data model to your Requirements Document.
 
+Database design:
+
+![Database Schema](../../assets/Database_Schema.jpg)
+
+- The Account table holds initial account information which is filled at the time of account creation. This table contains a users personal information such as name, email and identifying information such as UserId and date of creation.
+- The Listing table holds the information present on a particular listing. We have data about the listing like title, description, category and the identifying information is listing id and user id (the seller's id).
+- The Reviews table holds 3 ids: selling, buying, listing. The content of the review is stored alongside the rating and the time of the review.
+- The Transaction table holds the same ids as the review table alongside price and date of transaction.
+- We have a seperate profile table that only holds userid and the user's rating. We may remove this table but as of now we wanted to seperate what is constant at account creation and what is added to an account later. If we add more changing fields tied to an account, they will be placed in this profile table. CHANGE FROM PHOTO: Purchased Listing and Sold Listings are stacks/arrays of listing ids included in profile.
+- We have a message table containing the userid, message id, time of chat and message content. CHANGE FROM PHOTO: we have boolean saying whether the message came from the buyer or seller.
+- Chat holds the array/stack of message ids tied to a listing.
 
 ## Part 4: Software Design
 In your Requirements Document, provide a detailed definition of each of the software components you identified in your architecture.
@@ -56,6 +67,23 @@ For each, give:
 * Plan for detecting the problem (trivial example: running automated tests to determine that a file format has changed)
 * Mitigation plan should it occur
 Be specific. If part of your risk analysis could be included in a different team's sprint journal, then you are probably not being specific enough.
+
+#### Risk 1: Errors creating listings due to connection errors
+ * Medium likelihood of occurring
+   * Dependent on Internet connection, can happen often or not at all depending on where you are
+ * High impact if it occurs
+   * Potential to render website useless; if postings can't be made people can't buy things
+ * To detect problem, we can attempt to post listing in place with spottier Internet and see if this causes problems
+ * Mitigation idea: When creating a listing, automatically save it as a draft before posting
+   * Updates as you add information, results in posting saving should you lose access
+  
+#### Risk 2: Self-reporting Timestamps when purchasing listing
+ * High likelihood of occurring
+   * Users likely to forget or neglect to add a timestamp
+ * Medium impact if it occurs
+   * Potential for scams to occur with greater frequency and ease
+   * Listed as medium on the assumption not many people will attempt to game the system
+ * To detect problem: If report is made, check timestamp sol
 
 ### 5.2. Epics
 An epic is a series of issues that come together to create an identifiable feature group. Completion of an epic may span multiple sprints.
