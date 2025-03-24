@@ -37,8 +37,14 @@
 ## Part 2: Software Architecture
 Provide an overview of your system. In your Requirements Document, add the following:
 
-Identify and describe the major software components and their functionality at a conceptual level.
-Specify the interfaces between components at a high level. Which components connect to which other components?
+Major software components - UI frontend with listings, user authentication database with firebase, database for listings
+UI (Frontend) -> allows purchasing/posting of items
+User authentication -> allows for authentication of users from user/password
+Listing Database -> stores listings that can be modified.
+UI Frontend -> connects (initially) to the user authentication database for sign in. It pulls current listings from the Listings database associated
+with the users email address. The UI Frontend can update the Listings database via the adding of Listings, and the purchasing of said Listings. The Listings can
+also be updated.
+The Major Data storage components are 
 Identify the major data storage components and specify interfaces between data storage and software components.
 Create a diagram of your system's architecture. Most of the above can be specified by an architecture diagram, but add notes as needed to describe the diagram.
 If there are particular assumptions underpinning your chosen architecture, identify and describe them.
@@ -46,4 +52,39 @@ If there are particular assumptions underpinning your chosen architecture, ident
 Write about your design decisions. In your Sprint Journal, add an entry on the following:
 
 For each of two decisions pertaining to your software architecture, identify and briefly describe an alternative. For each of the two alternatives, discuss its pros and cons compared to your choice.
+
+
+Part 4: Software Design
+Formed by: A listings homepage, populated with clickable Listings, that contain data such as price, username of the seller, a favorited option, description, etc.
+Upon being clicked, A Listing page opens, with more in depth details.
+There is a profile page, accessible by the profile photo in the dashboard, with information on the user.
+You can sign in and sign out using a dropdown from the dashboard.
+You can send messages to people, saved to the messages table of the listings database.
+
+Firebase User identification Database
+Simply a database with username and password that is used to log in to the application. Managed in the cloud.
+
+
+Listings Database
+The database providing the listings will have the following schema, explained in detail above in part 3:
+an Account database, a Transaction table associated with the college email, Listing table for the specific email domain, Review table for the domain specific email,
+Message/Chat tables for messages.
+
+Users type in their username and password which then gets sent to the firebase auth, if successful they receive an auth token which allows them
+to log on the site. If they are a first time login, they will fill in things like Birthday/Age, Gender, etc, which will then be sent to our user database (separate to 
+the firebase auth, we use the firebase user-id as a key) Upon clicking a listing, then a sellers profile, then messaging them, the messages will be stored in the database, which then sends a packet
+to update the receiving users messages.
+When users create a listing, they will fill out information such as Title, price, description, categoryID, and Images.
+Automatically added to this data object will be a generated ListingID, UserID, Sell Status, CreateTime, (and a translation of CategoryID if necessary (i.e) *electronics* to 12)
+This will all be coupled to to a single object, and sent to the Listings table in the database, which will then propagate back to the website for potential sellers to see.
+
+Upon transaction, *since they will take place offline*, the users will have to confirm. We will then attribute a ListingID, then use the Buyer and Seller ID,
+take the self-reported date of transaction, and price, and send it to the transaction table of the database.
+The Listings Sell status will then be updated accordingly. 
+
+The user will be able to review sellers -> an object containing the review will be sent, automatically tagged with
+ListingID, ReviewerID, SellerID, Review, ReviewData, Rating to the Review table.
+
+
+
 
