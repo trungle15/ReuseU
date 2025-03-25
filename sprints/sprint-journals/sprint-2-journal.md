@@ -10,17 +10,14 @@ Coding guidelines should appear in your Repository alongside any existing develo
  
 ## Part 2: Software Architecture
 
-Provide an overview of your system. In your Requirements Document, add the following:
-
-* Identify and describe the major software components and their functionality at a conceptual level.
-* Specify the interfaces between components at a high level. Which components connect to which other components?
-* Identify the major data storage components and specify interfaces between data storage and software components.
-* Create a diagram of your system's architecture. Most of the above can be specified by an architecture diagram, but add notes as needed to describe the diagram.
-* If there are particular assumptions underpinning your chosen architecture, identify and describe them.
-
-Write about your design decisions. In your Sprint Journal, add an entry on the following:
+In your Sprint Journal, add an entry on the following:
 
 * For each of two decisions pertaining to your software architecture, identify and briefly describe an alternative. For each of the two alternatives, discuss its pros and cons compared to your choice.
+* * **Alternatives**  
+  * Vercel:
+  * Firebase AUTH:
+  * Firebase:
+  * Listings Database:
 
 
 ## Part 3: Data Modeling
@@ -87,14 +84,6 @@ Be specific. If part of your risk analysis could be included in a different team
 
 ### 5.2. Epics
 An epic is a series of issues that come together to create an identifiable feature group. Completion of an epic may span multiple sprints.
-
-
-Divide your planned work into about 3-6 epics. For each epic, write in your Sprint Journal:
-
-* Description -- What will this epic achieve?
-* Dependencies --  What (other epic) needs to be done before this epic can be started?
-* Effort estimate -- How many person-week units do you expect it will take (If 3 team members will work on it for 2 weeks, that's 6 person-weeks.)
-* Subtasks -- In the backlog of your Issue Manager, label tasks so they can easily be identified as part of the given epic. Create any relevant tasks that do not exist yet. Note that issues do not need to be well formed until they are added to the current sprint backlog.
 
 #### Epic 1: Documentation
 * **Description**: This epic's main goal is to finalize the bulk of our written work for ReuseU. This entails all of the files in our [requirements-guidelines](https://github.com/dicarlosofia/ReuseU/tree/main/requirements-guidelines) folder being close to their final version, as well as our README file.
