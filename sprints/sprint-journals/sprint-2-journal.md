@@ -96,6 +96,24 @@ Divide your planned work into about 3-6 epics. For each epic, write in your Spri
 * Effort estimate -- How many person-week units do you expect it will take (If 3 team members will work on it for 2 weeks, that's 6 person-weeks.)
 * Subtasks -- In the backlog of your Issue Manager, label tasks so they can easily be identified as part of the given epic. Create any relevant tasks that do not exist yet. Note that issues do not need to be well formed until they are added to the current sprint backlog.
 
+#### Epic 1: Documentation
+* **Description**: This epic's main goal is to finalize the bulk of our written work for ReuseU. This entails all of the files in our [requirements-guidelines](https://github.com/dicarlosofia/ReuseU/tree/main/requirements-guidelines) folder being close to their final version, as well as our README file.
+* **Dependencies**: No other epics need to be done before we can start this epic. This epic is already in development with the bulk of what the ReuseU team is working on within Sprint 2.
+* **Effort Est.**: This will take our whole team, for the written work is somewhat extensive. This will end up being 12 person-weeks. 
+* **Subtasks**: These will be marked accordingly with the ***Epic 1*** Tag.
+
+#### Epic 2: Beta Version Development
+* **Description**: This epic's main goal is to begin developing the technical side of ReuseU, a.k.a. bringing all that we have written down on paper to life.
+* **Dependencies**: We must have *most* of ***Epic 1*** done before we begin on this epic. This is because the written work is a necessary preliminary step to help the team have a more cohesive, parallel workflow when we all transition into a team of mostly developers.
+* **Effort Est.**: This will take about 4 people for 2 and a half weeks, or 10 person-weeks. 
+* **Subtasks**: These will be marked accordingly with the ***Epic 2*** Tag.
+
+#### Epic 3: Final Version Development
+* **Description**: This epic's main goal is to begin finalizing ReuseU as a website. At the end of this epic, ReuseU should be ready to be tentatively used by Grinnellians.
+* **Dependencies**: We must have Epic 2 completed before we begin this epic.
+* **Effort Est.**: This will take all 6 team members for two weeks minimum, so 12 person-weeks. 
+* **Subtasks**: These will be marked accordingly with the ***Epic 3*** Tag.
+
 ### 5.3. Product Roadmap
 In your Sprint Journal, create a timeline or calendar to represent your product roadmap. You might experiment with different text or graphical formats to make a calendar that is easy for your team  to understand. In your roadmap, include:
 
