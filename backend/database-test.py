@@ -5,7 +5,7 @@ from firebase_admin import credentials, db
 #passes in creds to database and returns reference to root
 
 def get_db_root():
-    cred = credentials.Certificate("peter_key.json")
+    cred = credentials.Certificate("pk.json")
     firebase_admin.initialize_app(cred, {
         'databaseURL': 'https://reuseu-e42b8-default-rtdb.firebaseio.com/'
     })
