@@ -15,11 +15,9 @@ In your Sprint Journal, add an entry on the following:
 * For each of two decisions pertaining to your software architecture, identify and briefly describe an alternative. For each of the two alternatives, discuss its pros and cons compared to your choice.
 * * **Alternatives**  
   * Vercel:
-  * Firebase AUTH:
-  * Firebase - One alternative to Firebase is AWS Amplify, which offers a similar framework for web development in general and database implementation and maintenance specifically. 
+  * Firebase - One alternative to Firebase database hosting is AWS Amplify, which offers a similar framework for web development in general and database implementation and maintenance specifically. 
 
   ##### Pros:
-  
       * Compatible with SQL, NoSQL, and GraphQL
       * Allows for customization and fine-graining
       * Integrates nicely with other AWS infrastructure
@@ -28,7 +26,6 @@ In your Sprint Journal, add an entry on the following:
       * Harder to grasp for beginner developers
       * Complex pricing and subject to high costs piling up, whereas Firebase base free plan is likely to cover our needs
       * Might not integrate nicely with non-AWS infrastructure
-  * Listings Database:
 
 
 ## Part 3: Data Modeling
