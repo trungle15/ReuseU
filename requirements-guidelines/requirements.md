@@ -35,7 +35,7 @@
 ### SPRINT 2 
 
 ## Part 2: Software Architecture
-Provide an overview of your system. In your Requirements Document, add the following:
+An overview of our system:
 
 
 ![alt text](<Software arch diagram.png>)
@@ -46,27 +46,28 @@ Provide an overview of your system. In your Requirements Document, add the follo
 * **UI Frontend** -> connects (initially) to the user authentication database for sign in. It pulls current listings from the Listings database associated
 with the users email address. The UI Frontend can update the Listings database via the adding of Listings, and the purchasing of said Listings. The Listings can
 also be updated.
-* The Major Data storage components are 
+* The **Major Data storage components** are 
+
+##### Assumptions:
+* **Microservices for scalability**:
 ---
 * *Identify the major data storage components and specify interfaces between data storage and software components.*
-* *Create a diagram of your system's architecture. Most of the above can be specified by an architecture diagram, but add notes as needed to describe the diagram.*
-* If there are particular assumptions underpinning your chosen architecture, identify and describe them.
+
 
 ## Part 3: Data Modeling
-Data modeling: If your system stores data, describe in detail what data your system stores, and how. If it uses a database, give the first draft of your database schema. If not, describe how you are storing the data and its organization. To explain your data, you may find it helpful to draw an entity-relation diagram.
+Our system stores data, so below we describe in detail *what* data our system stores, and *how*. We also will give the first draft of our database schema. 
 
-Add the data model to your Requirements Document.
+``` The data model is in our Requirements Document.```
 
-Initial database schema:
-
+*Initial database schema:*
 ![Database Schema](../assets/Database_Schema.jpg)
 
 - The Account table holds initial account information which is filled at the time of account creation. This table contains a users personal information such as name, email and identifying information such as UserId and date of creation.
 - The Listing table holds the information present on a particular listing. We have data about the listing like title, description, category and the identifying information is listing id and user id (the seller's id).
-- The Reviews table holds 3 ids: selling, buying, listing. The content of the review is stored alongside the rating and the time of the review.
+- The Reviews table holds 3 ids: `selling`, `buying`, `listing`. The content of the review is stored alongside the rating and the time of the review.
 - The Transaction table holds the same ids as the review table alongside price and date of transaction.
-- We have a seperate profile table that only holds userid and the user's rating. We may remove this table but as of now we wanted to seperate what is constant at account creation and what is added to an account later. If we add more changing fields tied to an account, they will be placed in this profile table. CHANGE FROM PHOTO: Purchased Listing and Sold Listings are stacks/arrays of listing ids included in profile.
-- We have a message table containing the userid, message id, time of chat and message content. CHANGE FROM PHOTO: we have boolean saying whether the message came from the buyer or seller.
+- We have a seperate profile table that only holds `userid` and the user's rating. We may remove this table but as of now we wanted to seperate what is constant at account creation and what is added to an account later. If we add more changing fields tied to an account, they will be placed in this profile table. **CHANGE FROM PHOTO**: Purchased Listing and Sold Listings are stacks/arrays of listing ids included in profile.
+- We have a message table containing the userid, message id, time of chat and message content. **CHANGE FROM PHOTO**: we have boolean saying whether the message came from the buyer or seller.
 - Chat holds the array/stack of message ids tied to a listing.
 
 ## Part 4: Software Design
@@ -89,15 +90,15 @@ Message/Chat tables for messages.
   1. If successful they receive an auth token which allows them to log on the site. 
   2. If they are a first time login, they will fill in things like Birthday/Age, Gender, etc, which will then be sent to our user database (separate to the firebase auth, we use the firebase user-id as a key) 
   3. Upon (1) clicking a listing, then (2) a sellers profile, then (3) messaging them, the messages will be stored in the database. The database sends a packet to update the receiving users messages.
-* When users create a listing, they will fill out information such as *Title*, *price*, *description*, *categoryID*, and *Images*.
-  * Automatically added to this data object will be a generated *ListingID*, *UserID*, *Sell Status*, *CreateTime*, (and a translation of *CategoryID* if necessary (i.e) *electronics* to 12)
+* When users create a listing, they will fill out information such as `Title`, `price`, `description`, `categoryID`, and `Images`.
+  * Automatically added to this data object will be a generated `ListingID`, `UserID`, `Sell Status`, `CreateTime`, (and a translation of `CategoryID` if necessary (i.e) electronics to 12)
   * This will all be coupled to to a single object, and sent to the Listings table in the database, which will then propagate back to the website for potential sellers to see.
 
 * Upon transaction, *since they will take place offline*, the **users will have to confirm**. 
-  1. We will then attribute a ListingID, then use the Buyer and Seller ID,
+  1. We will then attribute a `ListingID`, then use the `Buyer` and `Seller ID`,
   2. take the self-reported date of transaction, and price, and 
   3. send it to the transaction table of the database.
 
 * *The Listings Sell status will then be updated accordingly.*
 
-* **The user will be able to review sellers** -> an object containing the review will be sent, automatically tagged with *ListingID, ReviewerID, SellerID, Review, ReviewData*, and *Rating* to the Review table.
+* **The user will be able to review sellers** -> an object containing the review will be sent, automatically tagged with `ListingID`, `ReviewerID`, `SellerID`, `Review`, `ReviewData`, and `Rating` to the Review table.
