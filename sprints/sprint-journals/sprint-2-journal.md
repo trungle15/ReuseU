@@ -122,7 +122,7 @@ An epic is a series of issues that come together to create an identifiable featu
 
 ### 5.3.
 
-![alt text](<ReuseU Epics Timeline-1.png>)
+![alt text](<ReuseU Epics Timeline.png>)
 
 
 ### 5.4. Documentation plan
