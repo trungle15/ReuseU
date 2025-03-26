@@ -91,6 +91,14 @@ Be specific. If part of your risk analysis could be included in a different team
  * To detect problem: If report is made, check if an entry for date + time sold exists.
  * To mitigate problem: Have entering the date and time be a requirement for confirming a purchase
 
+#### Risk 3: Scammers - buyers take money and don’t give item
+ * Low likelihood of occurring
+   * Assume that people here have enough integrity to not do such things!
+ * High impact if it occurs
+   * Stealing money, defeats the purpose of the site!
+ * To detect problem: Report button feature will alert staff (us) to possible scammers
+ * To mitigate problem: Users will have rating system so that those with an apparent history of scams will be avoided - based on how much they were reported
+
 ### 5.2. Epics
 An epic is a series of issues that come together to create an identifiable feature group. Completion of an epic may span multiple sprints.
 
