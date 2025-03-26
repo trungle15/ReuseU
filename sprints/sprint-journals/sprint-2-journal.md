@@ -129,9 +129,9 @@ In your Sprint Journal, create a timeline or calendar to represent your product 
 
 
 ### 5.4. Documentation plan
-In your Requirements Document, outline a plan for the documentation that you plan to deliver with the system, e.g., user guides, admin guides, developer guides, man pages, help menus, wikis, etc. Make sure to create corresponding issues in your Issue Manager.
-
-
+We will need to release the following documentation with our system:
+* Admin guide: Assists admins (us, for the time being) on how to manage and maintain the system
+* Help menus: Helps users learn about features and how to make use of them
 
  
 ## Part 6: Continuous Integration Plan
