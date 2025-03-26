@@ -38,7 +38,7 @@
 Provide an overview of your system. In your Requirements Document, add the following:
 
 
-![alt text](<Software arch diagram.jpeg>)
+![alt text](<Software arch diagram.png>)
 * **Major software components** - UI frontend with listings, user authentication database with firebase, database for listings
 * **UI (Frontend)** -> allows purchasing/posting of items
 * **User authentication** -> allows for authentication of users from user/password
