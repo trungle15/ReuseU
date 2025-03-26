@@ -80,7 +80,8 @@ Be specific. If part of your risk analysis could be included in a different team
  * Medium impact if it occurs
    * Potential for scams to occur with greater frequency and ease
    * Listed as medium on the assumption not many people will attempt to game the system
- * To detect problem: If report is made, check timestamp sol
+ * To detect problem: If report is made, check if an entry for date + time sold exists.
+ * To mitigate problem: Have entering the date and time be a requirement for confirming a purchase
 
 ### 5.2. Epics
 An epic is a series of issues that come together to create an identifiable feature group. Completion of an epic may span multiple sprints.
