@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { HeartIcon as HeartOutline } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartSolid } from "@heroicons/react/24/solid";
+import { HeartIcon } from "@heroicons/react/16/solid";
 
 interface ListingProps {
   title: string;
@@ -11,53 +12,39 @@ interface ListingProps {
 export default function Listing({ title, price, tags }: ListingProps) {
   const [isFavorited, setIsFavorited] = useState(false);
 
+  const onFavoriteClick = () => {
+    setIsFavorited(!isFavorited);
+  }
+
   return (
-    <div className="h-[20vh] w-full shadow-md p-4 bg-white rounded-lg relative">
-      {/* Title (Top Middle) */}
-      <div className="text-center mb-2">
-        <h2 className="text-2xl font-semibold truncate">{title}</h2>
+    //overall listing holder
+    <div className="h-56 flex flex-row items-center justify-start text-center p-4 border rounded-lg gap-5">
+      <div className="h-full w-2/9 bg-gray-300 rounded-lg">
+        {/*image goes here*/}
       </div>
-
-      {/* Tags (Below Title) */}
-      <div className="flex flex-wrap justify-center gap-1 mb-2">
-        {tags?.map((tag) => (
-          <span 
-            key={tag} 
-            className="px-2 py-1 bg-gray-100 rounded-full text-xs"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-
-      {/* Price (Top Right) */}
-      <div className="absolute top-4 right-4 text-xl font-bold text-green-600">
-        ${price?.toFixed(2)}
-      </div>
-
-      {/* Image + Description */}
-      <div className="flex h-full min-h-0 items-stretch">
-        <div className="w-1/4 h-full bg-gray-200 rounded-lg ">
-          {/* Image Placeholder */}
+      <div className="h-full w-5/9 flex flex-col bg-gray-400 rounded-lg gap-[1vh] justify-center">
+        <div className ="h-1/8 bg-green-500 rounded-lg">
+          <h3 className="font-bold">Title</h3>
         </div>
-        <div className="w-3/4 pl-4">
-          <div className="text-lg line-clamp-2">
-            {/* Description would go here */}
-          </div>
+        <div className ="h-1/4 bg-green-600 rounded-lg">
+          <text className="self-start ml-[1vh]">
+            This is where my tags will go
+          </text>
+        </div>
+        <div className ="h-1/2 bg-green-700 rounded-lg">
+        <text className="self-start ml-[1vh]">
+            Bruh stinky stinky stinky bruh bruh stinky stinky stinky bruh bruh stink
+          </text>
         </div>
       </div>
-
-      {/* Heart Icon (Bottom Right) */}
-      <button
-        onClick={() => setIsFavorited(!isFavorited)}
-        className="absolute bottom-4 right-4 p-1"
-      >
-        {isFavorited ? (
-          <HeartSolid className="h-6 w-6 text-red-500" />
-        ) : (
-          <HeartOutline className="h-6 w-6 text-gray-400" />
-        )}
-      </button>
+        
+      <div className="h-full w-2/9 bg-gray-500 rounded-lg flex flex-col rounded-lg justify-between">
+        <div className="">
+          $19.99
+        </div>
+        {isFavorited && <HeartOutline onClick={onFavoriteClick} className="cursor-pointer h-1/4 -mr-[12vh]"></HeartOutline>}
+        {!isFavorited && <HeartSolid onClick={onFavoriteClick} className="cursor-pointer h-1/4 -mr-[12vh] "></HeartSolid>}
+      </div>
     </div>
   );
 }
