@@ -120,12 +120,9 @@ An epic is a series of issues that come together to create an identifiable featu
 * **Effort Est.**: This will take all 6 team members for two weeks minimum, so 12 person-weeks. 
 * **Subtasks**: These will be marked accordingly with the ***Epic 3*** Tag.
 
-### 5.3. Product Roadmap
-In your Sprint Journal, create a timeline or calendar to represent your product roadmap. You might experiment with different text or graphical formats to make a calendar that is easy for your team  to understand. In your roadmap, include:
+### 5.3.
 
-* Approximate start date of each epic
-* Approximate completion date of each epic
-* Enough time for flexibility in case your approximations are off
+![alt text](<ReuseU Epics Timeline.png>)
 
 
 ### 5.4. Documentation plan
