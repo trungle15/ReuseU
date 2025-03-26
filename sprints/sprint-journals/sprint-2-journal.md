@@ -17,11 +17,14 @@ In your Sprint Journal, add an entry on the following:
   * Vercel:
   * Firebase AUTH:
   * Firebase - One alternative to Firebase is AWS Amplify, which offers a similar framework for web development in general and database implementation and maintenance specifically. 
-      Pros:
+
+  ##### Pros:
+  
       * Compatible with SQL, NoSQL, and GraphQL
       * Allows for customization and fine-graining
       * Integrates nicely with other AWS infrastructure
-      Cons:
+  
+  ##### Cons:
       * Harder to grasp for beginner developers
       * Complex pricing and subject to high costs piling up, whereas Firebase base free plan is likely to cover our needs
       * Might not integrate nicely with non-AWS infrastructure
