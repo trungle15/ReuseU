@@ -1,0 +1,38 @@
+name: Frontend CI
+
+on:
+  push:
+    paths:
+      - 'frontend/**'
+  pull_request:
+    paths:
+      - 'frontend/**'
+  workflow_dispatch:  # allow manual execution
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Debug working directory
+        run: pwd
+
+      - name: List frontend directory contents
+        run: ls -la frontend/
+
+      - name: Install dependencies
+        run: |
+          cd frontend
+          npm ci
+
+      - name: Run tests
+        run: |
+          cd frontend
+          npm test
+
+      - name: Build project
+        run: |
+          cd frontend
+          npm run build
