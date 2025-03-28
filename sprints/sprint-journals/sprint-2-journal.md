@@ -126,7 +126,15 @@ An epic is a series of issues that come together to create an identifiable featu
 * **Effort Est.**: This will take about 4 people for 2 and a half weeks, or 10 person-weeks. 
 * **Subtasks**: These will be marked accordingly with the ***Epic 2*** Tag.
 
-#### Epic 3: Final Version Development
+
+#### Epic 3: Creating and Managing Listings
+* **Description**: This epic focuses on implementing the core functionality that allows users to create, manage, and interact with listings on ReuseU. Users should be able to post items they want to sell or give away, edit or remove listings, and browse or search for available items.
+* **Dependencies**: Completion of Epic 2 (Beta Version Development) is essential, as the foundational infrastructure, authentication, and database setup need to be in place before listing functionality can be built.
+* **Effort Est.**: Approximately 3 people for 3 weeks, totaling 9 person-weeks.
+* **Subtasks**: All subtasks will be marked accordingly with the Epic 3 Tag.
+
+
+#### Epic 4: Final Version Development
 * **Description**: This epic's main goal is to begin finalizing ReuseU as a website. At the end of this epic, ReuseU should be ready to be tentatively used by Grinnellians.
 * **Dependencies**: We must have Epic 2 completed before we begin this epic.
 * **Effort Est.**: This will take all 6 team members for two weeks minimum, so 12 person-weeks. 
