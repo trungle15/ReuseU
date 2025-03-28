@@ -170,3 +170,5 @@ In your Sprint Journal, include a screenshot of your successful tests to demonst
 
 We completed setting up database service in Firebase and added schema and dummy data in our Firebase realtime database following the schema provided in Part 3 - Data Modeling, fulfilling [#64](https://github.com/dicarlosofia/ReuseU/issues/64).
 
+A new mascot design was developed.
+
