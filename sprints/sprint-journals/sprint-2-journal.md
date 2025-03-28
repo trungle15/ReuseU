@@ -133,8 +133,13 @@ An epic is a series of issues that come together to create an identifiable featu
 * **Effort Est.**: Approximately 3 people for 3 weeks, totaling 9 person-weeks.
 * **Subtasks**: All subtasks will be marked accordingly with the Epic 3 Tag.
 
+#### Epic 4: Frontend/Visual Development
+* **Description**: This epic focuses on developing and implementing the aspects of the site users interact with. This will start with website layout to ensure it is intuitive to users, then visual elements to make it appealing.
+* **Dependencies**: No other epics are necessarily required to create visuals and plan layout of all required pages, and can be completed parallel to Epic 2. However, completion of Epic 3 is recommended to test transitions between pages and ensure correctness.
+* **Effort Est.**: Approximately 3 people for 3 weeks, totaling 9 person-weeks.
+* **Subtasks**: All subtasks will be marked accordingly with the Epic 4 Tag.
 
-#### Epic 4: Final Version Development
+#### Epic 5: Final Version Development
 * **Description**: This epic's main goal is to begin finalizing ReuseU as a website. At the end of this epic, ReuseU should be ready to be tentatively used by Grinnellians.
 * **Dependencies**: We must have Epic 2 completed before we begin this epic.
 * **Effort Est.**: This will take all 6 team members for two weeks minimum, so 12 person-weeks. 
