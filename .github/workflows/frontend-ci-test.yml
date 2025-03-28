@@ -8,93 +8,63 @@ on:
     paths:
       - 'frontend/**'
   workflow_dispatch:
-    inputs:
-      node-version:
-        description: 'Node.js version'
-        required: true
-        default: '20'
-        type: choice
-        options:
-          - '18'
-          - '20'
-          - '22'
-      browser:
-        description: 'Browser for Cypress tests'
-        required: true
-        default: 'chrome'
-        type: choice
-        options:
-          - 'chrome'
-          - 'firefox'
-          - 'edge'
-      skip-build:
-        description: 'Skip production build?'
-        required: false
-        default: 'false'
-        type: boolean
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./frontend
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js ${{ github.event.inputs.node-version || '20' }}
+      - name: Debug directory structure
+        run: |
+          echo "Current directory: $(pwd)"
+          ls -la
+          echo "Frontend directory contents:"
+          ls -la frontend/
+
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ github.event.inputs.node-version || '20' }}
+          node-version: '20'
           cache: 'npm'
+          cache-dependency-path: 'frontend/package-lock.json'
 
       - name: Install dependencies
-        run: npm ci
+        working-directory: ./frontend
+        run: npm ci --no-audit
 
       - name: Verify Cypress
+        working-directory: ./frontend
         run: npx cypress verify
 
-      - name: Start server and run tests (${{ github.event.inputs.browser || 'chrome' }})
+      - name: Start server and run tests
+        working-directory: ./frontend
         run: |
           npm run dev &
           SERVER_PID=$!
           
-          node <<'EOF'
-          const http = require('http');
-          const retry = require('async-retry');
+          # Wait for server
+          npx wait-on http://localhost:3000
           
-          await retry(
-            async () => {
-              await new Promise((resolve, reject) => {
-                http.get('http://localhost:3000', (res) => {
-                  if (res.statusCode === 200) return resolve();
-                  reject(new Error(`Server not ready (status ${res.statusCode})`));
-                }).on('error', reject);
-              });
-            },
-            { retries: 10, minTimeout: 3000 }
-          );
-          EOF
+          # Run tests
+          npx cypress run --browser chrome --config baseUrl=http://localhost:3000 || TEST_RESULT=$?
           
-          npx cypress run --browser ${{ github.event.inputs.browser || 'chrome' }} --config baseUrl=http://localhost:3000 || TEST_RESULT=$?
           kill $SERVER_PID
           exit ${TEST_RESULT:-0}
         env:
           PORT: 3000
           NODE_ENV: test
 
-      - name: Build production bundle
-        if: ${{ !github.event.inputs.skip-build || github.event_name != 'workflow_dispatch' }}
+      - name: Build project
+        working-directory: ./frontend
         run: npm run build
 
-      - name: Upload test artifacts
+      - name: Upload artifacts on failure
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-failure-${{ github.run_id }}
+          name: cypress-failures
           path: |
-            cypress/screenshots/**
-            cypress/videos/**
-          retention-days: 3
+            frontend/cypress/screenshots
+            frontend/cypress/videos
