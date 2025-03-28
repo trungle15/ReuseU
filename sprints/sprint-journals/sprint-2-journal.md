@@ -167,8 +167,6 @@ In your Sprint Journal, include a screenshot of your successful tests to demonst
 
 
 ## Part 8: Additional Work
-Continue working towards your initial release by choosing work from your product backlog to complete this sprint. In your Sprint Planning and Sprint Review Documents you should clearly report which work is your chosen content for this sprint, and distinguish it from the required work.
 
-
-If your additional work includes code, make sure that every component in the code base has corresponding test code.
+We completed setting up database service in Firebase and added schema and dummy data in our Firebase realtime database following the schema provided in Part 3 - Data Modeling, fulfilling [#64](https://github.com/dicarlosofia/ReuseU/issues/64).
 
