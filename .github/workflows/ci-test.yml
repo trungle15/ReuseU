@@ -1,33 +1,33 @@
-name: Unit Tests
+name: Cypress Tests
 
 on: [push, pull_request]
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend  # run commands from frontend
 
     strategy:
-      fail-fast: false  # continue even if one test fails
       matrix:
-        spec-file: [1.cy.js]  # add more if needed
+        spec-file: [1.cy.js]  # add test files
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4  #v4
-      - name: Set up Node.js
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '22.2.0'
-          cache: 'npm'  # cache dependencies
+          cache: 'npm'  # cache node modules
 
       - name: Install dependencies
-        working-directory: ./frontend  # install from frontend/
-        run: npm ci --no-audit  # clean install (faster than npm install)
+        run: npm ci  # clean install (faster)
 
       - name: Run Cypress tests
-        working-directory: ./frontend  #  from frontend/
         run: |
           npx cypress run \
             --config-file cypress.config.js \
-            --spec "cypress/e2e/${{ matrix.spec-file }}" \
-            --record false  # 
+            --spec "cypress/e2e/${{ matrix.spec-file }}"
