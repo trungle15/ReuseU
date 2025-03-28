@@ -39,7 +39,7 @@ jobs:
           NODE_ENV: test
 
       - name: Wait for server to be ready
-        uses: fountainhead/action-wait-for-check@v1.0.0
+        uses: actions-ecosystem/action-wait-for-check@v1.0.0
         with:
           check-name: 'server-ready'
           max-attempts: 10
@@ -52,9 +52,12 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Upload test artifacts (if tests fail)
+      - name: Upload test artifacts
         if: failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: cypress-screenshots
-          path: cypress/screenshots
+          name: cypress-artifacts
+          path: |
+            cypress/screenshots
+            cypress/videos
+            cypress/logs
