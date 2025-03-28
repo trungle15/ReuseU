@@ -7,18 +7,27 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false  # continue even if one test fails
       matrix:
-        spec-file: [1.cy.js]
+        spec-file: [1.cy.js]  # add more if needed
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-
+        uses: actions/checkout@v4  #v4
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '22.2.0' # Specify the Node.js version you need
+          node-version: '22.2.0'
+          cache: 'npm'  # cache dependencies
 
+      - name: Install dependencies
+        working-directory: ./frontend  # install from frontend/
+        run: npm ci --no-audit  # clean install (faster than npm install)
 
       - name: Run Cypress tests
-        run: npx cypress run --spec "cypress/e2e/${{ matrix.spec-file }}"
+        working-directory: ./frontend  #  from frontend/
+        run: |
+          npx cypress run \
+            --config-file cypress.config.js \
+            --spec "cypress/e2e/${{ matrix.spec-file }}" \
+            --record false  # 
