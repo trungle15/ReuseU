@@ -23,7 +23,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  # Using LTS version for better compatibility
+          node-version: '20'  # LTS version recommended
           cache: 'npm'
 
       - name: Install dependencies
@@ -38,13 +38,20 @@ jobs:
           npm run dev &
           SERVER_PID=$!
           
-          # wait for serv
-          npx wait-on http://localhost:3000
+          # Wait for server (replaces wait-on)
+          echo "Waiting for server to start..."
+          for i in {1..10}; do
+            if curl -s http://localhost:3000 >/dev/null; then
+              echo "Server is up!"
+              break
+            fi
+            sleep 3
+          done
           
-          # run tests
+          # Run Cypress tests
           npx cypress run --browser chrome --config baseUrl=http://localhost:3000 || TEST_RESULT=$?
           
-          # Ensure server is killed
+          # Kill server
           kill $SERVER_PID
           exit ${TEST_RESULT:-0}
         env:
