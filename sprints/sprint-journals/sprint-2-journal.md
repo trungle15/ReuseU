@@ -10,17 +10,22 @@ Coding guidelines should appear in your Repository alongside any existing develo
  
 ## Part 2: Software Architecture
 
-Provide an overview of your system. In your Requirements Document, add the following:
-
-* Identify and describe the major software components and their functionality at a conceptual level.
-* Specify the interfaces between components at a high level. Which components connect to which other components?
-* Identify the major data storage components and specify interfaces between data storage and software components.
-* Create a diagram of your system's architecture. Most of the above can be specified by an architecture diagram, but add notes as needed to describe the diagram.
-* If there are particular assumptions underpinning your chosen architecture, identify and describe them.
-
-Write about your design decisions. In your Sprint Journal, add an entry on the following:
+In your Sprint Journal, add an entry on the following:
 
 * For each of two decisions pertaining to your software architecture, identify and briefly describe an alternative. For each of the two alternatives, discuss its pros and cons compared to your choice.
+* * **Alternatives**  
+  * Vercel:
+  * Firebase - One alternative to Firebase database hosting is AWS Amplify, which offers a similar framework for web development in general and database implementation and maintenance specifically. 
+
+  ##### Pros:
+      * Compatible with SQL, NoSQL, and GraphQL
+      * Allows for customization and fine-graining
+      * Integrates nicely with other AWS infrastructure
+  
+  ##### Cons:
+      * Harder to grasp for beginner developers
+      * Complex pricing and subject to high costs piling up, whereas Firebase base free plan is likely to cover our needs
+      * Might not integrate nicely with non-AWS infrastructure
 
 
 ## Part 3: Data Modeling
@@ -83,31 +88,47 @@ Be specific. If part of your risk analysis could be included in a different team
  * Medium impact if it occurs
    * Potential for scams to occur with greater frequency and ease
    * Listed as medium on the assumption not many people will attempt to game the system
- * To detect problem: If report is made, check timestamp sol
+ * To detect problem: If report is made, check if an entry for date + time sold exists.
+ * To mitigate problem: Have entering the date and time be a requirement for confirming a purchase
+
+#### Risk 3: Scammers - buyers take money and don’t give item
+ * Low likelihood of occurring
+   * Assume that people here have enough integrity to not do such things!
+ * High impact if it occurs
+   * Stealing money, defeats the purpose of the site!
+ * To detect problem: Report button feature will alert staff (us) to possible scammers
+ * To mitigate problem: Users will have rating system so that those with an apparent history of scams will be avoided - based on how much they were reported
 
 ### 5.2. Epics
 An epic is a series of issues that come together to create an identifiable feature group. Completion of an epic may span multiple sprints.
 
+#### Epic 1: Documentation
+* **Description**: This epic's main goal is to finalize the bulk of our written work for ReuseU. This entails all of the files in our [requirements-guidelines](https://github.com/dicarlosofia/ReuseU/tree/main/requirements-guidelines) folder being close to their final version, as well as our README file.
+* **Dependencies**: No other epics need to be done before we can start this epic. This epic is already in development with the bulk of what the ReuseU team is working on within Sprint 2.
+* **Effort Est.**: This will take our whole team, for the written work is somewhat extensive. This will end up being 12 person-weeks. 
+* **Subtasks**: These will be marked accordingly with the ***Epic 1*** Tag.
 
-Divide your planned work into about 3-6 epics. For each epic, write in your Sprint Journal:
+#### Epic 2: Beta Version Development
+* **Description**: This epic's main goal is to begin developing the technical side of ReuseU, a.k.a. bringing all that we have written down on paper to life.
+* **Dependencies**: We must have *most* of ***Epic 1*** done before we begin on this epic. This is because the written work is a necessary preliminary step to help the team have a more cohesive, parallel workflow when we all transition into a team of mostly developers.
+* **Effort Est.**: This will take about 4 people for 2 and a half weeks, or 10 person-weeks. 
+* **Subtasks**: These will be marked accordingly with the ***Epic 2*** Tag.
 
-* Description -- What will this epic achieve?
-* Dependencies --  What (other epic) needs to be done before this epic can be started?
-* Effort estimate -- How many person-week units do you expect it will take (If 3 team members will work on it for 2 weeks, that's 6 person-weeks.)
-* Subtasks -- In the backlog of your Issue Manager, label tasks so they can easily be identified as part of the given epic. Create any relevant tasks that do not exist yet. Note that issues do not need to be well formed until they are added to the current sprint backlog.
+#### Epic 3: Final Version Development
+* **Description**: This epic's main goal is to begin finalizing ReuseU as a website. At the end of this epic, ReuseU should be ready to be tentatively used by Grinnellians.
+* **Dependencies**: We must have Epic 2 completed before we begin this epic.
+* **Effort Est.**: This will take all 6 team members for two weeks minimum, so 12 person-weeks. 
+* **Subtasks**: These will be marked accordingly with the ***Epic 3*** Tag.
 
-### 5.3. Product Roadmap
-In your Sprint Journal, create a timeline or calendar to represent your product roadmap. You might experiment with different text or graphical formats to make a calendar that is easy for your team  to understand. In your roadmap, include:
+### 5.3.
 
-* Approximate start date of each epic
-* Approximate completion date of each epic
-* Enough time for flexibility in case your approximations are off
+![alt text](<ReuseU Epics Timeline.png>)
 
 
 ### 5.4. Documentation plan
-In your Requirements Document, outline a plan for the documentation that you plan to deliver with the system, e.g., user guides, admin guides, developer guides, man pages, help menus, wikis, etc. Make sure to create corresponding issues in your Issue Manager.
-
-
+We will need to release the following documentation with our system:
+* Admin guide: Assists admins (us, for the time being) on how to manage and maintain the system
+* Help menus: Helps users learn about features and how to make use of them
 
  
 ## Part 6: Continuous Integration Plan
