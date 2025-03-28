@@ -7,32 +7,54 @@ on:
   pull_request:
     paths:
       - 'frontend/**'
-  workflow_dispatch:  # allow manual execution
+  workflow_dispatch:
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Debug working directory
-        run: pwd
-
-      - name: List frontend directory contents
-        run: ls -la frontend/
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22.2.0'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: |
-          cd frontend
-          npm ci
+        run: npm ci
 
-      - name: Run tests
-        run: |
-          cd frontend
-          npm test
+      - name: Verify Cypress installation
+        run: npx cypress verify
+
+      - name: Start development server
+        run: npm run dev &
+        env:
+          PORT: 3000
+          NODE_ENV: test
+
+      - name: Wait for server to be ready
+        uses: fountainhead/action-wait-for-check@v1.0.0
+        with:
+          check-name: 'server-ready'
+          max-attempts: 10
+          seconds-between-attempts: 6
+          command: 'curl -f http://localhost:3000'
+
+      - name: Run Cypress tests
+        run: npx cypress run --browser chrome --config baseUrl=http://localhost:3000
 
       - name: Build project
-        run: |
-          cd frontend
-          npm run build
+        run: npm run build
+
+      - name: Upload test artifacts (if tests fail)
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
