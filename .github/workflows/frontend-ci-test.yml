@@ -7,32 +7,30 @@ on:
   pull_request:
     paths:
       - 'frontend/**'
-  workflow_dispatch:  # allow manual execution
+  workflow_dispatch:
 
 jobs:
-  build:
+  test-and-build:
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Debug working directory
-        run: pwd
-
-      - name: List frontend directory contents
-        run: ls -la frontend/
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
 
       - name: Install dependencies
-        run: |
-          cd frontend
-          npm ci
+        working-directory: ./frontend
+        run: npm ci
 
-      - name: Run tests
-        run: |
-          cd frontend
-          npm test
+      - name: Run Cypress tests
+        working-directory: ./frontend
+        run: npm test  
 
       - name: Build project
-        run: |
-          cd frontend
-          npm run build
+        working-directory: ./frontend
+        run: npm run build
