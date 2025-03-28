@@ -10,27 +10,54 @@ on:
   workflow_dispatch:
 
 jobs:
-  test-and-build:
+  test:
     runs-on: ubuntu-latest
-    
+    defaults:
+      run:
+        working-directory: ./frontend
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '22.2.0'
           cache: 'npm'
 
       - name: Install dependencies
-        working-directory: ./frontend
         run: npm ci
 
+      - name: Verify Cypress installation
+        run: npx cypress verify
+
+      - name: Start development server
+        run: npm run dev &
+        env:
+          PORT: 3000
+          NODE_ENV: test
+
+      - name: Wait for server to be ready
+        uses: actions-ecosystem/action-wait-for-check@v1.0.0
+        with:
+          check-name: 'server-ready'
+          max-attempts: 10
+          seconds-between-attempts: 6
+          command: 'curl -f http://localhost:3000'
+
       - name: Run Cypress tests
-        working-directory: ./frontend
-        run: npm test  
+        run: npx cypress run --browser chrome --config baseUrl=http://localhost:3000
 
       - name: Build project
-        working-directory: ./frontend
         run: npm run build
+
+      - name: Upload test artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-artifacts
+          path: |
+            cypress/screenshots
+            cypress/videos
+            cypress/logs
