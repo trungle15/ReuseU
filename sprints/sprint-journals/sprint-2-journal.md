@@ -14,7 +14,7 @@ In your Sprint Journal, add an entry on the following:
 
 * For each of two decisions pertaining to your software architecture, identify and briefly describe an alternative. For each of the two alternatives, discuss its pros and cons compared to your choice.
 ### **Alternatives**  
-#### Vercel for Frontend Hosting:
+#### 1. Vercel for Frontend Hosting:
 One alternative to Vercel is Netlify. Netlify is very similar to Vercel, and both options are usually offered as the first suggestions when talking about simple, small-scale web project hosting.
 
 ##### Pros of Netlify:
@@ -25,16 +25,16 @@ One alternative to Vercel is Netlify. Netlify is very similar to Vercel, and bot
 * Less optimizaed for Next.js, as opposed to Vercel
 * Works better for static websites, not dynamics ones
 * No team member has experience with Netlify, whereas Trung has experience with Vercel
+
   
-#### Firebase for Database Hosting: 
+#### 2. Firebase for Database Hosting: 
 One alternative to Firebase database hosting is AWS Amplify, which offers a similar framework for web development in general and database implementation and maintenance specifically. 
 
-  ##### Pros:
+##### Pros:
 * Compatible with SQL, NoSQL, and GraphQL
 * Allows for customization and fine-graining
-* Integrates nicely with other AWS infrastructure
-  
-  ##### Cons:
+* Integrates nicely with other AWS infrastructure  
+##### Cons:
 * Harder to grasp for beginner developers
 * Complex pricing and subject to high costs piling up, whereas Firebase base free plan is likely to cover our needs
 * Might not integrate nicely with non-AWS infrastructure
