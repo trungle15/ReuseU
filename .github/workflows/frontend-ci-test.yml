@@ -47,11 +47,11 @@ jobs:
 
       - name: Start server and run tests
         run: |
-          # server in background
+          # Start server in background
           npm run dev &
           SERVER_PID=$!
           
-          # server timeout
+          # Wait for server to start
           echo "Waiting for server to start..."
           for i in {1..10}; do
             if curl -s http://localhost:3000 >/dev/null; then
@@ -66,7 +66,7 @@ jobs:
             sleep 3
           done
           
-          # test command
+          # Prepare test command
           TEST_CMD="npx cypress run --browser ${{ github.event.inputs.test-browser || 'chrome' }}"
           if [ -n "${{ github.event.inputs.test-spec }}" ]; then
             TEST_CMD="$TEST_CMD --spec ${{ github.event.inputs.test-spec }}"
@@ -93,7 +93,7 @@ jobs:
         with:
           name: cypress-artifacts-${{ github.run_id }}
           path: |
-            cypress/screenshots
-            cypress/videos
-            cypress/logs
+            frontend/cypress/screenshots
+            frontend/cypress/videos
+            frontend/cypress/logs
           retention-days: 3
