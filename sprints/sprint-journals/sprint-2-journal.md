@@ -66,6 +66,69 @@ In your Requirements Document, provide a detailed definition of each of the soft
   * What kind of data gets passed between each pair of components? To minimize coupling, try to minimize the number of components that need to be connected to each other and keep the interfaces between components as small as possible.
 
 Note that software design is distinct from architecture because it is more specific and detailed, providing additional detail about components that may only be a single rectangle the architecture diagram.
+1. Frontend (Next.js)
+Packages/Modules:
+pages/ (Next.js routing)
+components/ (Reusable UI components (styled buttons with our colors/animations, etc.))
+lib/ (Frontend utilities)
+styles/ (CSS modules)
+context/ (React context providers (might use redux, still unknown))
+Responsibilities:
+pages/: Handle route rendering and page composition
+components/:
+Listing: Displays listing previews
+Dashboard: Global navigation
+AuthModal: Handles login/signup
+lib/api.js: Frontend API service layer
+context/AuthContext.js: Manages user authentication state
+Interfaces: Communicates with backend via REST API calls (JSON payloads), receives user input events and translates to API requests
+
+2. Backend (Firebase/Firestore)
+Components:
+Firebase Authentication
+Firestore Database
+Cloud Functions (serverless logic)
+Responsibilities:
+auth.py: Handles user authentication flows
+db.py: Manages all database operations
+storage.py: Handles file uploads/downloads
+triggers/: Cloud Functions for: onUserCreate: Profile initialization, onListingUpdate: Notification triggers
+Interfaces: Exposes REST endpoints via Firebase HTTP functions, Receives JSON payloads from frontend, Returns structured JSON responses
+Exact design for all data models can be viewed at ![Database Schema](../../assets/Database_Schema.jpg)
+Shared models will be: User, Listing, Transaction
+
+3. Component Interactions
+Frontend ↔ Backend:
+Authentication Flow:
+Frontend sends email/password (JSON)
+Backend returns auth token + user data (JSON)
+(example sequence diagram for Listing management)
+sequenceDiagram
+  Frontend->>Backend: POST /listings (NewListingDTO)
+  Backend->>Firestore: Create document
+  Firestore->>Backend: DocumentReference
+  Backend->>Frontend: Listing (JSON)
+To minimize coupling:
+Frontend only knows:
+API endpoint URLs
+Expected request/response shapes
+Backend only knows:
+Data validation rules
+Database schema
+
+graph LR
+  A[User Action] --> B[API Service]
+  B --> C[Backend Handler]
+  C --> D[(Database)]
+  C --> E[Third-Party Services] (firebase, cloudinary (image storage), maybe stripe??)
+  E --> B
+  D --> C
+  C --> B
+  B --> F[UI Update]  
+
+key points: All database access goes through backend
+Frontend contains zero business logic
+Data validation at both layers
 
 
 
