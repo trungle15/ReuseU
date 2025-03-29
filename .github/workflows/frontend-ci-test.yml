@@ -24,7 +24,7 @@ jobs:
       - name: Run tests
         run: |
           # Start server in background
-          npm run start &
+          npm run dev &
           # Wait for server
           npx wait-on http://localhost:3000
           # Run Cypress tests
