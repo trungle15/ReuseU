@@ -252,3 +252,7 @@ We completed setting up database service in Firebase and added schema and dummy 
 
 A new mascot design was developed.
 
+A (very) rough outline for the listings homepage was created in branch "skeleton" - this includes the Listing component, the Listings Homepage component,
+and a Dashboard. They are all just outlines to be filled in. No deep functionality has been added, but tests for them have been arranged.
+
+
