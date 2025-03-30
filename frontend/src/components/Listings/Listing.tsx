@@ -27,14 +27,14 @@ export default function Listing({ title, price, tags }: ListingProps) {
           <h3 className="font-bold">Title</h3>
         </div>
         <div className ="h-1/4 border-2 border-doublerounded-lg">
-          <text className="self-start ml-[1vh]">
+          <span className="self-start ml-[1vh]">
             This is where my tags will go
-          </text>
+          </span>
         </div>
         <div className ="h-1/2 border-2 border-double rounded-lg">
-        <text className="self-start ml-[1vh]">
+        <span className="self-start ml-[1vh]">
             Bruh stinky stinky stinky bruh bruh stinky stinky stinky bruh bruh stink
-          </text>
+          </span>
         </div>
       </div>
         
