@@ -70,7 +70,7 @@ Our system stores data, so below we describe in detail *what* data our system st
 - We have a message table containing the userid, message id, time of chat and message content. **CHANGE FROM PHOTO**: we have boolean saying whether the message came from the buyer or seller.
 - Chat holds the array/stack of message ids tied to a listing.
 
-## Part 4: Software Design
+## Part 4: Software Design **continued in sprint-2-journal**
 **Formed by**: A listings homepage, populated with clickable Listings, that contain data such as price, username of the seller, a favorited option, description, etc.
 1. Upon being clicked, a listing page opens, with more in-depth details.
 2. There is a profile page, accessible by the profile photo in the dashboard, with information on the user.

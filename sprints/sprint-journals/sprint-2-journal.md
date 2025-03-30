@@ -234,13 +234,17 @@ In the Developer Guidelines section of your Repository, document what a develope
 * Which tests will be executed in a CI build.
 * Which development actions trigger a CI build.
 
+Test library for frontend: Cypress. Chosen for being well documented and standard in teh industry.
+components/whatever we deem necessary to be tested will be executed in a CI build.
+Pushes to main / PRs will trigger a CI build
+
 ## Part 7: Test Automation and Continuous Integration Setup
 Add configuration to your Repository to enable automated tests and CI. You are not expected to provide an extensive test suite for your project at this point. Rather, the goal is to have the test infrastructure and CI set up with a few existing, example tests. (Your set up and the documented test-addition process should allow a developer on the team to easily add and run a new test.)
 
 
 In your Sprint Journal, include a screenshot of your successful tests to demonstrate that they have run and passed.
 
-
+Assets/TestsPassed
 
 ## Part 8: Additional Work
 
