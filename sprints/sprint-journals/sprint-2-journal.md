@@ -221,22 +221,19 @@ We will need to release the following documentation with our system:
  
 ## Part 6: Continuous Integration Plan
 
-In your Sprint Journal, write a test plan, describing:
-
-* Your test library (e.g., JUnit, Mocha, Pytest, etc).
-* A brief justification for why you chose that test library.
-* Your CI service and how your project repository is linked to it. (GitHub Actions is the recommended CI service.)
-* A brief justification for why you chose that CI service.
-
-In the Developer Guidelines section of your Repository, document what a developer needs to know about testing and CI, including:
-
-* How to add a new test to the code base.
-* Which tests will be executed in a CI build.
-* Which development actions trigger a CI build.
-
+### Frontend 
 Test library for frontend: Cypress. Chosen for being well documented and standard in teh industry.
 components/whatever we deem necessary to be tested will be executed in a CI build.
 Pushes to main / PRs will trigger a CI build
+
+### Backend
+Test library: Pytest. Simple, flexible, and widely used for Python/Flask testing; supports mocking Firebase interactions.
+
+CI Service: GitHub Action
+
+How Linked: Workflow file `(.github/workflows/backend-ci.yml)` in `dicarlosofia/ReuseU` triggers on pushes/PRs to `main`.
+
+Justification: Native GitHub integration, free tier, and customizable for our needs.
 
 ## Part 7: Test Automation and Continuous Integration Setup
 Add configuration to your Repository to enable automated tests and CI. You are not expected to provide an extensive test suite for your project at this point. Rather, the goal is to have the test infrastructure and CI set up with a few existing, example tests. (Your set up and the documented test-addition process should allow a developer on the team to easily add and run a new test.)
