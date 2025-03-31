@@ -18,15 +18,15 @@ def get_db_root():
     ref = db.reference('/')
     return ref
 
+ref = get_db_root()
+
 def print_all_content():
     # print db content
-    ref = get_db_root()
     db_content = ref.get()
     print("database content:", db_content)
 
 def add_account(account_data):
     # add account with sequential key (count + 1)
-    ref = get_db_root()
     accounts = ref.child('Account').get()
     new_key = str(len(accounts) + 1) if accounts else "1"
     ref.child('Account').child(new_key).set(account_data)
@@ -43,7 +43,8 @@ def generate_random_account():
     college = random.choice(colleges)
     # random phone: xxx-xxx-xxxx
     phone = f"{random.randint(100,999)}-{random.randint(100,999)}-{random.randint(1000,9999)}"
-    user_id = random.randint(1000, 9999)
+    accounts = ref.child('Account').get()
+    user_id = str(len(accounts) + 1) if accounts else "1"
     username = first_name + str(random.randint(10,99))
     creation_time = datetime.datetime.now(datetime.timezone.utc).isoformat().replace("+00:00", "Z")
 
@@ -58,20 +59,32 @@ def generate_random_account():
     }
 
 def print_all_accounts():
-    # print each account
-    ref = get_db_root()
     accounts = ref.child('Account').get()
     if not accounts:
         print("no accounts found")
         return
-    for key, account in accounts.items():
-        print(f"account key: {key}")
-        for field, value in account.items():
-            print(f"  {field}: {value}")
-        print("-" * 20)
+    if isinstance(accounts, list):
+        for idx, account in enumerate(accounts, start=1):
+            if account is not None:
+                print("account key: " + str(idx))
+                for field, value in account.items():
+                    print("  " + field + ": " + str(value))
+                print("-" * 20)
+    else:
+        for key, account in accounts.items():
+            print("account key: " + str(key))
+            for field, value in account.items():
+                print("  " + field + ": " + str(value))
+            print("-" * 20)
 
-# generate and add random account
+
+def delete_acc(account_id):
+    ref.child('Account').child(account_id).remove("15")
+
 new_random_account = generate_random_account()
 add_account(new_random_account)
 print_all_content()
 print_all_accounts()
+
+
+
