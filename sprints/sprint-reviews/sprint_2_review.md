@@ -7,7 +7,7 @@ The purpose of sprint review is to show off what your team has completed in a wa
 ## Work Completed
 _Describe what you completed this sprint._
 - **Sofia**: Created software architecture diagram, helped with the CI testing & setup, created issues, created epics timeline, created epics
-- **Timur**:
+- **Timur**: Outlined the planning assisted with task assignments, participated in the data modelling, as well as epic development.
 - **Trung**:
 - **Howie**:
 - **Peter**:
@@ -15,9 +15,9 @@ _Describe what you completed this sprint._
 
 ## Sprint 2 In Review
 1. _How has your product improved or progressed from a customer perspective? (Describe in terms of high-level features that a non-technical user could recognize and appreciate.)_
-  - 
+  - Since this Spring largely focused on the set up of development (epics, CI, data modelling), our product has not really changed from a customer's perspective.
 2. _What progress have you made that is not visible to a common user?_
-  - 
+  - A lot. We have established coding guidelines, outlined clear software architecture and data model, as well as further broke the development down into manageable and trackable epics. We've set up continuous integration and tested its automation.
 
 ### Turnin Reminder:
 Commit and push the sprint review report to your GitHub repository before the time that it is due. In the readme file for your repository, include a description of where to find sprint review reports.
