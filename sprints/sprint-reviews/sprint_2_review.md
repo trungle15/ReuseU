@@ -15,7 +15,7 @@ _Describe what you completed this sprint._
 
 ## Sprint 2 In Review
 1. _How has your product improved or progressed from a customer perspective? (Describe in terms of high-level features that a non-technical user could recognize and appreciate.)_
-  - Since this Spring largely focused on the set up of development (epics, CI, data modelling), our product has not really changed from a customer's perspective.
+  - Since this sprint largely focused on the set up of development (epics, CI, data modelling), our product has not really changed from a customer's perspective.
 2. _What progress have you made that is not visible to a common user?_
   - A lot. We have established coding guidelines, outlined clear software architecture and data model, as well as further broke the development down into manageable and trackable epics. We've set up continuous integration and tested its automation.
 
