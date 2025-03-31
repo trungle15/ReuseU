@@ -26,10 +26,12 @@ def print_all_content():
     print("database content:", db_content)
 
 def add_account(account_data):
-    # add account with sequential key (count + 1)
+    # notice we read the number of accounts here and increment by 1
     accounts = ref.child('Account').get()
-    new_key = str(len(accounts) + 1) if accounts else "1"
+    new_key = str(len(accounts)) if accounts else "1"
+    account_data['UserID'] = new_key
     ref.child('Account').child(new_key).set(account_data)
+
 
 # generates accs for testing purposes
 def generate_random_account():
@@ -43,8 +45,6 @@ def generate_random_account():
     college = random.choice(colleges)
     # random phone: xxx-xxx-xxxx
     phone = f"{random.randint(100,999)}-{random.randint(100,999)}-{random.randint(1000,9999)}"
-    accounts = ref.child('Account').get()
-    user_id = str(len(accounts) + 1) if accounts else "1"
     username = first_name + str(random.randint(10,99))
     creation_time = datetime.datetime.now(datetime.timezone.utc).isoformat().replace("+00:00", "Z")
 
@@ -53,7 +53,6 @@ def generate_random_account():
         'Last_name': last_name,
         'PhoneNumber': phone,
         'School': college,
-        'UserID': user_id,
         'Username': username,
         'dateTime_creation': creation_time
     }
@@ -63,28 +62,33 @@ def print_all_accounts():
     if not accounts:
         print("no accounts found")
         return
-    if isinstance(accounts, list):
-        for idx, account in enumerate(accounts, start=1):
-            if account is not None:
-                print("account key: " + str(idx))
-                for field, value in account.items():
-                    print("  " + field + ": " + str(value))
-                print("-" * 20)
-    else:
-        for key, account in accounts.items():
-            print("account key: " + str(key))
+    for idx, account in enumerate(accounts, start=0):
+        if account is not None:
+            print("account key: " + str(idx))
             for field, value in account.items():
                 print("  " + field + ": " + str(value))
             print("-" * 20)
 
 
-def delete_acc(account_id):
-    ref.child('Account').child(account_id).remove("15")
+def load_dummy_accounts(num):
+    for i in range(num):
+        acc = generate_random_account()
+        add_account(acc)
 
-new_random_account = generate_random_account()
-add_account(new_random_account)
+
+
+def delete_acc(account_id):
+    ref.child('Account').child(str(account_id)).delete()
+
+def delete_acc_range(min,max):
+    for i in range(min,max):
+        delete_acc(i)
+
+load_dummy_accounts(200)
+#delete_acc_range(1,12)
 print_all_content()
 print_all_accounts()
+
 
 
 
