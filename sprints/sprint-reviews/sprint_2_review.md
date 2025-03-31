@@ -11,7 +11,7 @@ _Describe what you completed this sprint._
 - **Trung**:
 - **Howie**:
 - **Peter**:
-- **Krishna**:
+- **Krishna**: Performed risk assessment, created documentation plan, helped with epic development, and minor work on visual elements
 
 ## Sprint 2 In Review
 1. _How has your product improved or progressed from a customer perspective? (Describe in terms of high-level features that a non-technical user could recognize and appreciate.)_
