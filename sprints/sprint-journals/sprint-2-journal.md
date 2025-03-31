@@ -241,7 +241,7 @@ Add configuration to your Repository to enable automated tests and CI. You are n
 
 In your Sprint Journal, include a screenshot of your successful tests to demonstrate that they have run and passed.
 
-Assets/TestsPassed
+![Testing Plan](../assets/../../assets/TestsPassed.jpg)
 
 ## Part 8: Additional Work
 
