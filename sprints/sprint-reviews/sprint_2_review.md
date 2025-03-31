@@ -8,9 +8,9 @@ The purpose of sprint review is to show off what your team has completed in a wa
 _Describe what you completed this sprint._
 - **Sofia**: Created software architecture diagram, helped with the CI testing & setup, created issues, created epics timeline, created epics
 - **Timur**: Outlined the planning assisted with task assignments, participated in the data modelling, as well as epic development.
-- **Trung**:
-- **Howie**: Helped with software architecture on frontend and backend, Frontend CI, software design
-- **Peter**:
+- **Trung**: Backend architecture, Backend CI/CD, Initial backend repo/testing init
+- **Howie**: Helped with software architecture on frontend and backend, Frontend CI, software design, set up repo, initial skeleton
+- **Peter**: Backend architecture/Storage design, Continuous integration plan 
 - **Krishna**: Performed risk assessment, created documentation plan, helped with epic development, and minor work on visual elements
 
 ## Sprint 2 In Review
