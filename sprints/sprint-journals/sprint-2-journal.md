@@ -246,6 +246,7 @@ In your Sprint Journal, include a screenshot of your successful tests to demonst
 ## Part 8: Additional Work
 
 We completed setting up database service in Firebase and added schema and dummy data in our Firebase realtime database following the schema provided in Part 3 - Data Modeling, fulfilling [#64](https://github.com/dicarlosofia/ReuseU/issues/64).
+We created test functions that randomly generate accounts, and another to print them out different contents of the database in python.
 
 A new mascot design was developed.
 
