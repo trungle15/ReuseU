@@ -16,10 +16,10 @@ _Describe what you completed this sprint._
 ## Sprint 2 In Review
 1. _How has your product improved or progressed from a customer perspective? (Describe in terms of high-level features that a non-technical user could recognize and appreciate.)_
   - Since this sprint largely focused on the set up of development (epics, CI, data modelling), our product has not really changed from a customer's perspective.
-  -  We have a runnable website now!
+  - However, we have a runnable website now!
 2. _What progress have you made that is not visible to a common user?_
   - A lot. We have established coding guidelines, outlined clear software architecture and data model, as well as further broke the development down into manageable and trackable epics. We've set up continuous integration and tested its automation.
-  -  The stuff behind the scenes (database structure, storage, etc.) has been ironed out.
+  - Stuff behind the scenes (database structure, storage, etc.) has been ironed out.
 
 ### Turnin Reminder:
 Commit and push the sprint review report to your GitHub repository before the time that it is due. In the readme file for your repository, include a description of where to find sprint review reports.

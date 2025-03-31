@@ -7,9 +7,8 @@
  
 
 ## Sprints
-* Navigate to the **sprints/sprint-planning** folder for sprint planning reports.*
+* Navigate to the **sprints/sprint-planning** folder for sprint planning reports and reviews.*
  
-
  ## Issues
  [Issue tracking](https://github.com/dicarlosofia/ReuseU/issues)
 
