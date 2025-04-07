@@ -1,11 +1,19 @@
 import { useState } from 'react';
+import { useGlobalContext } from '@/Context/GlobalContext';
 
 interface Props {
   onCategorySelect?: (category: string) => void;
 }
 
+interface PriceRange {
+  min: number;
+  max: number;
+  label: string;
+}
+
 export const Dropdown: React.FC<Props> = ({ onCategorySelect }) => {
   const [expandedCategories, setExpandedCategories] = useState<number[]>([]);
+  const { filters, setFilters } = useGlobalContext();
 
   const toggleCategory = (index: number) => {
     setExpandedCategories(prev => 
@@ -15,13 +23,53 @@ export const Dropdown: React.FC<Props> = ({ onCategorySelect }) => {
     );
   };
 
+  const handleFilterChange = (item: string, isChecked: boolean) => {
+    if (isChecked) {
+      setFilters((prev: string[]) => [...prev, item]);
+    } else {
+      setFilters((prev: string[]) => prev.filter(filter => filter !== item));
+    }
+  };
+
+  const priceRanges: PriceRange[] = [
+    { min: 0, max: 10, label: "Under $10" },
+    { min: 10, max: 50, label: "$10 - $50" },
+    { min: 50, max: 100, label: "$50 - $100" },
+    { min: 100, max: 500, label: "$100 - $500" },
+    { min: 500, max: Infinity, label: "Above $500" }
+  ];
+
   const categories = [
-    { name: 'Price', items: ["Under $10", "$10 - $50", "$50 - $100", "$100 - $500", "Above $500"] },
-    { name: 'Kitchen', items: ["Cookware", "Appliances", "Utensils", "Storage", "Dinnerware"] },
-    { name: 'Furniture', items: ["Chairs", "Tables", "Beds", "Desks", "Storage"] },
-    { name: 'Electronics', items: ["Laptops", "Phones", "Tablets", "TVs", "Audio"] },
-    { name: 'Clothing', items: ["Shirts", "Tops", "Bottoms", "Dresses", "Accessories"] },
-    { name: 'Miscellaneous', items: ["Books", "Toys", "Art", "Crafts", "Other"  ] }
+    { 
+      name: 'Price', 
+      items: priceRanges.map(range => range.label),
+      type: 'price' as const
+    },
+    { 
+      name: 'Kitchen', 
+      items: ["Cookware", "Appliances", "Utensils", "Storage", "Dinnerware"],
+      type: 'category' as const
+    },
+    { 
+      name: 'Furniture', 
+      items: ["Chairs", "Tables", "Beds", "Desks", "Storage"],
+      type: 'category' as const
+    },
+    { 
+      name: 'Electronics', 
+      items: ["Laptops", "Phones", "Tablets", "TVs", "Audio"],
+      type: 'category' as const
+    },
+    { 
+      name: 'Clothing', 
+      items: ["Shirts", "Tops", "Bottoms", "Dresses", "Accessories"],
+      type: 'category' as const
+    },
+    { 
+      name: 'Miscellaneous', 
+      items: ["Books", "Toys", "Art", "Crafts", "Other"],
+      type: 'category' as const
+    }
   ];
 
   return (
@@ -54,7 +102,12 @@ export const Dropdown: React.FC<Props> = ({ onCategorySelect }) => {
             {category.items.map((item, idx) => (
               <div key={idx} className="py-2">
                 <label className="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                  <input 
+                    type="checkbox" 
+                    checked={filters.includes(item)}
+                    onChange={(e) => handleFilterChange(item, e.target.checked)}
+                    className="rounded border-gray-300 text-[#2A9FD0] focus:ring-[#2A9FD0]" 
+                  />
                   <span className="text-gray-700">{item}</span>
                 </label>
               </div>

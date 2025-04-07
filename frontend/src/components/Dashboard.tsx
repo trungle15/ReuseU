@@ -13,7 +13,7 @@ export default function Dashboard() {
     }
 
     const handleUserCircleClick = () => {
-
+        router.push('/profile');
     }
 
     const handleCogClick = () => {
