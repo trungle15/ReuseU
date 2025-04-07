@@ -15,7 +15,7 @@ export default function Home() {
     <main className={`${geistSans.variable} font-sans min-h-screen bg-[#EEDBBE]`}>
       <Dashboard />
       <div className="container mx-auto px-4 pt-16">
-        <ListingsHomepage />
+        <ListingsHomepage/>
       </div>
     </main>
   );
