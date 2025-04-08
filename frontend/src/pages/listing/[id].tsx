@@ -2,9 +2,10 @@ import Dashboard from "@/components/Dashboard";
 import FullListing from "@/components/Listings/FullListing";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { listingsApi } from "./api/listings";
+import { listingsApi } from "@/pages/api/listings";
+import { NextPage } from "next";
 
-export default function Listing() {
+const ListingPage: NextPage = () => {
     const router = useRouter();
     const { id } = router.query;
     const [listing, setListing] = useState<any>(null);
@@ -77,5 +78,6 @@ export default function Listing() {
             />
         </div>
     );
-}
+};
 
+export default ListingPage; 

@@ -2,22 +2,25 @@ import { useState } from 'react';
 import { ArrowUpTrayIcon, XMarkIcon, ChevronLeftIcon, ChevronRightIcon, ArrowsPointingOutIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { listingsApi } from '@/pages/api/listings';
 
 interface CreateListingProps {
   onSubmit?: (listingData: ListingData) => void;
   tags?: string[];
 }
 
-interface ListingData {
-  title: string;
-  description: string;
-  price: string;
-  photos: File[];
-  tags: string[];
+export interface ListingData {
+  Category: string[];
+  Description: string;
+  Price: string;
+  SellStatus: number;
+  Title: string;
+  UserID: number;
 }
 
 export default function CreateListing({ onSubmit }: CreateListingProps) {
   const router = useRouter();
+  const UserID = 8675309;
   // State for form fields
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -37,15 +40,17 @@ export default function CreateListing({ onSubmit }: CreateListingProps) {
     router.back();
   };
 
-  const listingSubmit = (listingData: ListingData) => {
+  const listingSubmit = async (listingData: ListingData) => {
     const body = {
-      title: listingData.title,
-      description: listingData.description,
-      price: listingData.price,
-      photos: listingData.photos,
-      tags: listingData.tags
+      Category: listingData.Category,
+      Description: listingData.Description,
+      Price: listingData.Price,
+      SellStatus: listingData.SellStatus,
+      Title: listingData.Title,
+      UserID: listingData.UserID,
     }
-    onSubmit?.(body);
+    const response = await listingsApi.create(body, "1");
+    console.log(response);
   }
 
   const chooseTag = (tag: string) => {
@@ -88,11 +93,12 @@ export default function CreateListing({ onSubmit }: CreateListingProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     listingSubmit({
-      title,
-      description,
-      price,
-      photos,
-      tags: selectedTags
+      Title: title,
+      Description: description,
+      Price: price,
+      Category: selectedTags,
+      UserID: UserID,
+      SellStatus: 1,
     });
   };
 

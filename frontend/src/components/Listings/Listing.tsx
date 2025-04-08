@@ -13,9 +13,10 @@ export interface ListingProps {
   tags: string[];
   desc: string;
   image?: string;
+  ListingID: string;
 }
 
-export default function Listing({ title, price, tags, desc, image }: ListingProps) {
+export default function Listing({ title, price, tags, desc, image, ListingID }: ListingProps) {
   const [isFavorited, setIsFavorited] = useState(false);
 
   const router = useRouter()
@@ -29,7 +30,8 @@ export default function Listing({ title, price, tags, desc, image }: ListingProp
 
   const handleTitleClick = (title : string) => {
     setTitle(title)
-    router.push("/listing")
+    console.log(ListingID)
+    router.push(`/listing/${ListingID}`)
 }
 
   return (

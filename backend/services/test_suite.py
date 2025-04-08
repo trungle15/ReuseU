@@ -3,7 +3,33 @@ import random
 
 import firebase_admin
 from firebase_admin import credentials, db
+from account_service import add_account, delete_acc
+from listing_service import add_listing, del_listing
+from review_service import add_review, del_review
+from transaction_service import add_transaction, delete_transaction
+from message_service import add_message
 
+INTRO_MSG = '''
+Welcome to the ReuseU Backend Testing Suite!
+
+Please select a component to test:
+(1): Make Test Accounts
+(2): See All Accounts
+(3): Delete Accounts
+(4): Make Test Transactions
+(5): See All Transactions
+(6): Delete Transactions
+(7): Make Test Listings
+(8): See All Listings
+(9): Delete Listings
+(10): Make Test Reviews
+(11): See All Reviews
+(12): Delete Reviews
+(13): Make Test Messages
+(14): See All Messages
+(15): Delete Messages
+(16): Exit
+Entry: '''
 
 def get_db_root():
     # check if app exists, init if not
@@ -24,68 +50,8 @@ def print_all_content():
     # print db content
     db_content = ref.get()
     print("database content:", db_content)
-
-def add_account(account_data):
-    # notice we read the number of accounts here and increment by 1
-    accounts = ref.child('Account').get()
-    new_key = str(len(accounts)) if accounts else "1"
-    account_data['UserID'] = new_key
-    ref.child('Account').child(new_key).set(account_data)
-
-#Inputs: dictionary account data of form:
-# {BuyerID': buyer_id,
-#'DateTransaction': date_transaction,
-#'ListingID': listing_id,
-#'Price': price,
-#'SellerID': seller_id}
-def add_transaction(transaction_data):
-    # notice we read the number of accounts here and increment by 1
-    new_key = transaction_data['ListingID']
-    ref.child('Transaction').child(new_key).set(transaction_data)
-
-def delete_transaction(listing_id):
-    ref.child('Transaction').child(str(listing_id)).delete()
-
-
-#Inputs: dictionary account data of form:
-# {LastTime': last_time,
-#'MessageContent': message_content,
-#'UserID': user_id,
-#'ListingID': listing_id}
-def add_message(message_data):
-    # notice we read the number of accounts here and increment by 1
-    messages = ref.child('Message').get()
-    new_key = str(len(messages)) if messages else "1"
-    message_data['MessageID'] = new_key
-    listing_id_temp = message_data['ListingID']
-    message_data.pop("ListingID")
-    ref.child('Message').child(new_key).set(message_data)
-
-    target_chat = None
-    chat_exists = False
-    chats = ref.child('Chat').get()
-    for chat in chats:
-        for field, value in chat.items():
-            if field == 'ListingID':
-                if int(value) == listing_id_temp:
-                    target_chat = chat
-                    chat_exists = True
-
-    if chat_exists:
-        target_chat["Messages"] = target_chat["Messages"].append(message_data)
-        ref.child('Chat').child(new_key).set(target_chat)
-    else:
-        new_key = listing_id_temp
-        new_chat = {}
-        new_chat["ListingID"] = listing_id_temp
-        new_chat["Messages"] = [message_data]
-        ref.child('Chat').child(new_key).set(new_chat)
-
-
-def delete_message(message_id):
-    pass
-    #todo
-
+    
+# **********ACCOUNTS**********
 
 # generates accs for testing purposes
 def generate_random_account():
@@ -129,61 +95,132 @@ def load_dummy_accounts(num):
         acc = generate_random_account()
         add_account(acc)
 
-
-
-def delete_acc(account_id):
-    ref.child('Account').child(str(account_id)).delete()
-
 def delete_acc_range(min,max):
     for i in range(min,max):
         delete_acc(i)
         
+        
+# **********TRANSACTIONS**********
+
+def generate_random_transaction(listing_id):
+    buyerid = random.randint(1,1000)
+    sellerid = random.randint(1,1000)
+    price = float(random.randint(100,100000))/100
+    date_transaction = datetime.datetime.now(datetime.timezone.utc).isoformat().replace("+00:00", "Z")
+    return {
+        'BuyerID': buyerid,
+        'DateTransaction': date_transaction,
+        'ListingID': listing_id,
+        'Price': price,
+        'SellerID': sellerid
+    }
+
+def load_dummy_transactions(listing_id_min,listing_id_max):
+    for i in range(listing_id_min,listing_id_max):
+        transac = generate_random_transaction(i)
+        add_transaction(transac)
+
+def print_all_transactions():
+    transactions = ref.child('Transaction').get()
+    if not transactions:
+        print("no transactions found")
+        return
+    for idx, transaction in enumerate(transactions, start=0):
+        if transaction is not None:
+            print("transaction key: " + str(idx))
+            for field, value in transaction.items():
+                print("  " + field + ": " + str(value))
+            print("-" * 20)
+
+def delete_transaction_range(min,max):
+    for i in range(min,max):
+        delete_transaction(i)
+
+# **********MESSAGES**********
 '''
-*********************************Listings**************************************
-Inputs: dictionary listing data of form:
-{Categories} (a dictionary of strings via the frontend)
-{CreateTime} (string in format: 2025-03-25T13:00:00Z)
-{Description} (string)
-{Images} (a nested dictionary of strings, with a key associated to each image. 
-That way, if the image is the default name, each image will still be unique)
+This function generates a random message
 
-**listing ID created dynamically**
-
-{Price} (Integer)
-{SellStatus} (The Integer 0 or 1)
-{Title} (String)
-{UserID} (Integer)
+---SAMPLE MESSAGE---
+{LastTime': last_time,
+'MessageContent': message_content,
+'UserID': user_id,
+'ListingID': listing_id}
 '''
-
-def add_listing(listing_data):
-    # notice we read the number of listings here and increment by 1
-    listings = ref.child('Listing').get()
-    new_key = str(len(listings)) if listings else "1"
-    listing_data['ListingID'] = new_key
-    ref.child('Listing').child(new_key).set(listing_data)
-
-'''
-A function that deletes a listing from the Listing table.
-
-credit: users Peter Haddad and Kevin on Stack Overflow,
-https://stackoverflow.com/questions/59016092/how-to-delete-from-firebase-
-realtime-database-use-python
-'''
-def del_listing(listing_id):
-    # Connect to the database
-    listings = ref.child('Listing').get()
-
-    # Make sure that listing exists, if so, delete it.
-    for key,val in listings.items():
-        if (listing_id == val['ListingID']):
-            delete_listing_ref = ref.child(key)
-            delete_listing_ref.set(None)
-            delete_listing_ref.delete()
-    # If not, reflect that.
-        else:
-            raise ValueError(f"Post with ID {listing_id} does not exist.")
-
+def generate_random_message():
+    last_msg_date = datetime.datetime.now(datetime.timezone.utc).isoformat().replace("+00:00", "Z")
+    content = [
+        "Hey, can we meet in the Grill at 7:30pm??",
+        "Sorry, I can't meet until 10 am tomorrow :(",
+        "What's a good payment method for you",
+        "idk where younker is",
+        "pu to west campus and i'll give you the dell laptop out front",
+        "Haha yeah I told this one freshman that we had a West Campus LOL",
+        "Can you package up the Air Forces in bubble wrap?",
+        "I think that would be best, tysm",
+        "Hi where are we meeting again?",
+        "You too!!",
+        "Hiii is your table still up for sale?",
+        "Yes my listing is still up for sale!",
+        "No I already sold it :("
+    ]
+    msg_content = random.choice(content)
+    user_id = random.randint(00000,99999)
     
+    # Since reviews are tied to listings, we must choose a pre-existing listing
+    # If no listings exist, no need to generate any reviews
+    listings = ref.child('Listing').get()
+    existing_ids = []
+
+    if isinstance(listings, dict):
+        existing_ids = list(listings.keys())
+    elif isinstance(listings, list):
+        # keys are just indices in the list that are not None
+        existing_ids = [str(i) for i, item in enumerate(listings)
+                        if item is not None]
+    else:
+        return None  # Unexpected format
+
+    if not existing_ids:
+        print("Skipping: No valid listing found.")
+        return None
+
+    rand_listing_id = str(random.choice(list(existing_ids)))
+    
+    return {
+        'LastTime': last_msg_date,
+        'MessageContent': msg_content,
+        'UserID': user_id, 
+        'ListingID': rand_listing_id
+    }
+    
+def print_all_messages():
+    messages = ref.child('Chat').get()
+    if not messages:
+        print("no chats found")
+        return
+    for idx, message in enumerate(messages, start=0):
+        if message is not None:
+            print("Chat key: " + str(idx))
+            for field, value in message.items():
+                print("  " + field + ": " + str(value))
+            print("-" * 20)
+
+def load_dummy_messages(num):
+    for i in range(num):
+        msg = generate_random_message()
+        if msg:  # Only try to add if it returned valid data
+            try:
+                add_message(msg)
+                print("Added message.")
+            except ValueError as e:
+                print(f"Skipping message: {e}")
+        else:
+            print("Skipping: No valid listing found.")
+    
+
+
+# **********LISTINGS**********
+
 # generates listings for testing purposes
 def generate_random_listing():
     # sample data lists
@@ -309,102 +346,12 @@ def load_dummy_listings(num):
         acc = generate_random_listing()
         add_listing(acc)
 
-load_dummy_listings(10)
-'''
-**********************************Reviews**************************************
-Inputs: dictionary listing data of form:
-{ListingID} 
-{Rating}
-{Review}
-{ReviewDate}
-{ReviewerID}
-{SellerID}
-'''
+def delete_listings_range(min,max):
+    for i in range(min,max):
+        del_listing(i)
 
-'''
-A function that passes in a dictionary in the block comment formatted above.
+# **********REVIEWS**********
 
-This function is slightly different than the rest because reviews do not have
-their own unique ID's, they actually are referenced to listings.
-'''
-def add_review(review_data):
-    listing_id_temp = str(review_data['ListingID'])
-    # listing_id = review_data.get('ListingID')
-
-    # if not listing_id:
-    #     raise ValueError("review_data must include a 'ListingID' field.")
-
-    # Fetch listings
-    listings = ref.child('Listing').get()
-    contains_listing = False
-    
-    # Check if listing ID exists
-    for listing in listings:
-        if listing is not None:
-            for field, value in listing.items():
-                if field == 'ListingID':
-                    # print(f"Checking value lIDt: {listing_id_temp}, and val: {value}")
-                    if str(value) == listing_id_temp:
-                        contains_listing = True
-                        break
-            if contains_listing == True:
-                break
-                        
-        
-    # for idx, review in enumerate(reviews, start=0):
-    # if review is not None:
-    #     print("Review key: " + str(idx))
-    #     for field, value in review.items():
-    #         print("  " + field + ": " + str(value))
-    #     print("-" * 20)
-    
-    
-    # Make sure we're comparing strings
-    if not listings:
-        raise ValueError(f"No listings exist yet!")
-    elif contains_listing == False:
-        raise ValueError(f"Listing with ID {listing_id_temp} does not exist.")
-
-    # Check if a review already exists for this post
-    review_vals = ref.child('Review').get().values()
-
-    # Check if listing ID exists
-    for review in review_vals:
-        if review is not None:
-            listing_val = list(review.values())[0]
-            # print(f"listing value: {listing_val}")
-            if str(listing_val) == listing_id_temp:
-                print(f"OOOOOOOOOOOOOOOOOReview for listing {listing_id_temp} already exists.OOOOOOOOOOOOOOOO")
-                return
-
-    # Save the review under the reviews node using ListingID as key
-    ref.child('Review').child(str(listing_id_temp)).set(review_data)
-    print(f"Review successfully added for Listing {listing_id_temp}.")
-    
-
-'''
-A function that deletes a review from the Review table.
-PARAM: listing_id | This parameter is the ListingID associated with specified
-review.
-
-credit: users Peter Haddad and Kevin on Stack Overflow,
-https://stackoverflow.com/questions/59016092/how-to-delete-from-firebase-
-realtime-database-use-python
-'''
-def del_review(listing_id):
-    # Connect to the database
-    reviews = ref.child('Review').get()
-
-    # Make sure that listing exists, if so, delete the review.
-    for key,val in reviews.items():
-        if (listing_id == val['ListingID']):
-            delete_review_ref = ref.child(key)
-            delete_review_ref.set(None)
-            delete_review_ref.delete()
-    # If not, reflect that.
-        else:
-            raise ValueError(f"Post with ID {listing_id} does not exist.")
-        
 # generates listings for testing purposes
 def generate_random_review():
     # sample data lists
@@ -435,11 +382,6 @@ def generate_random_review():
 
     # Since reviews are tied to listings, we must choose a pre-existing listing
     # If no listings exist, no need to generate any reviews
-    # if listings:
-    #     if isinstance(listings, list):
-    #                 existing_ids = [str(i) for i, 
-    #                                 item in enumerate(listings) if item is not None]
-    # rand_listing_id = random.choice(existing_ids) if existing_ids else None
     listings = ref.child('Listing').get()
     existing_ids = []
 
@@ -504,16 +446,101 @@ def load_dummy_reviews(num):
         else:
             print("Skipping: No valid listing found.")
 
-load_dummy_reviews(10)
-
-'''*************************************************************************'''
-
-
-load_dummy_accounts(10)
-#delete_acc_range(1,12)
-#print_all_content()
-#print_all_accounts()
-
-
-
-
+def delete_reviews_range(min,max):
+    for i in range(min,max):
+        del_review(i)
+            
+'''
+This prints the intro menu for a tester to refer to when testing the ReuseU
+database.
+'''          
+def intro_menu():
+    while (user_input := input(INTRO_MSG)) != "16":
+        if user_input == "1":
+            num_accts = int(input("Enter amt. of test accounts to make: "))
+            load_dummy_accounts(num_accts)
+            print(f"{num_accts} accounts loaded. Navigate to database to see additions.")
+            exit_testing_program()
+        elif user_input == "2":
+            print_all_accounts()
+            exit_testing_program()
+        elif user_input == "3":
+            min_id = int(input("Enter min account id delete range: "))
+            max_id = int(input("Enter max account id delete range: "))
+            delete_acc_range(min_id,max_id)
+            print(f"Account ids {min_id} though {max_id} were deleted. Navigate to database to see additions.")
+            exit_testing_program()
+        elif user_input == "4":
+            num_accts = int(input("Enter amt. of transactions to make: "))
+            load_dummy_transactions(1,num_accts)
+            print(f"{num_accts} transaction loaded. Navigate to database to see additions.")
+            exit_testing_program()
+            pass
+        elif user_input == "5":
+            print_all_transactions()
+            exit_testing_program()
+            pass
+        elif user_input == "6":
+            min_id = int(input("Enter min account id delete range for transactions: "))
+            max_id = int(input("Enter max account id delete range for transactions: "))
+            delete_transaction_range(min_id, max_id)
+            print(f"Listings ids {min_id} though {max_id} were deleted in the transaction table. Navigate to database to see additions.")
+            exit_testing_program()
+        elif user_input == "7":
+            num_listings = int(input("Enter amt. of test listings to make: "))
+            load_dummy_listings(num_listings)
+            print(f"{num_listings} listings loaded. Navigate to database to see additions.")
+            exit_testing_program()
+        elif user_input == "8":
+            print_all_listings()
+            exit_testing_program()
+        elif user_input == "9":
+            min_id = int(input("Enter min listing id delete range for listings: "))
+            max_id = int(input("Enter max listing id delete range for listings: "))
+            delete_listings_range(min_id, max_id)
+            print(f"Listing ids {min_id} though {max_id} were deleted in the listings table. Navigate to database to see additions.")
+            exit_testing_program()
+        elif user_input == "10":
+            num_reviews = int(input("Enter amt. of test reviews to make: "))
+            load_dummy_reviews(num_reviews)
+            print(f"{num_reviews} reviews loaded. Navigate to database to see additions.")
+            exit_testing_program()
+        elif user_input == "11":
+            print_all_reviews()
+            exit_testing_program()
+        elif user_input == "12":
+            min_id = int(input("Enter min listing id delete range for reviews: "))
+            max_id = int(input("Enter max listing id delete range for reviews: "))
+            delete_reviews_range(min_id, max_id)
+            print(
+                f"Listing ids {min_id} though {max_id} were deleted in the reviews table. Navigate to database to see additions.")
+        elif user_input == "13":
+            num_chats = int(input("Enter amt. of messages to make: "))
+            load_dummy_messages(num_chats)
+            print(f"{num_chats} message(s) loaded. Navigate to database to see additions.")
+            exit_testing_program()
+        elif user_input == "14":
+            # TODO: add messages suite testing functions
+            pass
+        elif user_input == "15":
+            # TODO: add messages suite testing functions
+            pass
+        else:
+            print("Invalid input. Please try again.\n")
+            exit_testing_program()
+            
+'''
+A small function to help with exiting the program.
+'''
+def exit_testing_program():
+    yes_or_no = input("\nWould you like to continue testing the database?\nEnter 'Y' for yes or 'N' to exit: ")
+    if yes_or_no == "Y":
+        print("Continuing on!\n")
+    elif yes_or_no == "N":
+        curr_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        print("\n\nTesting session ended at", curr_time)
+        exit()
+    else: 
+        print("Invalid input. Continuing...\n")
+        
+intro_menu()
