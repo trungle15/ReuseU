@@ -9,7 +9,7 @@
 
 - **Trung**:  
 
-- **Howie**:  
+- **Howie**: Listings, Profile, Chat components, backend connection to frontend
 
 - **Peter**:  
 
