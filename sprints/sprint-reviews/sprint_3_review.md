@@ -37,7 +37,7 @@
 
 **Favoriting a listing**: Find a listing of interest and simply click on the heart in the bottom right corner of the rectangular container. 
 
-**Chats**: In the bottom right corner, find the chat menu/interface. Simply click on the chat for it to expand, click on the user profile to open the respective chat window and type away!
+**Chats**: In the bottom right corner, find the chat menu/interface. Simply click on the up/down arrod to expand/collapse the chat interface. Click on the user profile to open the respective chat window and type away!
 
  
  
