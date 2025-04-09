@@ -15,7 +15,7 @@ Two seperate folders were made for the backend: services and routes. Peter and S
 Trung, Howie and Peter focused on connecting the database function in services to the front end through the API...
 
 3. **Backend Testing**
-Sofia and Krishna created and used a seperate test_suite to easily, manually test database CRUD functions...
+Sofia and Krishna created and used a separate test file, `test_suite.py`, to easily, manually test database CRUD functions. Sofia introduced a menu system to help with easing the testing process, where the user can manipulate the database directly from the test suite menu in the terminal. The test suite adds test entries for all tables in the database (Listings, Reviews, Transactions, Messages, and Accounts), as well as seeing all entries, and deleting a user-specified range of values. This way, the backend team does not need to manually create test data and can perform CRUD operations in an automated process.
 
 
 ## Git Tag for Demo Code: 
