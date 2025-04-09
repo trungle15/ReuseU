@@ -7,7 +7,7 @@
 
 - **Timur**: Took part in frontend development mostly focusing on listings. Learned a lot about css, react, tailwind css, typescript. Been getting through pull requests that Howie has been pushing. 
 
-- **Trung**:  
+- **Trung**:  Took part in backend development, focusing on the database connection to the front end. Developed API endpoints for the front-end to connect to, so that the front-end team may use the database directly with the website. 
 
 - **Howie**: Listings, Profile, Chat components, backend connection to frontend
 
