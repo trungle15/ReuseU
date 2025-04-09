@@ -95,6 +95,19 @@ def get_all_listings_total():
     print(all_listings)
     return all_listings
 
+def get_listing_by_id(listing_id):
+    listings = ref.child('Listing').get()
+    if not listings:
+        print("no listings found")
+        return
+    for listing in listings:
+        if listing is not None:
+            for field, value in listing.items():
+                if field == "ListingID" and int(value) == int(listing_id):
+                    return listing
+    print("listing not found")
+
+
 #get_listing(1)
 #get_all_listings_user(802)
 #get_all_listings_total()
