@@ -1,9 +1,22 @@
+/**
+ * Listings Homepage Component
+ * 
+ * This is the main listings page that displays all available items for reuse.
+ * Features include:
+ * - Grid display of listings with images, titles, prices, and descriptions
+ * - Filter sidebar with category and price range filters
+ * - "Show My Listings" toggle to view only user's own listings
+ * - Infinite scroll with "Load More" functionality
+ * - Responsive grid layout
+ */
+
 import Listing from "./Listing"
 import { Dropdown } from "../Dropdown/Dropdown"
 import { useGlobalContext } from "@/Context/GlobalContext"
 import { useContext, useEffect, useState } from "react"
 import { listingsApi, Listing as ListingType } from "@/pages/api/listings";
 
+// Price range options for filtering
 interface PriceRange {
   min: number;
   max: number;
@@ -28,6 +41,7 @@ export default function ListingsHomepage() {
   const itemsPerPage = 25;
   const currentUserId = 8675309; // Set the user ID
 
+  // Fetch all listings on component mount
   useEffect(() => {
     const fetchListings = async () => {
       try {
@@ -47,6 +61,7 @@ export default function ListingsHomepage() {
     fetchListings();
   }, []);
 
+  // Load more listings when "Load More" button is clicked
   const loadMore = () => {
     const nextPage = currentPage + 1;
     const startIndex = 0;
@@ -56,6 +71,7 @@ export default function ListingsHomepage() {
     setCurrentPage(nextPage);
   };
 
+  // Filter listings based on selected filters and "Show My Listings" toggle
   const filteredListings = (showMyListings ? listings : displayedListings).filter((listing: ListingType) => {
     // First filter by user if showMyListings is true
     if (showMyListings) {
@@ -81,18 +97,22 @@ export default function ListingsHomepage() {
   // Only show load more button if we're not showing my listings
   const showLoadMore = !showMyListings && displayedListings.length < listings.length;
 
+  // Loading state
   if (isLoading) {
     return <div className="min-h-screen pt-6 flex justify-center items-center">Loading...</div>;
   }
 
+  // Error state
   if (error) {
     return <div className="min-h-screen pt-6 flex justify-center items-center text-red-500">Error: {error}</div>;
   }
 
+  // No listings found state
   if (filteredListings.length === 0) {
     return (
       <div className="min-h-screen pt-6">
         <div className="flex gap-8">
+          {/* Filter sidebar */}
           <div className="w-64 shrink-0 pl-2">
             <div className="sticky top-24 bg-white rounded-lg shadow-sm h-[calc(100vh-8rem)]">
               <div className="p-6 border-b">
@@ -122,10 +142,11 @@ export default function ListingsHomepage() {
     );
   }
 
+  // Main listings grid view
   return (
     <div className="min-h-screen pt-6">
       <div className="flex gap-8">
-        {/* Sidebar */}
+        {/* Filter sidebar */}
         <div className="w-64 shrink-0 pl-2">
           <div className="sticky top-24 bg-white rounded-lg shadow-sm h-[calc(100vh-8rem)]">
             <div className="p-6 border-b">
@@ -148,7 +169,7 @@ export default function ListingsHomepage() {
           </div>
         </div>
 
-        {/* Main content */}
+        {/* Main content - listings grid */}
         <div className="flex-1 py-2 pr-4 max-w-[1400px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             {filteredListings.map((listing: ListingType) => (
@@ -163,6 +184,7 @@ export default function ListingsHomepage() {
               />
             ))}
           </div>
+          {/* Load more button */}
           {showLoadMore && (
             <div className="flex justify-center mt-8">
               <button

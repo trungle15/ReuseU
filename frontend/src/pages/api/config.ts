@@ -1,5 +1,10 @@
 export const API_BASE_URL = 'http://localhost:5000/api';
 
+/*
+This file contains the configuration for the API.
+It is used to connect to the backend API.
+*/
+
 export const defaultHeaders = {
   'Content-Type': 'application/json',
   'Accept': 'application/json',
