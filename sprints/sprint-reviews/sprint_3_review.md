@@ -11,7 +11,7 @@
 
 - **Howie**: Listings, Profile, Chat components, backend connection to frontend
 
-- **Peter**:  
+- **Peter**: Backend implementation of routes/services (listings, reviews, transactions, chats, accounts)
 
 - **Krishna**:  Took part in development of the testing suite for backend functions, developing CI/CD test files that automate the testing of new code pushes.
 
