@@ -3,6 +3,7 @@ from services.account_service import add_account, delete_acc, delete_acc_range
 
 accounts_bp = Blueprint('accounts', __name__)
 
+# api route to create an account
 @accounts_bp.route('', methods=['POST'])
 def create_account():
     try:
@@ -12,6 +13,7 @@ def create_account():
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
+# api route to delete an account
 @accounts_bp.route('/<int:account_id>', methods=['DELETE'])
 def delete_account(account_id):
     try:
@@ -20,6 +22,7 @@ def delete_account(account_id):
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
+# api route to delete accounts in a range
 @accounts_bp.route('/range', methods=['DELETE'])
 def delete_accounts_range():
     try:

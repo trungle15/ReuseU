@@ -1,7 +1,7 @@
 import firebase_admin
 from firebase_admin import credentials, db
 
-
+# get root of the database
 def get_db_root():
     # check if app exists, init if not
     try:
@@ -75,7 +75,8 @@ def add_message(message_data):
 
 
 
-
+# delete a message in the database from a message id
+# not functioning at the moment
 def delete_message(message_id):
     listingid = ref.child('Message').child(str(message_id))['ListingID']
     ref.child('Message').child(str(message_id)).delete()

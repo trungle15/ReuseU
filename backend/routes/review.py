@@ -5,6 +5,7 @@ from services.review_service import get_all_reviews, get_review, add_review, del
 
 reviews_bp = Blueprint('reviews_bp', __name__)
 
+# api route to all reviews currently stored in the db
 @reviews_bp.route('/', methods=['GET'])
 def get_reviews():
     review_data = get_all_reviews()
@@ -12,6 +13,7 @@ def get_reviews():
     #[{'ListingID': '195', 'Rating': 2, 'Review': 'Condition was okay, but definitely used more than stated.', 'ReviewDate': '2025-04-08T19:02:50.166324Z', 'ReviewerID': 17074, 'SellerID': 61273}, {'ListingID': '199', 'Rating': 4, 'Review': 'There were some scratches not shown in the photos.', 'ReviewDate': '2025-04-08T19:02:47.130622Z', 'ReviewerID': 12615, 'SellerID': 73825}, {'ListingID': '200', 'Rating': 4, 'Review': 'Item works, but smells strongly of perfume for some reason.', 'ReviewDate': '2025-04-08T19:02:59.793813Z', 'ReviewerID': 50329, 'SellerID': 65603}]]
     return jsonify(review_data), 200
 
+# api route to get a review
 @reviews_bp.route('/<string:review_id>', methods=['GET'])
 def get_review(listing_id):
     review_data = get_review(int(listing_id))
@@ -19,6 +21,7 @@ def get_review(listing_id):
     #{'ListingID': '17', 'Rating': 4, 'Review': 'Had more dents than I was expecting.', 'ReviewDate': '2025-04-08T19:02:24.036344Z', 'ReviewerID': 29280, 'SellerID': 62416}
     return jsonify(review_data), 200
 
+# api route to create a review, may reject if the particular listing does not exist
 @reviews_bp.route('/', methods=['POST'])
 def create_review():
     review_data = request.json
@@ -35,7 +38,7 @@ def update_review(listing_id):
     # In a real implementation, would call: update_review(review_id, review_data)
     return jsonify({"message": f"Review {listing_id} updated successfully"}), 200
 
-#expects listing
+# api route that expects listing id and deletes a review
 @reviews_bp.route('/<string:review_id>', methods=['DELETE'])
 def delete_review(listing_id):
     del_review(int(listing_id))

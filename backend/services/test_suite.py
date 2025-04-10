@@ -31,6 +31,7 @@ Please select a component to test:
 (16): Exit
 Entry: '''
 
+# get the database reference
 def get_db_root():
     # check if app exists, init if not
     try:
@@ -46,8 +47,8 @@ def get_db_root():
 
 ref = get_db_root()
 
+# print db content
 def print_all_content():
-    # print db content
     db_content = ref.get()
     print("database content:", db_content)
     
@@ -77,6 +78,7 @@ def generate_random_account():
         'dateTime_creation': creation_time
     }
 
+# prints all accounts in the database
 def print_all_accounts():
     accounts = ref.child('Account').get()
     if not accounts:
@@ -89,12 +91,13 @@ def print_all_accounts():
                 print("  " + field + ": " + str(value))
             print("-" * 20)
 
-
+# uses the random account generator to upload num accounts
 def load_dummy_accounts(num):
     for i in range(num):
         acc = generate_random_account()
         add_account(acc)
 
+# delete all accounts with a certain id range
 def delete_acc_range(min,max):
     for i in range(min,max):
         delete_acc(i)
@@ -102,6 +105,7 @@ def delete_acc_range(min,max):
         
 # **********TRANSACTIONS**********
 
+# generate random transaction dictionaries for testing purposes
 def generate_random_transaction(listing_id):
     buyerid = random.randint(1,1000)
     sellerid = random.randint(1,1000)
@@ -115,11 +119,14 @@ def generate_random_transaction(listing_id):
         'SellerID': sellerid
     }
 
+# uploads test transactons in a certain range
 def load_dummy_transactions(listing_id_min,listing_id_max):
     for i in range(listing_id_min,listing_id_max):
         transac = generate_random_transaction(i)
         add_transaction(transac)
 
+
+# print all transaction content from the database
 def print_all_transactions():
     transactions = ref.child('Transaction').get()
     if not transactions:
@@ -132,6 +139,7 @@ def print_all_transactions():
                 print("  " + field + ": " + str(value))
             print("-" * 20)
 
+# delete all transactions in a certain listing id range
 def delete_transaction_range(min,max):
     for i in range(min,max):
         delete_transaction(i)
@@ -192,7 +200,8 @@ def generate_random_message():
         'UserID': user_id, 
         'ListingID': rand_listing_id
     }
-    
+
+# prints all messages in the database
 def print_all_messages():
     messages = ref.child('Chat').get()
     if not messages:
@@ -205,6 +214,7 @@ def print_all_messages():
                 print("  " + field + ": " + str(value))
             print("-" * 20)
 
+# uploads num dummy messages into the database
 def load_dummy_messages(num):
     for i in range(num):
         msg = generate_random_message()
@@ -328,6 +338,7 @@ def generate_random_listing():
         'UserID': user_ID
     }
 
+# prints all the listings in the database
 def print_all_listings():
     listings = ref.child('Listing').get()
     if not listings:
@@ -340,19 +351,20 @@ def print_all_listings():
                 print("  " + field + ": " + str(value))
             print("-" * 20)
 
-
+# uploads num test listings to the database
 def load_dummy_listings(num):
     for i in range(num):
         acc = generate_random_listing()
         add_listing(acc)
 
+# deletes all listings with a certain id range
 def delete_listings_range(min,max):
     for i in range(min,max):
         del_listing(i)
 
 # **********REVIEWS**********
 
-# generates listings for testing purposes
+# generates reviews for testing purposes
 def generate_random_review():
     # sample data lists
     # Strings in format ex: "Worked as respected." or "Had more dents than I
@@ -421,6 +433,7 @@ def generate_random_review():
         'SellerID': seller_id,
     }
 
+#prints all reviews in the database
 def print_all_reviews():
     reviews = ref.child('Review').get()
     if not reviews:
@@ -434,6 +447,7 @@ def print_all_reviews():
             print("-" * 20)
 
 
+# uploads num test reviews into the database
 def load_dummy_reviews(num):
     for i in range(num):
         rev = generate_random_review()
@@ -446,6 +460,7 @@ def load_dummy_reviews(num):
         else:
             print("Skipping: No valid listing found.")
 
+# deletes all reviews with a certain listing id range
 def delete_reviews_range(min,max):
     for i in range(min,max):
         del_review(i)
