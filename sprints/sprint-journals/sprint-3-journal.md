@@ -19,7 +19,7 @@ Sofia and Krishna created and used a separate test file, `test_suite.py`, to eas
 
 
 ## Git Tag for Demo Code: 
-<!-- put in the last git tag we’ll use for demo code here  -->
+<!-- sprint3finaldemo  -->
 
 ## Manual Testing Justification for Frontend Development: 
 In the development of the ReuseU website, Howie and Timur opted for manual testing over automated testing for the frontend components for the following reasons: 
