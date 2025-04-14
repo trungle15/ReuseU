@@ -1,13 +1,15 @@
 # Sprint 4 Journal 
 
-## Part 1
+## Part 1: External Documentation and Stakeholder Meetings
 
 
-## Part 2
+## Part 2: Internal Documentation
 
-### Team 1: Krishna, Peter, Timur. Timur and Peter reviewing Krishna’s code
+### Team 1: Krishna, Peter, Timur. 
+Timur and Peter reviewing Krishna’s code
 	
-#### Code we worked on: ReuseU/backend/services/test_suite.py lines 1-566
+#### Code we worked on: 
+ReuseU/backend/services/test_suite.py lines 1-566
 
 #### Changes we made: 
 
@@ -27,9 +29,12 @@ The larger one-line comments that separate code into logical sections
 
 
 
-### Team 1.1: Krishna, Peter, Timur. Timur and Krishna reviewing Peter’s code
+### Team 1.1: Krishna, Peter, Timur. 
+Timur and Krishna reviewing Peter’s code
 	
-#### Code we worked on: ReuseU/backend/services/message_service.py lines 25-74 and transaction_service.py lines 20-50
+#### Code we worked on: 
+* ReuseU/backend/services/message_service.py lines 25-74, and 
+* ReuseU/backend/services/transaction_service.py lines 20-50
 
 #### Changes we made: 
 
@@ -52,5 +57,12 @@ I found the doc strings at function definitions that talk about input formats we
 
 
 
-
 ### Team 2: Sofia, Howie, Trung
+
+
+
+## Part 3: Self-Selected Work toward Minimum Viable Product (MVP)
+
+## Part 4: Generative AI Experiment
+
+## Part 5: Demo 2 and Presentation
