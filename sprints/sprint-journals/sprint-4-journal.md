@@ -1,0 +1,56 @@
+# Sprint 4 Journal 
+
+## Part 1
+
+
+## Part 2
+
+### Team 1: Krishna, Peter, Timur. Timur and Peter reviewing Krishna’s code
+	
+#### Code we worked on: ReuseU/backend/services/test_suite.py lines 1-566
+
+#### Changes we made: 
+
+* Made the testing menu case-insensitive for user input such as Y/y or N/n to make testing simpler. 
+* Clarified the inclusive/exclusive nature of indices when deleting accounts. Made both indices inclusive for ease of use.
+* Changed the menu message for when deleting accounts to  say smth closer to “enter starting index for range of accounts to delete (inclusive)”
+* Possible change to be implemented later : ensure consistency in naming variables (snake case and capitalization of variables)
+
+#### Existing documentation that was helpful
+
+We found menu comments/directions in the test-suite for the tester to follow to be particularly useful and well-organized by use-case. Doc strings for functions in the code file were also helpful tho more needed.
+The larger one-line comments that separate code into logical sections
+
+#### Commit hash for new documentation and link:
+* Commit hash: 
+* Link:
+
+
+
+### Team 1.1: Krishna, Peter, Timur. Timur and Krishna reviewing Peter’s code
+	
+#### Code we worked on: ReuseU/backend/services/message_service.py lines 25-74 and transaction_service.py lines 20-50
+
+#### Changes we made: 
+
+* Clarified some of the documentation in add_message function, specifically how the indexing for creating new message works. 
+* Removed debugging print statements for code cleanliness.
+*  Included comments to explain the if else branch for appending a message vs creating a new one. 
+* Also deleted OLD LOOP code.
+* Removed unnecessary spacing between the documentation strings and the function definitions.
+
+#### Existing documentation that was helpful
+
+I found the doc strings at function definitions that talk about input formats were helpful in understanding what the function is expected to take in as a parameter and then understand how it operates on that parameter. 
+
+
+
+#### Commit hash for new documentation and link:
+* Commit hash: 
+* Link:
+
+
+
+
+
+### Team 2: Sofia, Howie, Trung
