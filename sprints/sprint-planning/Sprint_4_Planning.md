@@ -24,6 +24,13 @@ that time.
     * Meet up and do the Internal Documentation Lab - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/118)
 
 
+### Part 3: Work towards MVP
+* TODO: PETER, list the tasks here and link them to github issues, 
+
+
+### Part 4: Generative AI Experiment
+
+
 ## Assignment: (what people will do)
 Everyone works on Part 2, since it's a lab exercise that requires everyone's input, even if in separate groups.
 
