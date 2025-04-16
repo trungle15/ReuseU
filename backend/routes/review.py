@@ -3,14 +3,6 @@ from ..services import review_service
 
 reviews_bp = Blueprint('reviews_bp', __name__)
 
-# api route to all reviews currently stored in the db
-@reviews_bp.route('/', methods=['GET'])
-def get_reviews():
-    review_data = get_all_reviews()
-    #notice review data is of form: (listing of reviews)
-    #[{'ListingID': '195', 'Rating': 2, 'Review': 'Condition was okay, but definitely used more than stated.', 'ReviewDate': '2025-04-08T19:02:50.166324Z', 'ReviewerID': 17074, 'SellerID': 61273}, {'ListingID': '199', 'Rating': 4, 'Review': 'There were some scratches not shown in the photos.', 'ReviewDate': '2025-04-08T19:02:47.130622Z', 'ReviewerID': 12615, 'SellerID': 73825}, {'ListingID': '200', 'Rating': 4, 'Review': 'Item works, but smells strongly of perfume for some reason.', 'ReviewDate': '2025-04-08T19:02:59.793813Z', 'ReviewerID': 50329, 'SellerID': 65603}]]
-    return jsonify(review_data), 200
-
 @reviews_bp.route('/<string:listing_id>', methods=['GET'])
 def get_review(listing_id):
     review_data = review_service.get_review(int(listing_id))
