@@ -2,6 +2,7 @@ import firebase_admin
 from firebase_admin import credentials, db
 
 
+#get the root of the database
 def get_db_root():
     # check if app exists, init if not
     try:
@@ -52,6 +53,7 @@ def del_listing(listing_id):
     # Connect to the database
     ref.child('Listing').child(str(listing_id)).delete()
 
+# gets content of a listing in dictionary format from a listing_id
 def get_listing(listing_id):
     listings = ref.child('Listing').get()
     if not listings:
@@ -65,6 +67,7 @@ def get_listing(listing_id):
                     return listing
     print("listing not found")
 
+# returns a list of all listings (dictionary format)  from a particular account
 def get_all_listings_user(account_id):
     listings = ref.child('Listing').get()
     found_listings = []
@@ -83,6 +86,7 @@ def get_all_listings_user(account_id):
         print(found_listings)
         return found_listings
 
+# gets ALL listings in the database
 def get_all_listings_total():
     listings = ref.child('Listing').get()
     all_listings = []
@@ -94,6 +98,20 @@ def get_all_listings_total():
                 all_listings.append(listing)
     print(all_listings)
     return all_listings
+
+# a duplicate function as get_listing
+def get_listing_by_id(listing_id):
+    listings = ref.child('Listing').get()
+    if not listings:
+        print("no listings found")
+        return
+    for listing in listings:
+        if listing is not None:
+            for field, value in listing.items():
+                if field == "ListingID" and int(value) == int(listing_id):
+                    return listing
+    print("listing not found")
+
 
 #get_listing(1)
 #get_all_listings_user(802)

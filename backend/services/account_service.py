@@ -2,6 +2,7 @@ import firebase_admin
 from firebase_admin import credentials, db
 
 
+# get the root of the database
 def get_db_root():
     # check if app exists, init if not
     try:
@@ -17,6 +18,7 @@ def get_db_root():
 
 ref = get_db_root()
 
+# takes in add_account dictionary and upload to db
 def add_account(account_data):
     # notice we read the number of accounts here and increment by 1
     accounts = ref.child('Account').get()
@@ -24,14 +26,16 @@ def add_account(account_data):
     account_data['UserID'] = new_key
     ref.child('Account').child(new_key).set(account_data)
 
+# deletes an account in the database by taking in an account id
 def delete_acc(account_id):
     ref.child('Account').child(str(account_id)).delete()
 
-
+# deletes accounts in certain range of ids
 def delete_acc_range(min,max):
     for i in range(min,max):
         delete_acc(i)
 
+#get the content of an account (dictionary format) using an account id
 def get_acc(account_id):
     accounts = ref.child('Account').get()
     if not accounts:

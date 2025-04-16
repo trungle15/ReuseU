@@ -1,7 +1,7 @@
 import firebase_admin
 from firebase_admin import credentials, db
 
-
+# get the database root
 def get_db_root():
     # check if app exists, init if not
     try:
@@ -24,17 +24,18 @@ ref = get_db_root()
 #'Price': price,
 #'SellerID': seller_id}
 
-
+# adds a transaction to the database using the dictionary above
 def add_transaction(transaction_data):
     # notice we read the number of accounts here and increment by 1
     new_key = transaction_data['ListingID']
     ref.child('Transaction').child(str(new_key)).set(transaction_data)
 
 
-
+# delete a transaction in the database using listing id as the key
 def delete_transaction(listing_id):
     ref.child('Transaction').child(str(listing_id)).delete()
 
+# get the content of a transaction using the listing id as the parameter
 def get_transaction(listing_id):
     transactions = ref.child('Transaction').get()
     if not transactions:

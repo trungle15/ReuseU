@@ -4,6 +4,7 @@ from flask import Blueprint, jsonify, request
 
 chats_bp = Blueprint('chats_bp', __name__)
 
+# api route to get all the chats content in the database
 @chats_bp.route('/', methods=['GET'])
 def get_chats():
     # Mock implementation
@@ -12,6 +13,7 @@ def get_chats():
         {"id": "chat2", "user1": "user123", "user2": "user789", "created_at": "2025-04-06T15:30:00Z"}
     ]}), 200
 
+# api route to get a particular chat from the databse using chat id
 @chats_bp.route('/<string:chat_id>', methods=['GET'])
 def get_chat(chat_id):
     # Mock implementation
@@ -26,6 +28,7 @@ def get_chat(chat_id):
         ]
     }), 200
 
+# api route to create a chat
 @chats_bp.route('/', methods=['POST'])
 def create_chat():
     chat_data = request.json
@@ -33,6 +36,7 @@ def create_chat():
     # In a real implementation, would call: create_chat(chat_data)
     return jsonify({"message": "Chat created successfully", "chat_id": "new_chat_id"}), 201
 
+# api route to create a message
 @chats_bp.route('/<string:chat_id>/messages', methods=['POST'])
 def add_message(chat_id):
     message_data = request.json
@@ -40,6 +44,7 @@ def add_message(chat_id):
     # In a real implementation, would call: add_message_to_chat(chat_id, message_data)
     return jsonify({"message": "Message added successfully", "message_id": "new_message_id"}), 201
 
+# api route to delete a message
 @chats_bp.route('/<string:chat_id>', methods=['DELETE'])
 def delete_chat(chat_id):
     # Mock implementation

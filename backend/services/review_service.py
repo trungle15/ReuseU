@@ -1,7 +1,7 @@
 import firebase_admin
 from firebase_admin import credentials, db
 
-
+# get the database reference
 def get_db_root():
     # check if app exists, init if not
     try:
@@ -102,6 +102,7 @@ def del_review(listing_id):
     # Connect to the database
     ref.child('Review').child(str(listing_id)).delete()
 
+# returns the content of a review from a list id integer as the parameter
 def get_review(listing_id):
     reviews = ref.child('Review').get()
     if not reviews:
@@ -116,6 +117,7 @@ def get_review(listing_id):
                     return review
     print("review not found")
 
+# returns a list of ALL reviews in the database
 def get_all_reviews():
     reviews = ref.child('Review').get()
     if not reviews:
