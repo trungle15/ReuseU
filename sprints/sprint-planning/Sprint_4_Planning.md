@@ -37,7 +37,7 @@ Everyone works on Part 2, since it's a lab exercise that requires everyone's inp
 Additional work everyone completes: 
 * Timur: Working on part 1, creating user-facing documentation, prompt list, and reaching out to stakeholders. 
 * Howie: Help scheduling interviews for part 1.
-* Krishna:
+* Krishna: Finish CI/CD development, complete user-facing documentation for part 1, begin work on art elements
 * Trung: Work on implementing blob storage API and finish implementing other API routes
 * Peter:
 * Sofia:
