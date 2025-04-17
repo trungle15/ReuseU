@@ -31,6 +31,9 @@ that time.
 * Add account, chat, and review features on the frontend using the API
 
 ### Part 4: Generative AI Experiment
+We will implement a feature using AI as part of the product. The default price of an item will be estimated using AI. The AI will have access to prices of similar items...but
+this feature becomes exceptionally handy when an item is listed that is not yet available on ReuseU. It may be difficult to gage what something is worth, and thus this feature
+will allow users to see a default price even if the item listed is completely disconnected from other items on the site.
 
 
 ## Assignment: (what people will do)
