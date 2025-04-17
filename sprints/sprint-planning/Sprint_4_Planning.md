@@ -45,7 +45,7 @@ Additional work everyone completes:
 * Krishna: Finish CI/CD development, complete user-facing documentation for part 1, begin work on art elements
 * Trung: Work on implementing blob storage API and finish implementing other API routes
 * Peter: Setup blob storage on the database end, work on the review price approximation feature. Fix bugs in reviews and chat service functions. 
-* Sofia:
+* Sofia: Will mostly work on finishing any missing functionality in services and working on the new price approximation feature.
 
 
 ## Issue Tracker:
