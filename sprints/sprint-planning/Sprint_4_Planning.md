@@ -38,7 +38,7 @@ Additional work everyone completes:
 * Timur: Working on part 1, creating user-facing documentation, prompt list, and reaching out to stakeholders. 
 * Howie: Help scheduling interviews for part 1.
 * Krishna:
-* Trung:
+* Trung: Work on implementing blob storage API and finish implementing other API routes
 * Peter:
 * Sofia:
 
