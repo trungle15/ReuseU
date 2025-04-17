@@ -25,8 +25,8 @@ that time.
 
 
 ### Part 3: Work towards MVP
-* Make sure message and review service CRUD functions work as intended [#121] [issue link](https://github.com/dicarlosofia/ReuseU/issues/121),[Issue Link](https://github.com/dicarlosofia/ReuseU/issues/122)
-* Implement all chats and reviews routes [#96] [issue link](https://github.com/dicarlosofia/ReuseU/issues/123),[Issue Link](https://github.com/dicarlosofia/ReuseU/issues/124)
+* Make sure message and review service CRUD functions work as intended [issue link](https://github.com/dicarlosofia/ReuseU/issues/121),[Issue Link](https://github.com/dicarlosofia/ReuseU/issues/122)
+* Implement all chats and reviews routes [issue link](https://github.com/dicarlosofia/ReuseU/issues/123),[Issue Link](https://github.com/dicarlosofia/ReuseU/issues/124)
 * Implement blob storage in both the database and API for listings [#96](https://github.com/dicarlosofia/ReuseU/issues/96)
 * Add account, chat, and review features on the frontend using the API [#98](https://github.com/dicarlosofia/ReuseU/issues/98)
 
