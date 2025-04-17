@@ -27,8 +27,8 @@ that time.
 ### Part 3: Work towards MVP
 * Make sure message and review service CRUD functions work as intended
 * Implement all chats and reviews routes
-* Implement blob storage in both the database and API for listings
-* Add account, chat, and review features on the frontend using the API
+* Implement blob storage in both the database and API for listings #96
+* Add account, chat, and review features on the frontend using the API #98
 
 ### Part 4: Generative AI Experiment
 * Using Generative AI: We will mostly be using Generative AI to give us boilerplate code for the frontend that we will adjust. We will also use it a bit to fix some API routes.
