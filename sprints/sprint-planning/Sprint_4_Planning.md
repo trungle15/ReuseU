@@ -25,8 +25,10 @@ that time.
 
 
 ### Part 3: Work towards MVP
-* TODO: PETER, list the tasks here and link them to github issues, 
-
+* Make sure message and review service CRUD functions work as intended
+* Implement all chats and reviews routes
+* Implement blob storage in both the database and API for listings
+* Add account, chat, and review features on the frontend using the API
 
 ### Part 4: Generative AI Experiment
 
@@ -39,7 +41,7 @@ Additional work everyone completes:
 * Howie: Help scheduling interviews for part 1.
 * Krishna: Finish CI/CD development, complete user-facing documentation for part 1, begin work on art elements
 * Trung: Work on implementing blob storage API and finish implementing other API routes
-* Peter:
+* Peter: Setup blob storage on the database end, work on the review price approximation feature. Fix bugs in reviews and chat service functions. 
 * Sofia:
 
 
