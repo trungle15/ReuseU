@@ -1,7 +1,10 @@
 import firebase_admin
+import pytest
 from firebase_admin import credentials, db
 
 from services.listing_service import add_listing, del_listing, get_listing
+from services.exceptions import NotFoundError
+
 
 try:
     firebase_admin.get_app()
@@ -29,14 +32,17 @@ listing_id = add_listing({
 
 compare = get_listing(listing_id)
 
-assert compare['Category'] == 'mine'
-assert compare['CreateTime'] == 'now'
-assert compare['Description'] == 'thing'
-#assert compare['Images'] == {1: 'mine', 2: 'now'}
-assert compare['Price'] == 800
-assert compare['SellStatus'] == 1
-assert compare['Title'] == 'this'
-assert compare['UserID'] == 8
+def test_get_and_add():
+    assert compare['Category'] == 'mine'
+    assert compare['CreateTime'] == 'now'
+    assert compare['Description'] == 'thing'
+    assert compare['Price'] == 800
+    assert compare['SellStatus'] == 1
+    assert compare['Title'] == 'this'
+    assert compare['UserID'] == 8
 
 del_listing(listing_id)
 
+def test_deletion():
+    with pytest.raises(NotFoundError, match= f"Listing {listing_id} not found."):
+        get_listing(listing_id)
