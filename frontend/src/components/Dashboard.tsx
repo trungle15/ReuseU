@@ -9,72 +9,89 @@
  * - Profile button
  * - Settings button
  * 
- * The component handles navigation between different sections of the application.
+ * \
  */
-
 import { useRouter } from 'next/router';
-import { MagnifyingGlassIcon, UserCircleIcon, Cog8ToothIcon, BuildingStorefrontIcon } from "@heroicons/react/16/solid";
+import { MagnifyingGlassIcon, UserCircleIcon, Cog8ToothIcon, PlusCircleIcon } from "@heroicons/react/24/solid";
+import { LeafIcon, RecycleIcon } from "lucide-react";
 
 export default function Dashboard() {
-    const router = useRouter();
-
-    // Navigate to home page
-    const handleReuseClick = () => {
-        router.push('/');
-    }
-
-    // Navigate to create listing page
-    const handleMakeAListingClick = () => {
-        router.push('/create');
-    }
-
-    // Navigate to user profile page
-    const handleUserCircleClick = () => {
-        router.push('/profile');
-    }
-
-    // Handle settings button click (currently empty)
-    const handleCogClick = () => {
-
-    }
-
-    // Main navigation bar layout with all interactive elements
-    return (
-        <div className="flex items-center fixed top-0 left-0 w-full h-1/16 bg-[#5E8D66] z-50">
-            {/* Logo/Home button */}
-            <div className="pl-5 h-full flex items-center">
-                <div 
-                className="cursor-pointer outline-solid rounded-lg h-3/4 w-full pt-[10px] bg-[#3E4F44]"
-                onClick={handleReuseClick}>ReuseU</div>
-            </div>
-            {/* Search bar */}
-            <div className="relative w-3/4 pl-5 flex-grow">
-                <input 
-                className="text-black w-full pl-5 pr-10 rounded-lg bg-white focus:border-indigo-600"
-                type="text" 
-                placeholder="Search for a Listing"/>
-                <MagnifyingGlassIcon className="right-3 top-[2px] flex items-center absolute h-5 w-5 outline-offset-[-2px] [outline-right:none] [outline-top:none] [outline-bottom:none] outline outline-2" />
-            </div>
-            {/* Create listing button */}
-            <div className="pl-5 p-2 pr-0 h-full flex items-center">
-                <BuildingStorefrontIcon
-                className="bg-[#3E4F44] cursor-pointer right-3 top-[2px] flex items-center h-full w-12 outline-solid rounded-lg"
-                onClick={handleMakeAListingClick} />
-            </div>
-            {/* Profile button */}
-            <div className="pl-5 h-full flex items-center">
-                <UserCircleIcon 
-                className="cursor-pointer right-3 top-[2px] flex items-center h-full w-10"
-                onClick={handleUserCircleClick} />
-            </div>
-            {/* Settings button */}
-            <div 
-            className="pl-5 pr-5 h-full flex items-center">
-                <Cog8ToothIcon 
-                className="cursor-pointer right-3 top-[2px] flex items-center h-full w-10"
-                onClick={handleCogClick} />
-            </div>
-        </div>
-    );
-}
+  const router = useRouter();
   
+  // Navigate to home page
+  const handleReuseClick = () => {
+    router.push('/');
+  }
+  
+  // Navigate to create listing page
+  const handleMakeAListingClick = () => {
+    router.push('/create');
+  }
+  
+  // Navigate to user profile page
+  const handleUserCircleClick = () => {
+    router.push('/profile');
+  }
+  
+  // Handle settings button click
+  const handleCogClick = () => {
+    // Placeholder for settings functionality
+  }
+  
+  // Main navigation bar layout with all interactive elements
+  return (
+    <div className="flex items-center fixed top-0 left-0 w-full h-16 bg-emerald-700 text-white shadow-md z-50">
+      {/* Logo/Home button with leaf icon */}
+      <div className="pl-5 h-full flex items-center">
+        <div 
+          className="cursor-pointer flex items-center font-bold text-xl rounded-lg px-4 py-2 bg-emerald-800 hover:bg-emerald-900 transition-colors"
+          onClick={handleReuseClick}>
+          <RecycleIcon className="mr-2 h-5 w-5" />
+          <span>ReuseU</span>
+        </div>
+      </div>
+      
+      {/* Search bar with rounded styling */}
+      <div className="relative w-3/4 pl-5 flex-grow mx-4">
+        <div className="relative flex items-center">
+          <input
+            className="w-full pl-10 pr-4 py-2 rounded-full bg-white/90 text-gray-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 placeholder-gray-500"
+            type="text"
+            placeholder="Search for a listing..."
+          />
+          <MagnifyingGlassIcon className="absolute left-3 h-5 w-5 text-emerald-600" />
+        </div>
+      </div>
+      
+      {/* Create listing button with green styling */}
+      <div className="px-2 h-full flex items-center">
+        <button
+          className="flex items-center justify-center bg-emerald-800 hover:bg-emerald-900 text-white rounded-full p-2 transition-colors"
+          onClick={handleMakeAListingClick}
+          title="Create New Listing">
+          <PlusCircleIcon className="h-8 w-8" />
+        </button>
+      </div>
+      
+      {/* Profile button with hover effect */}
+      <div className="px-2 h-full flex items-center">
+        <button
+          className="flex items-center justify-center hover:bg-emerald-800 rounded-full p-2 transition-colors"
+          onClick={handleUserCircleClick}
+          title="Profile">
+          <UserCircleIcon className="h-8 w-8" />
+        </button>
+      </div>
+      
+      {/* Settings button with hover effect */}
+      <div className="px-5 h-full flex items-center">
+        <button
+          className="flex items-center justify-center hover:bg-emerald-800 rounded-full p-2 transition-colors"
+          onClick={handleCogClick}
+          title="Settings">
+          <Cog8ToothIcon className="h-8 w-8" />
+        </button>
+      </div>
+    </div>
+  );
+}
