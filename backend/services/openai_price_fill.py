@@ -8,8 +8,9 @@ something for.
 Author: Sofia DiCarlo, Class of 2025
 '''
 from openai import OpenAI
-from dotenv import load_dotenv
-import os
+from dotenv import load_dotenv #< For private OPENAI_API_KEY handling
+import os #< OS routines for NT or Posix depending on what system we're on.
+import re #< regular expressions library
 
 # Load environment variable 
 load_dotenv()
@@ -36,45 +37,37 @@ PARAMETERS:
 Use the input parameters, pass them into the ai with a custom prompt to get a 
 price that is good for college student.
 
-"Give me a good general price for <name>, in the <category> category, described 
-as <optional description>"
-
 RETURNS: 
-Once the price has been returned, returns a upper-range price (price * .90) and 
-lower-range (price * .75) in format [lower_price, upper_price]
+Once the price has been returned, returns a upper-range price and lower-range 
+in format [lower_price, upper_price]
 '''
 def get_price_prediction(category, name, description):
-
-    # Test to check format of category(s)
-    # print(f"categories are: {category}\n\n")
+    
+    # A fall-back for when a description is not provided, and is 'None'.
+    description_text = description if description else "no description provided"
+    
+    # Format the category(s) for better prompting 
+    # (dict -> "Categ_1, Categ_2, ...")
+    categories_formatted = ", ".join(list(category.values()))
     
     # Generate price autofill response 
     response = client.responses.create(
         model="gpt-4.1-nano",
         instructions="Do not restate the prompt, just provide the price range for the item with no dollar signs in this format: <lower price>-<upper price>",
-        input=f"Give me a good general price for {name}, in the {category} category(s), described as {description}"
+        input=f"Give me a good general price for {name}, in the {categories_formatted} category(s), described as {description_text}"
         )
     
     # Store suggestion
     suggestion = response.output_text
     
-    # Test
-    # print(suggestion)
-    
-    # Find where the - character is in the response
-    dash_location = None
-    for i, char in enumerate(suggestion):
-        if char == "-":
-            dash_location = i
-            # print(i)
-        else:
-            continue
-    
-    lower_bound = int(suggestion[0:dash_location])
-    upper_bound = int(suggestion[dash_location+1:len(suggestion)])
-    
-    # print(lower_bound)
-    # print(upper_bound)
+    # INPUT VALIDATION: Make sure that 'suggestion' variable has the correct
+    #   format: "<lower_price>-<upper_price>"
+    match = re.search(r'(\d+)\s*-\s*(\d+)', suggestion)
+    if match:
+        lower_bound = int(match.group(1))
+        upper_bound = int(match.group(2))
+    else:
+        raise ValueError(f"Could not parse price range from: {suggestion}")
     
     # OpenAI suggests this price range: 
     return [lower_bound, upper_bound]
@@ -82,7 +75,7 @@ def get_price_prediction(category, name, description):
 '''
 Test function to test OpenAI prompting. Feel free to edit the test inputs.
 '''
-def test_function():
+def price_fill_test():
     
     # Test category (dictionary of strings)
     category = {
@@ -96,11 +89,11 @@ def test_function():
     
     # Call the OpenAI prompt
     prediction = get_price_prediction(category, name, description)
-    print("Price range:", prediction)
+    print(f"OpenAI suggests this price range for {name}:", prediction)
     
 
 # Call test function to view the ai
-test_function()
+price_fill_test()
 
 '''
 ******************************************************************************
