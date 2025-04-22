@@ -32,7 +32,7 @@ listing_id = add_listing({
 
 compare = get_listing(listing_id)
 
-def test_get_and_add():
+def test_get():
     assert compare['Category'] == 'mine'
     assert compare['CreateTime'] == 'now'
     assert compare['Description'] == 'thing'

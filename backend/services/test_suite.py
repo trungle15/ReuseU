@@ -7,6 +7,7 @@ from account_service import add_account, delete_acc, get_acc
 from listing_service import add_listing, del_listing, get_listing
 from review_service import add_review, del_review, get_review
 from transaction_service import add_transaction, delete_transaction, get_transaction
+from .exceptions import ServiceError, NotFoundError, ValidationError, DatabaseError
 from message_service import add_message
 
 INTRO_MSG = '''

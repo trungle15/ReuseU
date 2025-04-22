@@ -1,8 +1,9 @@
 import firebase_admin
+import pytest
 from firebase_admin import credentials, db
 
 from services.transaction_service import add_transaction, delete_transaction, get_transaction
-
+from services.exceptions import NotFoundError
 
 
 try:
@@ -25,11 +26,15 @@ transaction_id = add_transaction({
 
 compare = get_transaction(transaction_id)
 
-assert compare['BuyerID'] == 7
-assert compare['DateTransaction'] == 'now'
-assert compare['ListingID'] == 9
-assert compare['Price'] == 0
-assert compare['SellerID'] == 8
+def test_get():
+    assert compare['BuyerID'] == 7
+    assert compare['DateTransaction'] == 'now'
+    assert compare['ListingID'] == 9
+    assert compare['Price'] == 0
+    assert compare['SellerID'] == 8
 
 delete_transaction(transaction_id)
 
+def test_deletion():
+    with pytest.raises(NotFoundError, match= f"Transaction for listing {transaction_id} not found."):
+        get_transaction(transaction_id)

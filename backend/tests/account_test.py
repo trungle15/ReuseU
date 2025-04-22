@@ -1,7 +1,9 @@
 import firebase_admin
+import pytest
 from firebase_admin import credentials, db
 
 from services.account_service import add_account, delete_acc, get_acc
+from services.exceptions import NotFoundError
 
 
 
@@ -24,17 +26,18 @@ account_id = add_account({
         'dateTime_creation': '2025-04-08T18:56:02.560105Z'
     })
 
-# accounts = ref.child('Account').get()
-# for idx, account in enumerate(accounts, start=0):
-#     if account is not None:
-#         acc_total +=1
+compare = get_acc(account_id)
 
-assert get_acc(account_id)['First_name'] == 'Krishna'
-assert get_acc(account_id)['Last_name'] == 'Nayar'
-assert get_acc(account_id)['PhoneNumber'] == '713-775-9080'
-assert get_acc(account_id)['School'] == 'grinnell'
-assert get_acc(account_id)['Username'] == 'kanayar21'
-assert get_acc(account_id)['dateTime_creation'] == '2025-04-08T18:56:02.560105Z'
+def test_get():
+    assert compare['First_name'] == 'Krishna'
+    assert compare['Last_name'] == 'Nayar'
+    assert compare['PhoneNumber'] == '713-775-9080'
+    assert compare['School'] == 'grinnell'
+    assert compare['Username'] == 'kanayar21'
+    assert compare['dateTime_creation'] == '2025-04-08T18:56:02.560105Z'
 
 delete_acc(account_id)
 
+def test_deletion():
+    with pytest.raises(NotFoundError, match= f"Account {account_id} not found."):
+        get_acc(account_id)
