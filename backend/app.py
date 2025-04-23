@@ -5,10 +5,6 @@ from routes.review import reviews_bp
 from routes.chat import chats_bp
 from routes.transaction import transactions_bp
 from routes.account import accounts_bp
-<<<<<<< HEAD
-=======
-from routes.message import messages_bp
->>>>>>> 30b36c165ecb5c52f7b544818a790cdd724921be
 
 def create_app():
     app = Flask(__name__)
