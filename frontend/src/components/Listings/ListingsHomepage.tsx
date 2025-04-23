@@ -83,16 +83,16 @@ export default function ListingsHomepage() {
     }
 
     // Then apply category and price filters
-    if (!filters || Object.keys(filters).length === 0) return true;
+    if (!filters || filters.length === 0) return true;
 
-    // Check category filter
+    // Check if any of the listing's categories or price range matches the filters
     const hasMatchingCategory = listing.Category.some((category: string) => 
-      filters.categories?.includes(category)
+      filters.includes(category)
     );
 
-    // Check price range filter
+    // Check if the price matches any of the selected price ranges
     const hasMatchingPriceRange = priceRanges.some((range) => {
-      if (filters.priceRanges?.includes(range.label)) {
+      if (filters.includes(range.label)) {
         return parseFloat(listing.Price) >= range.min && parseFloat(listing.Price) < range.max;
       }
       return false;
@@ -180,7 +180,7 @@ export default function ListingsHomepage() {
 
   // Main listings grid view
   return (
-    <div className="min-h-screen pt-20 bg-emerald-50">
+    <div className="min-h-screen pt-20 bg-emerald-50 mt-[-5vh]">
       <div className="flex gap-8 max-w-7xl mx-auto px-4">
         {/* Filter sidebar */}
         <div className="w-64 shrink-0">

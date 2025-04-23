@@ -227,7 +227,7 @@ export default function CreateListing({ onSubmit }: CreateListingProps) {
 
   // Main form layout
   return (
-    <div className="max-w-7xl mx-auto p-6 mt-[calc(100vh/16)] bg-white rounded-lg shadow-sm">
+    <div className="max-w-7xl mx-auto p-6 mt-[-5vh] bg-white rounded-lg shadow-sm">
       {/* Header with back button */}
       <div className="flex items-center mb-8">
         <button 

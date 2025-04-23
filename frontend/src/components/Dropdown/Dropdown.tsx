@@ -26,9 +26,9 @@ export function Dropdown() {
     "Above $500"
   ];
 
-  const handleFilterToggle = (filter) => {
+  const handleFilterToggle = (filter: any) => {
     if (filters.includes(filter)) {
-      setFilters(filters.filter(f => f !== filter));
+      setFilters(filters.filter((f: any) => f !== filter));
     } else {
       setFilters([...filters, filter]);
     }

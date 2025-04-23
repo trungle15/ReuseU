@@ -18,8 +18,8 @@ interface GlobalContextType {
   signUpWithEmail: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
   // Existing state
-  filters: any;
-  setFilters: (filters: any) => void;
+  filters: string[];
+  setFilters: (filters: string[]) => void;
   title: string;
   setTitle: (title: string) => void;
   listings: any[];
@@ -35,7 +35,7 @@ const GlobalContext = createContext<GlobalContextType>({
   signUpWithEmail: async () => {},
   logout: async () => {},
   // Existing defaults
-  filters: {},
+  filters: [],
   setFilters: () => {},
   title: '',
   setTitle: () => {},
@@ -52,7 +52,7 @@ export const GlobalProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [error, setError] = useState<string | null>(null);
 
   // Existing state
-  const [filters, setFilters] = useState({});
+  const [filters, setFilters] = useState<string[]>([]);
   const [title, setTitle] = useState<string>('');
   const [listings, setListings] = useState<Array<any>>([]);
 
