@@ -1,13 +1,3 @@
-/**
- * Dropdown Component
- * 
- * This component handles category and price range filters with a consistent green/recycling theme.
- * Features:
- * - Collapsible category sections
- * - Checkboxes for filter selection
- * - Visual indicators for active filters
- */
-
 import { useState } from "react";
 import { useGlobalContext } from "@/Context/GlobalContext";
 import { ChevronDownIcon, ChevronUpIcon, TagIcon, BanknoteIcon } from "lucide-react";
@@ -17,7 +7,6 @@ export function Dropdown() {
   const [isCategoryOpen, setIsCategoryOpen] = useState(true);
   const [isPriceOpen, setIsPriceOpen] = useState(true);
 
-  // Categories for filtering
   const categories = [
     "Electronics", 
     "Furniture", 
@@ -29,7 +18,6 @@ export function Dropdown() {
     "Toys"
   ];
 
-  // Price ranges for filtering
   const priceRanges = [
     "Under $10",
     "$10 - $50",
@@ -38,10 +26,9 @@ export function Dropdown() {
     "Above $500"
   ];
 
-  // Toggle filter selection
-  const handleFilterToggle = (filter: string) => {
+  const handleFilterToggle = (filter) => {
     if (filters.includes(filter)) {
-      setFilters(filters.filter((f: any) => f !== filter));
+      setFilters(filters.filter(f => f !== filter));
     } else {
       setFilters([...filters, filter]);
     }
@@ -65,7 +52,7 @@ export function Dropdown() {
             <ChevronDownIcon className="h-5 w-5 text-emerald-600" />
           )}
         </button>
-        
+
         {isCategoryOpen && (
           <div className="p-3">
             <div className="space-y-2">
@@ -103,7 +90,7 @@ export function Dropdown() {
             <ChevronDownIcon className="h-5 w-5 text-emerald-600" />
           )}
         </button>
-        
+
         {isPriceOpen && (
           <div className="p-3">
             <div className="space-y-2">

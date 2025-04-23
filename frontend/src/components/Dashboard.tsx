@@ -1,57 +1,45 @@
-/**
- * Dashboard Component
- * 
- * This is the main navigation bar component that appears at the top of every page.
- * It includes:
- * - Logo/Home button (ReuseU)
- * - Search bar for listings
- * - Create listing button
- * - Profile button
- * - Settings button
- * 
- * \
- */
 import { useRouter } from 'next/router';
-import { MagnifyingGlassIcon, UserCircleIcon, Cog8ToothIcon, PlusCircleIcon } from "@heroicons/react/24/solid";
-import { LeafIcon, RecycleIcon } from "lucide-react";
+import { useGlobalContext } from '@/Context/GlobalContext';
+import { useState } from 'react';
+import {
+  MagnifyingGlassIcon,
+  UserCircleIcon,
+  Cog8ToothIcon,
+  PlusCircleIcon,
+  ArrowRightEndOnRectangleIcon,
+} from "@heroicons/react/24/solid";
+import { RecycleIcon } from "lucide-react";
 
 export default function Dashboard() {
   const router = useRouter();
-  
-  // Navigate to home page
-  const handleReuseClick = () => {
-    router.push('/');
-  }
-  
-  // Navigate to create listing page
-  const handleMakeAListingClick = () => {
-    router.push('/create');
-  }
-  
-  // Navigate to user profile page
-  const handleUserCircleClick = () => {
-    router.push('/profile');
-  }
-  
-  // Handle settings button click
-  const handleCogClick = () => {
-    // Placeholder for settings functionality
-  }
-  
-  // Main navigation bar layout with all interactive elements
+  const { logout } = useGlobalContext();
+  const [showSettings, setShowSettings] = useState(false);
+
+  // Navigation helpers
+  const handleReuseClick = () => router.push('/');
+  const handleMakeAListingClick = () => router.push('/create');
+  const handleUserCircleClick = () => router.push('/profile');
+  const handleCogClick = () => setShowSettings(!showSettings);
+  const handleLogout = () => {
+    logout();
+    setShowSettings(false);
+    router.push('/login');
+  };
+
   return (
     <div className="flex items-center fixed top-0 left-0 w-full h-16 bg-emerald-700 text-white shadow-md z-50">
-      {/* Logo/Home button with leaf icon */}
+      {/* Logo / Home */}
       <div className="pl-5 h-full flex items-center">
-        <div 
+        <div
           className="cursor-pointer flex items-center font-bold text-xl rounded-lg px-4 py-2 bg-emerald-800 hover:bg-emerald-900 transition-colors"
-          onClick={handleReuseClick}>
+          onClick={handleReuseClick}
+        >
           <RecycleIcon className="mr-2 h-5 w-5" />
           <span>ReuseU</span>
         </div>
       </div>
-      
-      {/* Search bar with rounded styling */}
+
+      {/* Search bar */}
       <div className="relative w-3/4 pl-5 flex-grow mx-4">
         <div className="relative flex items-center">
           <input
@@ -62,35 +50,51 @@ export default function Dashboard() {
           <MagnifyingGlassIcon className="absolute left-3 h-5 w-5 text-emerald-600" />
         </div>
       </div>
-      
-      {/* Create listing button with green styling */}
+
+      {/* Create listing */}
       <div className="px-2 h-full flex items-center">
         <button
           className="flex items-center justify-center bg-emerald-800 hover:bg-emerald-900 text-white rounded-full p-2 transition-colors"
           onClick={handleMakeAListingClick}
-          title="Create New Listing">
+          title="Create New Listing"
+        >
           <PlusCircleIcon className="h-8 w-8" />
         </button>
       </div>
-      
-      {/* Profile button with hover effect */}
+
+      {/* Profile */}
       <div className="px-2 h-full flex items-center">
         <button
           className="flex items-center justify-center hover:bg-emerald-800 rounded-full p-2 transition-colors"
           onClick={handleUserCircleClick}
-          title="Profile">
+          title="Profile"
+        >
           <UserCircleIcon className="h-8 w-8" />
         </button>
       </div>
-      
-      {/* Settings button with hover effect */}
-      <div className="px-5 h-full flex items-center">
+
+      {/* Settings */}
+      <div className="px-5 h-full flex items-center relative">
         <button
           className="flex items-center justify-center hover:bg-emerald-800 rounded-full p-2 transition-colors"
           onClick={handleCogClick}
-          title="Settings">
+          title="Settings"
+        >
           <Cog8ToothIcon className="h-8 w-8" />
         </button>
+
+        {/* Dropdown */}
+        {showSettings && (
+          <div className="absolute right-0 top-full mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+            <button
+              onClick={handleLogout}
+              className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            >
+              <ArrowRightEndOnRectangleIcon className="h-5 w-5 mr-2 text-gray-700" />
+              Log Out
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
