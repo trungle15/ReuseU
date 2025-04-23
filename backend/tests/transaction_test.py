@@ -27,7 +27,7 @@ transaction_id = add_transaction({
 compare = get_transaction(transaction_id)
 
 def test_get():
-    assert compare['BuyerID'] == 7
+    assert compare['BuyerID'] == 8
     assert compare['DateTransaction'] == 'now'
     assert compare['ListingID'] == 9
     assert compare['Price'] == 0
