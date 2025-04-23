@@ -27,11 +27,7 @@ def create_app():
     app.register_blueprint(reviews_bp, url_prefix='/api/reviews')
     app.register_blueprint(chats_bp, url_prefix='/api/chats')
     app.register_blueprint(transactions_bp, url_prefix='/api/transactions')
-<<<<<<< HEAD
     app.register_blueprint(accounts_bp, url_prefix='/api/accounts')
-=======
-    app.register_blueprint(messages_bp, url_prefix='/api/messages')
->>>>>>> 30b36c165ecb5c52f7b544818a790cdd724921be
     
     @app.route("/")
     def home():
