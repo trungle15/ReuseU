@@ -19,7 +19,7 @@ def create_app():
     
     # Protect all routes with JWT
 
-    # ✅ Properly configure CORS
+    # Properly configure CORS (added authorization)
     CORS(app, supports_credentials=True, resources={
         r"/api/*": {
             "origins": [

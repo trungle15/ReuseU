@@ -17,7 +17,8 @@ def get_listing(current_user, listing_id):
 
 #takes in listing_id integer
 @listings_bp.route('/', methods=['GET'])
-def get_listings():
+@jwt_required
+def get_listings(current_user):
     listing_data = listing_service.get_all_listings_total()
     if listing_data:
         return jsonify(listing_data), 200
