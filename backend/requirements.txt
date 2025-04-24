@@ -2,3 +2,5 @@ firebase-admin
 flask
 flask_cors
 pytest
+openai #< For the AI experiment
+dotenv #< for a .env file that Sofia needed for 
