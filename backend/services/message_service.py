@@ -1,5 +1,6 @@
 import firebase_admin
 from firebase_admin import credentials, db
+import re
 
 # get root of the database
 def get_db_root():
@@ -85,7 +86,8 @@ def add_message(message_data):
 
     if chat_exists:
         target_chat["Messages"] = target_chat["Messages"] + (str(message_data))
-        ref.child('Chat').child(new_key).set(target_chat)
+        # not new key but existing key
+        ref.child('Chat').child(str(listing_id_temp)).set(target_chat)
     else:
         new_key = listing_id_temp
         new_chat = {}
@@ -108,34 +110,57 @@ def add_message(message_data):
 # TODO:
 # - 
 def delete_chat(listing_id):
+    target_chat = None
     # 1. find the chat using the listing id
+    chats = ref.child('Chat').get()
+
+    # print(chats)y
+    for chat in chats:
+        if chat is None:
+            continue
+        if chat['ListingID'] == str(listing_id):
+            target_chat = chat
+            break
+
+    if target_chat is None:
+        print("Chat does not exist")
+        return
     
     # 2. iterate through messages (via Regex) and record all message ids 
     # associated with this chat in a list
-    
-    
+    message_ids = []
+    message = target_chat['Messages']
+    print(message)
+    message_ids = re.findall(r'\'MessageID\': \'(\d+)\'', message)
+    print(message_ids)
+
     # 3. delete the chat
+    ref.child('Chat').child(str(listing_id)).delete()
     
     
     # 4. find all the messages by message ids in message table and delete them.
+    for message_id in message_ids:
+        print(type(message_id))
+        print(message_id)
+        ref.child('Message').child(str(message_id)).delete()
 
-# remove the shit below
-def delete_message(message_id):
-    listingid = ref.child('Message').child(str(message_id))['ListingID']
-    ref.child('Message').child(str(message_id)).delete()
-    chats = ref.child('Chat').get()
 
-    target_chat = None
-    chat_exists = False
-    chats = ref.child('Chat').get()
-    for chat in chats:
-        for field, value in chat.items():
-            if field == 'ListingID':
-                if int(value) == listingid:
-                    target_chat = chat
-                    chat_exists = True
-    if chat_exists:
-        target_chat["Messages"] = target_chat["Messages"].append(message_data)
-        ref.child('Chat').child(new_key).set(target_chat)
-    else:
-        print("Chat does not exist")
+    
+    # listingid = ref.child('Message').child(str(message_id))['ListingID']
+    # ref.child('Message').child(str(message_id)).delete()
+    # chats = ref.child('Chat').get()
+
+    # target_chat = None
+    # chat_exists = False
+    # chats = ref.child('Chat').get()
+    # for chat in chats:
+    #     for field, value in chat.items():
+    #         if field == 'ListingID':
+    #             if int(value) == listingid:
+    #                 target_chat = chat
+    #                 chat_exists = True
+    # if chat_exists:
+    #     target_chat["Messages"] = target_chat["Messages"].append(message_data)
+    #     ref.child('Chat').child(new_key).set(target_chat)
+    # else:
+    #     print("Chat does not exist")
