@@ -51,26 +51,46 @@ def add_message(message_data):
     #                 chat_exists = True
     
     # Check if chat tied to listing ID exists
-    for chat in chats:
-        if chat is not None:
-            for field, value in chat.items():
-                if field == 'ListingID':
-                    # print(f"Checking value lIDt: {listing_id_temp}, and val: {value}")
-                    if str(value) == listing_id_temp:
-                        target_chat = chat
-                        chat_exists = True
-                        break
-            if chat_exists == True:
-                break
+    print((type(chat) for chat in chats))
+
+    # If the chats table has # of chats >= 2
+    if isinstance(chats, list):
+    # keys are just indices in the list that are not None
+        for chat in chats:
+            if chat is not None:
+                # To bypass the list of dicts
+                for field, value in chat.items():
+                    if field == 'ListingID':
+                        # print(f"Checking value lIDt: {listing_id_temp}, and val: {value}")
+                        if str(value) == listing_id_temp:
+                            target_chat = chat
+                            chat_exists = True
+                            break
+                if chat_exists == True:
+                    break
+    # If the chats table has only one chat
+    elif isinstance(chats, dict):
+        for chat in chats:
+            if chat is not None:
+                # Literally the only difference
+                for field, value in chats.items():
+                    if field == 'ListingID':
+                        # print(f"Checking value lIDt: {listing_id_temp}, and val: {value}")
+                        if str(value) == listing_id_temp:
+                            target_chat = chat
+                            chat_exists = True
+                            break
+                if chat_exists == True:
+                    break
 
     if chat_exists:
-        target_chat["Messages"] = target_chat["Messages"].append(message_data)
+        target_chat["Messages"] = target_chat["Messages"] + (str(message_data))
         ref.child('Chat').child(new_key).set(target_chat)
     else:
         new_key = listing_id_temp
         new_chat = {}
         new_chat["ListingID"] = listing_id_temp
-        new_chat["Messages"] = [message_data]
+        new_chat["Messages"] = str(message_data)
         ref.child('Chat').child(new_key).set(new_chat)
     return new_key
 
