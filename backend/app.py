@@ -16,6 +16,8 @@ def create_app():
     # Enable CORS for all routes
     CORS(app)
     
+    
+    # Protect all routes with JWT
     app.register_blueprint(accounts_bp, url_prefix='/api/accounts')
     app.register_blueprint(listings_bp, url_prefix='/api/listings')
     app.register_blueprint(reviews_bp, url_prefix='/api/reviews')
