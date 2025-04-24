@@ -1,15 +1,16 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { 
   signInWithEmailAndPassword, 
   createUserWithEmailAndPassword,
   signOut as firebaseSignOut,
+  onAuthStateChanged,
+  User
 } from 'firebase/auth';
 import { auth } from '../lib/firebase';
-import { useAuth } from './AuthContext';
 
 interface GlobalContextType {
   // Authentication
-  user: any; 
+  user: User | null;
   loading: boolean;
   error: string | null;
   signInWithEmail: (email: string, password: string) => Promise<void>;
@@ -44,45 +45,67 @@ const GlobalContext = createContext<GlobalContextType>({
 export const useGlobalContext = () => useContext(GlobalContext);
 
 export const GlobalProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { user: authUser, loading: authLoading, error: authError } = useAuth();
-
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [filters, setFilters] = useState({});
   const [title, setTitle] = useState<string>('');
   const [listings, setListings] = useState<any[]>([]);
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   const signInWithEmail = async (email: string, password: string) => {
     try {
+      setLoading(true);
       await signInWithEmailAndPassword(auth, email, password);
+      setError(null);
     } catch (err: any) {
-      console.error(err.message);
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   const signUpWithEmail = async (email: string, password: string) => {
     try {
+      setLoading(true);
       if (!email.endsWith('.edu')) {
         throw new Error('Please use a .edu email address');
       }
       await createUserWithEmailAndPassword(auth, email, password);
+      setError(null);
     } catch (err: any) {
-      console.error(err.message);
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   const logout = async () => {
     try {
+      setLoading(true);
       await firebaseSignOut(auth);
+      setError(null);
     } catch (err: any) {
-      console.error(err.message);
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <GlobalContext.Provider
       value={{
-        user: authUser,
-        loading: authLoading,
-        error: authError,
+        user,
+        loading,
+        error,
         signInWithEmail,
         signUpWithEmail,
         logout,
