@@ -30,6 +30,6 @@ jobs:
       - name: Run Pytest
         run: |
           cd backend
-          pytest test
+          pytest tests
       - name: Delete pk.json
         run: rm pk.json
