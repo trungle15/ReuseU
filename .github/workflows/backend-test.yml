@@ -1,7 +1,7 @@
 name: Backend test
 on:
   push:
-    branches: main
+    branches: cicd-new
 
 jobs:
   test:
@@ -21,8 +21,16 @@ jobs:
           cd backend
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
+      - name: Write pk.json from secrets
+        working-directory: backend
+        run: |
+          echo "${{ secrets.PK_JSON }}" | base64 --decode > pk.json
+        env:
+          PK_JSON: ${{ secrets.PK_JSON }}
       - name: Run Pytest
         run: |
           cd backend
-          pytest
+          pytest tests
+      - name: Delete pk.json
+        run: |
+          rm backend/pk.json
