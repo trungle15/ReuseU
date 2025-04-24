@@ -97,6 +97,28 @@ def add_message(message_data):
 
 # delete a message in the database from a message id
 # not functioning at the moment
+
+
+# For deletion, we can just delete whole chats instead of individual messages.
+# for deleting messages in the messages table, we need to parse through 
+# 'Messages' within the Chat table with a regular expression, where we get all
+# the message ids within the strings: "MessageID: " <Message_ID> ","
+
+# TODO:
+# - 
+def delete_chat(listing_id):
+    # 1. find the chat using the listing id
+    
+    # 2. iterate through messages (via Regex) and record all message ids 
+    # associated with this chat in a list
+    
+    
+    # 3. delete the chat
+    
+    
+    # 4. find all the messages by message ids in message table and delete them.
+
+# remove the shit below
 def delete_message(message_id):
     listingid = ref.child('Message').child(str(message_id))['ListingID']
     ref.child('Message').child(str(message_id)).delete()
