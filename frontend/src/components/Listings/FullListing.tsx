@@ -46,7 +46,7 @@ export default function FullListing({ title, price, tags, desc, image, sellerId,
     if (!listingId) return;
     try {
       setIsDeleting(true);
-      await listingsApi.delete(listingId, "1"); // Add auth token
+      await listingsApi.delete(listingId); // Add auth token
       setShowDeleteSuccess(true);
       // Wait for the success message to show
       setTimeout(() => {
