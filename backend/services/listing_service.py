@@ -168,6 +168,8 @@ class ListingService:
             if not listings:
                 raise NotFoundError("No listings found.")
             for listing in listings:
+                #print("Here")
+                #print(listing)
                 if listing is not None:
                     all_listings.append(listing)
             return all_listings

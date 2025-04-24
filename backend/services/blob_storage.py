@@ -92,6 +92,11 @@ def upload_file_to_bucket(s3_resource, image_name, listing_id, data_bytes):
     data_bytes = compress_image(data_bytes, 10)
     bucket.put_object(Key=(listing_indicator + str(listing_id) + name_indicator + image_name), Body=data_bytes)
 
+
+def get_images_from_bucket(s3_resource, image_name, listing_id, data_bytes):
+    pass
+
+
 def upload_files_to_bucket(s3_resource, files):
     for image_name,listing_id, data in files:
         upload_file_to_bucket(s3_resource, image_name,listing_id, data)
