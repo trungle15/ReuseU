@@ -1,23 +1,21 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { 
-  User, 
   signInWithEmailAndPassword, 
   createUserWithEmailAndPassword,
   signOut as firebaseSignOut,
-  onAuthStateChanged 
 } from 'firebase/auth';
 import { auth } from '../lib/firebase';
-import Listing from '@/components/Listings/Listing'
+import { useAuth } from './AuthContext';
 
 interface GlobalContextType {
   // Authentication
-  user: User | null;
+  user: any; 
   loading: boolean;
   error: string | null;
   signInWithEmail: (email: string, password: string) => Promise<void>;
   signUpWithEmail: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
-  // Existing state
+  // App-level state
   filters: any;
   setFilters: (filters: any) => void;
   title: string;
@@ -27,14 +25,14 @@ interface GlobalContextType {
 }
 
 const GlobalContext = createContext<GlobalContextType>({
-  // Authentication defaults
+  // Auth
   user: null,
   loading: true,
   error: null,
   signInWithEmail: async () => {},
   signUpWithEmail: async () => {},
   logout: async () => {},
-  // Existing defaults
+  // App state
   filters: {},
   setFilters: () => {},
   title: '',
@@ -46,66 +44,48 @@ const GlobalContext = createContext<GlobalContextType>({
 export const useGlobalContext = () => useContext(GlobalContext);
 
 export const GlobalProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Authentication state
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const { user: authUser, loading: authLoading, error: authError } = useAuth();
 
-  // Existing state
   const [filters, setFilters] = useState({});
   const [title, setTitle] = useState<string>('');
-  const [listings, setListings] = useState<Array<any>>([]);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
-      setLoading(false);
-    });
-
-    return () => unsubscribe();
-  }, []);
+  const [listings, setListings] = useState<any[]>([]);
 
   const signInWithEmail = async (email: string, password: string) => {
     try {
-      setError(null);
       await signInWithEmailAndPassword(auth, email, password);
     } catch (err: any) {
-      setError(err.message);
+      console.error(err.message);
     }
   };
 
   const signUpWithEmail = async (email: string, password: string) => {
     try {
-      setError(null);
       if (!email.endsWith('.edu')) {
         throw new Error('Please use a .edu email address');
       }
       await createUserWithEmailAndPassword(auth, email, password);
     } catch (err: any) {
-      setError(err.message);
+      console.error(err.message);
     }
   };
 
   const logout = async () => {
     try {
-      setError(null);
       await firebaseSignOut(auth);
     } catch (err: any) {
-      setError(err.message);
+      console.error(err.message);
     }
   };
 
   return (
     <GlobalContext.Provider
       value={{
-        // Authentication
-        user,
-        loading,
-        error,
+        user: authUser,
+        loading: authLoading,
+        error: authError,
         signInWithEmail,
         signUpWithEmail,
         logout,
-        // Existing state
         filters,
         setFilters,
         title,

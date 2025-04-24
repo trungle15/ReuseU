@@ -17,7 +17,9 @@ export interface Listing {
 export const listingsApi = {
   // Get all listings with optional filters
   getAll: async () => {
-    const response = await fetch(`${API_BASE_URL}/listings`);
+    const response = await fetch(`${API_BASE_URL}/listings`, {
+      headers: getAuthHeaders(),
+    });
     if (!response.ok) throw new Error('Failed to fetch listings');
     const data = await response.json();
     console.log(data);
@@ -26,16 +28,18 @@ export const listingsApi = {
 
   // Get a single listing by ID
   getById: async (id: string) => {
-    const response = await fetch(`${API_BASE_URL}/listings/${id}`);
+    const response = await fetch(`${API_BASE_URL}/listings/${id}`, {
+      headers: getAuthHeaders(),
+    });
     if (!response.ok) throw new Error('Failed to fetch listing');
     return response.json();
   },
 
   // Create a new listing
-  create: async (listing: ListingData, token: string) => {
+  create: async (listing: ListingData) => {
     const response = await fetch(`${API_BASE_URL}/listings/`, {
       method: 'POST',
-      headers: getAuthHeaders(token),
+      headers: getAuthHeaders(),
       body: JSON.stringify(listing),
     });
     if (!response.ok) throw new Error('Failed to create listing');
@@ -43,10 +47,10 @@ export const listingsApi = {
   },
 
   // Update an existing listing
-  update: async (id: string, listing: Partial<Listing>, token: string) => {
+  update: async (id: string, listing: Partial<Listing>) => {
     const response = await fetch(`${API_BASE_URL}/listings/${id}`, {
       method: 'PUT',
-      headers: getAuthHeaders(token),
+      headers: getAuthHeaders(),
       body: JSON.stringify(listing),
     });
     if (!response.ok) throw new Error('Failed to update listing');
@@ -54,10 +58,10 @@ export const listingsApi = {
   },
 
   // Delete a listing
-  delete: async (id: string, token: string) => {
+  delete: async (id: string) => {
     const response = await fetch(`${API_BASE_URL}/listings/${id}`, {
       method: 'DELETE',
-      headers: getAuthHeaders(token),
+      headers: getAuthHeaders(),
     });
     if (!response.ok) throw new Error('Failed to delete listing');
     return response.json();
@@ -65,7 +69,9 @@ export const listingsApi = {
 
   // Get listings by user ID
   getByUserId: async (userId: string) => {
-    const response = await fetch(`${API_BASE_URL}/listings/user/${userId}`);
+    const response = await fetch(`${API_BASE_URL}/listings/user/${userId}`, {
+      headers: getAuthHeaders(),
+    });
     if (!response.ok) throw new Error('Failed to fetch user listings');
     return response.json();
   },
