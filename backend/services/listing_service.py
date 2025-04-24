@@ -2,6 +2,7 @@ import firebase_admin
 from firebase_admin import credentials, db
 from typing import Optional, Dict, Any, List
 import logging
+import base64
 
 from . import blob_storage
 from .exceptions import ServiceError, NotFoundError, ValidationError, DatabaseError
@@ -173,14 +174,13 @@ class ListingService:
                     listing_id_str = listing['ListingID']
                     images = blob_storage.get_images_from_bucket(s3, listing_id_str)
                     if not images:
-                        #print("REEEEEE")
                         pass
                     else:
-                        #print("FOUND AN IMAGE")
-                        #print(images)
-                        listing["base64images"] = images
-                    #print(listing)
-                    #print("CYKA")
+                        base64_images = []
+                        for key, data in images:
+                            base64_str = base64.b64encode(data).decode('utf-8')
+                            base64_images.append({'key': key, 'data': base64_str})
+                        listing["base64images"] = base64_images
             return all_listings
         except ServiceError:
             raise
