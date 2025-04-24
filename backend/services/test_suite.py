@@ -9,7 +9,7 @@ from .account_service import add_account, delete_acc
 from .listing_service import add_listing, del_listing, get_all_listings_total
 from .review_service import add_review, del_review
 from .transaction_service import add_transaction, delete_transaction
-from .message_service import add_message
+from .message_service import add_message, delete_chat
 
 INTRO_MSG = '''
 Welcome to the ReuseU Backend Testing Suite!
@@ -29,7 +29,7 @@ Please select a component to test:
 (12): Delete Reviews
 (13): Make Test Messages
 (14): See All Messages
-(15): Delete Messages
+(15): Delete Chat(s)
 (16): Exit
 Entry: '''
 
@@ -532,6 +532,7 @@ def intro_menu():
             delete_reviews_range(min_id, max_id)
             print(
                 f"Listing ids {min_id} though {max_id} were deleted in the reviews table. Navigate to database to see additions.")
+        # Messages testing
         elif user_input == "13":
             num_chats = int(input("Enter amt. of messages to make: "))
             load_dummy_messages(num_chats)
@@ -542,6 +543,10 @@ def intro_menu():
             pass
         elif user_input == "15":
             # TODO: add messages suite testing functions
+            listing_choice = int(input("Enter listing ID to delete chat for: "))
+            delete_chat(listing_choice)
+            print(f"Chat for listing id {listing_choice} was deleted. Navigate to database to see additions.")
+            exit_testing_program()
             pass
         else:
             print("Invalid input. Please try again.\n")
