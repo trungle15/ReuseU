@@ -2,6 +2,7 @@ import firebase_admin
 from firebase_admin import credentials, db
 from typing import Optional, Dict, Any, List
 import logging
+import base64
 
 from . import blob_storage
 from .exceptions import ServiceError, NotFoundError, ValidationError, DatabaseError
@@ -65,8 +66,7 @@ class ListingService:
             if not images or len(images) == 0:
                 logger.error("No images provided in the listing")
                 raise ValidationError("Listing must include at least one image")
-                
-            image = images[0]  # Take the first image
+
             logger.debug("Successfully extracted first image")
             
             # Connect to blob storage
@@ -86,7 +86,7 @@ class ListingService:
             
             # Upload image to blob storage
             logger.debug(f"Uploading image to blob storage with key: {new_key}")
-            blob_storage.upload_file_to_bucket(s3, "test_image", listing_data['ListingID'], image)
+            blob_storage.upload_files_to_bucket(s3, listing_data['ListingID'], images)
             logger.debug("Successfully uploaded image to blob storage")
             
             # Save listing to database
@@ -167,11 +167,20 @@ class ListingService:
             all_listings = []
             if not listings:
                 raise NotFoundError("No listings found.")
+            s3 = blob_storage.connect_to_blob_db_resource()
             for listing in listings:
-                #print("Here")
-                #print(listing)
                 if listing is not None:
                     all_listings.append(listing)
+                    listing_id_str = listing['ListingID']
+                    images = blob_storage.get_images_from_bucket(s3, listing_id_str)
+                    if not images:
+                        pass
+                    else:
+                        base64_images = []
+                        for key, data in images:
+                            base64_str = base64.b64encode(data).decode('utf-8')
+                            base64_images.append({'key': key, 'data': base64_str})
+                        listing["base64images"] = base64_images
             return all_listings
         except ServiceError:
             raise

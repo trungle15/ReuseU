@@ -29,6 +29,13 @@ export interface FullListingProps {
   listingId?: string;
 }
 
+// Helper to ensure image src is a valid data URL
+function getImageSrc(image?: string): string {
+  if (!image) return '';
+  if (image.startsWith('data:image/')) return image;
+  return `data:image/jpeg;base64,${image}`;
+}
+
 export default function FullListing({ title, price, tags, desc, image, sellerId, listingId }: FullListingProps) {
   const router = useRouter();
   const [isDeleting, setIsDeleting] = useState(false);
@@ -85,7 +92,7 @@ export default function FullListing({ title, price, tags, desc, image, sellerId,
           {/* Image section with navigation */}
           <div className="w-1/2">
             <img
-              src={image}
+              src={getImageSrc(image)}
               alt={title}
               className="w-full rounded-md"
             />

@@ -228,7 +228,13 @@ export default function ListingsHomepage() {
                 price={parseFloat(listing.Price)}
                 tags={listing.Category || []}
                 desc={listing.Description}
-                image={listing.Images?.[0] || ""}
+                image={
+                  typeof listing.Images?.[0] === "string" && listing.Images[0]
+                    ? listing.Images[0]
+                    : Array.isArray(listing.base64images) && typeof listing.base64images[0]?.data === "string"
+                    ? listing.base64images[0].data
+                    : ""
+                }
                 ListingID={listing.ListingID || ''}
                 UserID={listing.UserID}
               />

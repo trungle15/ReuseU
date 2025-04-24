@@ -10,14 +10,11 @@ from routes.message import messages_bp
 def create_app():
     app = Flask(__name__)
     
+    # Disable strict slashes to prevent redirects without CORS headers
+    app.url_map.strict_slashes = False
+    
     # Enable CORS for all routes
-    CORS(app, resources={
-        r"/api/*": {
-            "origins": ["http://localhost:3000"],
-            "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-            "allow_headers": ["Content-Type", "Authorization"]
-        }
-    })
+    CORS(app)
     
     app.register_blueprint(accounts_bp, url_prefix='/api/accounts')
     app.register_blueprint(listings_bp, url_prefix='/api/listings')
