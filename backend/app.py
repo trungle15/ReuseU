@@ -10,7 +10,7 @@ from routes.message import messages_bp
 def create_app():
     app = Flask(__name__)
 
-    # ✅ Properly configure CORS
+    # Properly configure CORS (added authorization)
     CORS(app, supports_credentials=True, resources={
         r"/api/*": {
             "origins": [
