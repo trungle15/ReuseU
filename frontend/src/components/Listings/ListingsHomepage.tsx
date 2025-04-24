@@ -18,6 +18,8 @@ import { useGlobalContext } from "@/Context/GlobalContext"
 import { useEffect, useState } from "react"
 import { listingsApi, Listing as ListingType } from "@/pages/api/listings";
 import { LeafIcon, FilterIcon, UserIcon } from "lucide-react";
+import { useApiWithAuth } from "@/lib/useApiWithAuth";
+import { useAuth } from "@/Context/AuthContext";
 
 // Price range options for filtering
 interface PriceRange {
@@ -42,17 +44,20 @@ export default function ListingsHomepage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [showMyListings, setShowMyListings] = useState(false);
   const itemsPerPage = 25;
-  const currentUserId = 8675309; // Set the user ID
-
+  const { user } = useAuth();
+  const currentUserId = user?.uid;
   // Fetch all listings on component mount
   useEffect(() => {
-    const fetchListings = async () => {
+    let isMounted = true; // guard against setting state after unmount
+  
+    (async () => {
       try {
         setIsLoading(true);
-        const data = await listingsApi.getAll();
-        console.log(data);
-        if (data) {
-          console.log(data);
+        const data = await useApiWithAuth().listings.getAll();
+  
+        if (!isMounted) return;
+  
+        if (Array.isArray(data)) {
           setListings(data);
           setDisplayedListings(data.slice(0, itemsPerPage));
         } else {
@@ -60,14 +65,18 @@ export default function ListingsHomepage() {
           setDisplayedListings([]);
         }
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to fetch listings');
-        console.error('Error fetching listings:', err);
+        if (isMounted) {
+          setError(err instanceof Error ? err.message : 'Failed to fetch listings');
+          console.error('Error fetching listings:', err);
+        }
       } finally {
-        setIsLoading(false);
+        if (isMounted) setIsLoading(false);
       }
+    })();
+  
+    return () => {
+      isMounted = false; // cleanup on unmount
     };
-
-    fetchListings();
   }, []);
 
   // Load more listings when "Load More" button is clicked

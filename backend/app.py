@@ -18,17 +18,31 @@ def create_app():
     
     
     # Protect all routes with JWT
+
+    # ✅ Properly configure CORS
+    CORS(app, supports_credentials=True, resources={
+        r"/api/*": {
+            "origins": [
+                "http://localhost:3000",
+                "http://127.0.0.1:3000"
+            ],
+            "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+            "allow_headers": ["Content-Type", "Authorization"]
+        }
+    })
+
+    # Register blueprints
     app.register_blueprint(accounts_bp, url_prefix='/api/accounts')
     app.register_blueprint(listings_bp, url_prefix='/api/listings')
     app.register_blueprint(reviews_bp, url_prefix='/api/reviews')
     app.register_blueprint(chats_bp, url_prefix='/api/chats')
     app.register_blueprint(transactions_bp, url_prefix='/api/transactions')
     app.register_blueprint(messages_bp, url_prefix='/api/messages')
-    
+
     @app.route("/")
     def home():
         return "Welcome to ReuseU API"
-    
+
     return app
 
 app = create_app()

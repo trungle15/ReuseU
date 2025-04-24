@@ -21,7 +21,7 @@ import FullListing from "./FullListing";
 import { FullListingProps } from "./FullListing";
 import { useGlobalContext } from "@/Context/GlobalContext";
 import { useRouter } from "next/router";
-import { useApiWithAuth } from "@/lib/useApiWithAuth";
+import { listingsApi } from "@/pages/api/listings";
 
 // Props interface for the Listing component
 export interface ListingProps {
@@ -51,7 +51,6 @@ export default function Listing({ title, price, tags, desc, image, ListingID, Us
   const [showDeleteSuccess, setShowDeleteSuccess] = useState(false);
   const [isRemoved, setIsRemoved] = useState(false);
   const currentUserId = 8675309; // This should come from your auth context
-  const { listings: listingsApi } = useApiWithAuth();
 
   // Toggle favorite status
   const onFavoriteClick = () => {
