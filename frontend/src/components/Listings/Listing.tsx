@@ -21,7 +21,7 @@ import FullListing from "./FullListing";
 import { FullListingProps } from "./FullListing";
 import { useGlobalContext } from "@/Context/GlobalContext";
 import { useRouter } from "next/router";
-import { listingsApi } from "@/pages/api/listings";
+import { useApiWithAuth } from "@/lib/useApiWithAuth";
 
 // Props interface for the Listing component
 export interface ListingProps {
@@ -51,6 +51,7 @@ export default function Listing({ title, price, tags, desc, image, ListingID, Us
   const [showDeleteSuccess, setShowDeleteSuccess] = useState(false);
   const [isRemoved, setIsRemoved] = useState(false);
   const currentUserId = 8675309; // This should come from your auth context
+  const { listings: listingsApi } = useApiWithAuth();
 
   // Toggle favorite status
   const onFavoriteClick = () => {
@@ -68,7 +69,7 @@ export default function Listing({ title, price, tags, desc, image, ListingID, Us
   const handleDelete = async () => {
     try {
       setIsDeleting(true);
-      await listingsApi.delete(ListingID, "1"); // Add auth token
+      await listingsApi.delete(ListingID);
       setShowDeleteSuccess(true);
       // Wait for the success message to show
       setTimeout(() => {
