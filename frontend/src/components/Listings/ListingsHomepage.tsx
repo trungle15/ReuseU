@@ -13,13 +13,11 @@
  */
 
 import Listing from "./Listing"
-import  { Dropdown } from "../Dropdown/Dropdown"
+import { Dropdown } from "../Dropdown/Dropdown"
 import { useGlobalContext } from "@/Context/GlobalContext"
 import { useEffect, useState } from "react"
 import { listingsApi, Listing as ListingType } from "@/pages/api/listings";
 import { LeafIcon, FilterIcon, UserIcon } from "lucide-react";
-import { useApiWithAuth } from "@/lib/useApiWithAuth";
-import { useAuth } from "@/Context/AuthContext";
 
 // Price range options for filtering
 interface PriceRange {
@@ -37,23 +35,24 @@ const priceRanges: PriceRange[] = [
 ];
 
 export default function ListingsHomepage() {
-  const { filters, setListings, listings } = useGlobalContext();
+  const { filters, setListings, listings, user } = useGlobalContext();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [displayedListings, setDisplayedListings] = useState<ListingType[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [showMyListings, setShowMyListings] = useState(false);
   const itemsPerPage = 25;
-  const { user } = useAuth();
   const currentUserId = user?.uid;
+
   // Fetch all listings on component mount
   useEffect(() => {
     let isMounted = true; // guard against setting state after unmount
   
-    (async () => {
+    const fetchListings = async () => {
       try {
         setIsLoading(true);
-        const data = await useApiWithAuth().listings.getAll();
+        const token = user ? await user.getIdToken() : undefined;
+        const data = await listingsApi.getAll(token);
   
         if (!isMounted) return;
   
@@ -72,12 +71,14 @@ export default function ListingsHomepage() {
       } finally {
         if (isMounted) setIsLoading(false);
       }
-    })();
+    };
+
+    fetchListings();
   
     return () => {
       isMounted = false; // cleanup on unmount
     };
-  }, []);
+  }, [user, setListings]);
 
   // Load more listings when "Load More" button is clicked
   const loadMore = () => {
@@ -177,16 +178,9 @@ export default function ListingsHomepage() {
               </div>
             </div>
           </div>
-          <div className="flex-1 py-6 pr-4 flex items-center justify-center">
-            <div className="bg-white p-8 rounded-lg shadow-md text-center">
-              <LeafIcon className="w-16 h-16 mx-auto text-emerald-300 mb-4" />
-              <p className="text-gray-600 text-lg">No listings found matching your filters</p>
-              <button 
-                onClick={() => setShowMyListings(false)}
-                className="mt-4 px-4 py-2 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition-colors"
-              >
-                Clear filters
-              </button>
+          <div className="flex-1">
+            <div className="bg-white p-8 rounded-lg shadow-sm text-center">
+              <p className="text-gray-500">No listings found</p>
             </div>
           </div>
         </div>
@@ -194,7 +188,6 @@ export default function ListingsHomepage() {
     );
   }
 
-  // Main listings grid view
   return (
     <div className="min-h-screen pt-20 bg-emerald-50">
       <div className="flex gap-8 max-w-7xl mx-auto px-4">
@@ -207,7 +200,7 @@ export default function ListingsHomepage() {
                 Filters
               </h2>
             </div>
-            <div className="p-4">
+            <div className="p-4 h-full">
               <div className="mb-4 p-3 bg-emerald-50 rounded-lg border border-emerald-100">
                 <label className="flex items-center space-x-2 cursor-pointer">
                   <input
@@ -227,32 +220,31 @@ export default function ListingsHomepage() {
           </div>
         </div>
 
-        {/* Main content - listings grid */}
-        <div className="flex-1 py-2">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {filteredListings.map((listing: ListingType) => (
+        {/* Listings grid */}
+        <div className="flex-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {filteredListings.map((listing) => (
               <Listing
                 key={listing.ListingID}
                 title={listing.Title}
                 price={parseFloat(listing.Price)}
-                tags={listing.Category || []}
+                tags={listing.Category}
                 desc={listing.Description}
-                image={listing.Images?.[0] || ""}
-                ListingID={listing.ListingID || ''}
+                image={listing.Images?.[0]}
+                ListingID={listing.ListingID}
                 UserID={listing.UserID}
               />
             ))}
           </div>
-          
-          {/* Load more button */}
+
+          {/* Load More button */}
           {showLoadMore && (
-            <div className="flex justify-center mt-10 mb-8">
+            <div className="mt-8 text-center">
               <button
                 onClick={loadMore}
-                className="px-6 py-3 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition-colors flex items-center shadow-md"
+                className="px-6 py-3 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
               >
-                <span>Load More</span>
-                <LeafIcon className="ml-2 w-4 h-4" />
+                Load More
               </button>
             </div>
           )}

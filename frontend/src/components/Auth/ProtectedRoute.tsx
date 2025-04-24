@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
 import { useGlobalContext } from '../../Context/GlobalContext';
-import { useAuth } from '../../Context/AuthContext';
 import { useEffect } from 'react';
 
 interface ProtectedRouteProps {
@@ -8,19 +7,20 @@ interface ProtectedRouteProps {
 }
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  const { user: globalUser, loading: globalLoading } = useGlobalContext();
-  const { jwtToken, loading: authLoading } = useAuth();
+  const { user, loading } = useGlobalContext();
   const router = useRouter();
 
   useEffect(() => {
-    if (!globalLoading && !authLoading && (!globalUser || !jwtToken)) {
-      router.push('/login');
-    } else if (!globalLoading && !authLoading && globalUser && !globalUser.email?.endsWith('.edu')) {
-      router.push('/login?error=edu-email-required');
+    if (!loading) {
+      if (!user) {
+        router.push('/login');
+      } else if (!user.email?.endsWith('.edu')) {
+        router.push('/login?error=edu-email-required');
+      }
     }
-  }, [globalUser, jwtToken, globalLoading, authLoading, router]);
+  }, [user, loading, router]);
 
-  if (globalLoading || authLoading) {
+  if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
@@ -28,7 +28,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
     );
   }
 
-  if (!globalUser || !jwtToken || !globalUser.email?.endsWith('.edu')) {
+  if (!user || !user.email?.endsWith('.edu')) {
     return null;
   }
 
