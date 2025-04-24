@@ -17,14 +17,18 @@ except ValueError:
 # get root ref
 ref = db.reference('/')
 
+#for i in range(20):
+
 account_id = add_account({
-        'First_name': 'Krishna',
+         'First_name': 'Krishna',
         'Last_name': 'Nayar',
         'PhoneNumber': '713-775-9080',
         'School': 'grinnell',
         'Username': 'kanayar21',
         'dateTime_creation': '2025-04-08T18:56:02.560105Z'
     })
+
+
 
 compare = get_acc(account_id)
 
@@ -39,5 +43,10 @@ def test_get():
 delete_acc(account_id)
 
 def test_deletion():
-    with pytest.raises(NotFoundError, match= f"Account {account_id} not found."):
-        get_acc(account_id)
+    if not ref.child('Account').get():
+        with pytest.raises(NotFoundError, match= "No accounts found."):
+            get_acc(1)
+    else:
+        with pytest.raises(NotFoundError, match= f"Account {account_id} not found."):
+            get_acc(account_id)
+    

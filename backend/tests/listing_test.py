@@ -44,5 +44,9 @@ def test_get():
 del_listing(listing_id)
 
 def test_deletion():
-    with pytest.raises(NotFoundError, match= f"Listing {listing_id} not found."):
-        get_listing(listing_id)
+    if not ref.child('Listing').get():
+        with pytest.raises(NotFoundError, match= "No listings found."):
+            get_listing(1)
+    else:
+        with pytest.raises(NotFoundError, match= f"Listing {listing_id} not found."):
+            get_listing(listing_id)
