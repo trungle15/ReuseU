@@ -32,4 +32,6 @@ jobs:
           cd backend
           pytest tests
       - name: Delete pk.json
-        run: rm pk.json
+        run: |
+          pwd
+          rm pk.json
