@@ -72,6 +72,7 @@ def add_message(message_data):
         new_chat["ListingID"] = listing_id_temp
         new_chat["Messages"] = [message_data]
         ref.child('Chat').child(new_key).set(new_chat)
+    return new_key
 
 
 
