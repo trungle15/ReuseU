@@ -68,7 +68,7 @@ export default function Listing({ title, price, tags, desc, image, ListingID, Us
   const handleDelete = async () => {
     try {
       setIsDeleting(true);
-      await listingsApi.delete(ListingID, "1"); // Add auth token
+      await listingsApi.delete(ListingID);
       setShowDeleteSuccess(true);
       // Wait for the success message to show
       setTimeout(() => {
