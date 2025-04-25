@@ -3,6 +3,7 @@ from services.message_service import add_message, delete_message
 
 messages_bp = Blueprint('messages', __name__)
 
+# api route to create a message
 @messages_bp.route('', methods=['POST'])
 def create_message():
     try:
@@ -12,6 +13,7 @@ def create_message():
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
+# api route to delete a message
 @messages_bp.route('/<int:message_id>', methods=['DELETE'])
 def delete_message_route(message_id):
     try:
