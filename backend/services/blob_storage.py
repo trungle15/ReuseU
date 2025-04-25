@@ -109,6 +109,7 @@ def upload_files_to_bucket(s3_resource, listing_id, data_bytes_list):
             if data_bytes.startswith('data:image'):
                 data_bytes = data_bytes.split(',')[1]
             data_bytes = base64.b64decode(data_bytes)
+        data_bytes = compress_image(data_bytes, 20)
         bucket.put_object(Key=(listing_indicator + str(listing_id) + name_indicator + str(name_counter)), Body=data_bytes)
         name_counter += 1
 
