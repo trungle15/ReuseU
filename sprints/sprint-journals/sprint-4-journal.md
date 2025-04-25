@@ -59,7 +59,18 @@ I found the doc strings at function definitions that talk about input formats we
 
 ### Team 2: Sofia, Howie, Trung
 
+Timur and Krishna reviewing Peter’s code
+	
+#### Code we worked on: 
+* 
+* 
 
+#### Changes we made: 
+
+* 
+
+#### Existing documentation that was helpful
+* 
 
 ## Part 3: Self-Selected Work toward Minimum Viable Product (MVP)
 
