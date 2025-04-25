@@ -61,14 +61,22 @@ I found the doc strings at function definitions that talk about input formats we
 	
 #### Code we worked on: 
 * ReuseU/frontend/src/Context/GlobalContext.tsx
-* 
+* ReuseU/backend/services openai_price_fill.py lines 43-94
+* ReuseU/backend/services blob_storage.py lines 28-64
 
 #### Changes we made: 
 * Added comprehensive docstrings to GlobalContext, describing all state, methods, and usage patterns for global app state, authentication, and filters.
 * Example usage and filter/category structures are now clearly documented for future contributors.
+* Sofia: Added documentation to `connect_to_blob_db_resource()`, and added header comments to `get_all_files()` and `(get_files_listing_id)`
 
 #### Existing documentation that was helpful
 * I found help from existing prop and function docstrings in GlobalContext.tsx and component files; Menu comments and logical section comments in both backend and frontend files.
+
+#### Commit hash for new documentation and link:
+* Commit hash: 
+* Link:
+  
+---
 
 ## Part 3: Self-Selected Work toward Minimum Viable Product (MVP)
 
