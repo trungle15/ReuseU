@@ -89,4 +89,16 @@ I found the doc strings at function definitions that talk about input formats we
    3. **TODO; Discuss with other team members**: _How did this use of AI affect your product development or other sprint deliverables? If you integrated any of its output directly into your code base, include a link to a pull request where the generated output can be clearly distinguished._
    4. *OpenAI* helped immensely with easing the process of price suggestions. It is a feature that we originally pushed off as a stretch goal due to the complexity of our original approach, but this turned it into a very doable deliverable.
 
+
+
+
+
+
+* Sofia and Timur used cursor to implement a delete_chat function in the backend/services/message_service.py file
+   1.  Going into using Cursor, we were expecting it to assist us in coding the function with its auto-complete suggestions. The goal was to write this function faster, and hopefully validating its correctness with a few potential fixes.
+   2. We didn't have to promopt Cursor AI explicitly. Instead, we identified roughly 4-5 steps of what the function is supposed to achieve and how, and wrote those out as comments in the code, a skeleton so to speak. Then, as we started writing code and the cursor would automatically suggest to finish lines of code and/or write additional ones. 
+   3.  **TODO:** It assisted the product development in that it seemed to suggest code for what we were already going to do in the developemnt process. Once we identified the right steps to follow in our function, we just had to finish writing the actual code, and at times perhaps loop up syntax/functionality online, but with Cursor it felt like it was either reminding us of existing funcitonality or "finishing our (code) sentences" in a way we would have done, just more slowly if we did it independently.
+   Here is a [link to a Pull Request](https://github.com/dicarlosofia/ReuseU/pull/145) where this function can be found
+   4. We think the use of Cursor AI achieved our goals of writing the function and confirmed our expectations pretty well. It was easy to use, assisted us in th process, and was very clear to understand. We also liked that we didn't have to go out of our way much to have it work and be seamlessly integrated into the IDE.
+
 ## Part 5: Demo 2 and Presentation
