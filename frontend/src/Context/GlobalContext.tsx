@@ -1,3 +1,82 @@
+/**
+ * GlobalContext
+ * 
+ * This context provides global state management for the ReuseU application.
+ * It handles authentication, user state, and application-level state like filters and listings.
+ * 
+ * Usage:
+ * 1. Wrap your app with GlobalProvider in _app.tsx
+ * 2. Use the useGlobalContext hook in any component to access the global state
+ * 
+ * Example:
+ * ```tsx
+ * import { useGlobalContext } from '@/Context/GlobalContext';
+ * 
+ * function MyComponent() {
+ *   const { user, loading, error, filters, setFilters } = useGlobalContext();
+ *   
+ *   // Use the context values
+ *   if (loading) return <div>Loading...</div>;
+ *   if (error) return <div>Error: {error}</div>;
+ *   
+ *   return (
+ *     <div>
+ *       <h1>Welcome, {user?.email}</h1>
+ *       <button onClick={() => setFilters({ categories: [], priceRanges: [] })}>
+ *         Clear Filters
+ *       </button>
+ *     </div>
+ *   );
+ * }
+ * ```
+ * 
+ * Available State:
+ * - user: Firebase User object or null
+ * - loading: boolean indicating if auth state is loading
+ * - error: string | null for any auth errors
+ * - filters: object containing category and price range filters
+ * - setFilters: function to update filters
+ * - title: string for current page title
+ * - setTitle: function to update title
+ * - listings: array of all listings
+ * - setListings: function to update listings
+ * 
+ * Available Methods:
+ * - signInWithEmail(email: string, password: string): Promise<void>
+ * - signUpWithEmail(email: string, password: string): Promise<void>
+ * - logout(): Promise<void>
+ * 
+ * Filter Structure:
+ * ```typescript
+ * interface Filters {
+ *   categories: string[];  // Array of selected category names
+ *   priceRanges: string[]; // Array of selected price range labels
+ * }
+ * ```
+ * 
+ * Price Range Labels:
+ * - "Under $10"
+ * - "$10 - $50"
+ * - "$50 - $100"
+ * - "$100 - $500"
+ * - "Above $500"
+ * 
+ * Category Structure:
+ * Categories are organized in groups with subcategories:
+ * - Electronics: Laptops, Phones, Tablets, TVs
+ * - Furniture: Tables, Chairs, Desks, Beds, Storage
+ * - Clothing: Tops, Bottoms, Dresses, Shirts
+ * - Home & Kitchen: Appliances, Cookware, Dinnerware, Utensils
+ * - Arts & Crafts: Art, Crafts, Books
+ * - Other: Other
+ * 
+ * Notes:
+ * - All auth methods require .edu email addresses
+ * - Filters are used in ListingsHomepage for filtering listings
+ * - Listings state is managed globally to avoid refetching
+ * - Title state is used for page titles and navigation
+ */
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { 
   signInWithEmailAndPassword, 
