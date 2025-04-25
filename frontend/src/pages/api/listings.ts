@@ -9,6 +9,7 @@ export interface Listing {
   Price: string;
   Category: string[];
   Images?: string[];
+  base64images?: { data: string; key?: string }[];
   UserID: number;
   SellStatus: number;
   CreateTime?: string;
@@ -17,10 +18,11 @@ export interface Listing {
 export const listingsApi = {
   // Get all listings with optional filters
   getAll: async () => {
-    const response = await fetch(`${API_BASE_URL}/listings`);
+    const response = await fetch(`${API_BASE_URL}/listings/`);
     if (!response.ok) throw new Error('Failed to fetch listings');
     const data = await response.json();
-    return data.listings;
+    console.log(data);
+    return data;
   },
 
   // Get a single listing by ID
