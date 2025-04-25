@@ -58,19 +58,17 @@ I found the doc strings at function definitions that talk about input formats we
 
 
 ### Team 2: Sofia, Howie, Trung
-
-Timur and Krishna reviewing Peter’s code
 	
 #### Code we worked on: 
-* 
+* ReuseU/frontend/src/Context/GlobalContext.tsx
 * 
 
 #### Changes we made: 
-
-* 
+* Added comprehensive docstrings to GlobalContext, describing all state, methods, and usage patterns for global app state, authentication, and filters.
+* Example usage and filter/category structures are now clearly documented for future contributors.
 
 #### Existing documentation that was helpful
-* 
+* I found help from existing prop and function docstrings in GlobalContext.tsx and component files; Menu comments and logical section comments in both backend and frontend files.
 
 ## Part 3: Self-Selected Work toward Minimum Viable Product (MVP)
 
