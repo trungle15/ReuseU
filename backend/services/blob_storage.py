@@ -17,7 +17,7 @@ import numpy as np
 def connect_to_blob_db_resource():
     with open("pk2.json", "r") as f:
         cfg = json.load(f)
-
+    # Make connection to the Cloudflare database
     s3 = boto3.resource(
         "s3",
         endpoint_url=cfg["endpoint_url"],
@@ -31,7 +31,11 @@ def connect_to_blob_db_resource():
     return s3
 
 
+'''
+get_all_files
 
+Connect to the bucket to pull in images for uploading purposes in listings
+'''
 def get_all_files(s3_resource):
     bucket_name = "listing-images"
     all_files = []
@@ -43,7 +47,11 @@ def get_all_files(s3_resource):
         )
     return all_files
 
+'''
+get_files_listing_id(s3_resource, listing_id)
 
+This function retrieves the ListingID associated with an image. 
+'''
 def get_files_listing_id(s3_resource, listing_id):
     bucket = s3_resource.Bucket("listing-images")
     listing_indicator = "x%Tz^Lp&"
