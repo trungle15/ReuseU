@@ -40,7 +40,11 @@ def connect_to_blob_db_resource():
     return s3
 
 
+'''
+get_all_files
 
+Connect to the bucket to pull in images for uploading purposes in listings
+'''
 def get_all_files(s3_resource):
     bucket_name = "listing-images"
     all_files = []
