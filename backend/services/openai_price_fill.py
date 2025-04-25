@@ -40,6 +40,57 @@ price that is good for college student.
 RETURNS: 
 Once the price has been returned, returns a upper-range price and lower-range 
 in format [lower_price, upper_price]
+
+ERROR HANDLING:
+The function includes several layers of error handling:
+
+1. Environment Variables:
+   - If OPENAI_API_KEY is not set in .env file, os.getenv() will return None
+   - This will cause the OpenAI client initialization to fail
+
+2. Input Validation:
+   - Description is optional and defaults to "no description provided" if None
+   - Category dictionary is converted to a comma-separated string
+   - Empty or invalid categories will result in an empty string
+
+3. OpenAI API Response:
+   - The function expects a response in the format "<lower_price>-<upper_price>"
+   - Uses regex pattern r'(\d+)\s*-\s*(\d+)' to extract price range
+   - Raises ValueError if the response format is invalid
+   - Example valid response: "10-20" or "10 - 20"
+   - Example invalid response: "around $10" or "10 to 20"
+
+4. Price Range Validation:
+   - Extracted prices must be valid integers
+   - Lower bound must be less than or equal to upper bound
+   - Negative prices are not explicitly handled
+
+Example Error Cases:
+```python
+# Missing API Key
+api_key = None  # Raises OpenAI API error
+
+# Invalid Category Format
+category = {}  # Results in empty string for categories_formatted
+
+# Invalid OpenAI Response
+suggestion = "around $10"  # Raises ValueError
+
+# Invalid Price Range
+suggestion = "20-10"  # Valid format but illogical price range
+```
+
+To handle these errors in your application:
+```python
+try:
+    price_range = get_price_prediction(category, name, description)
+except ValueError as e:
+    # Handle invalid price format
+    print(f"Error: {e}")
+except Exception as e:
+    # Handle other errors (API, environment, etc.)
+    print(f"Unexpected error: {e}")
+```
 '''
 def get_price_prediction(category, name, description):
     
