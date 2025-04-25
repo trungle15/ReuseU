@@ -73,7 +73,10 @@ const ListingPage: NextPage = () => {
                 price={parseFloat(listing.Price)}
                 tags={listing.Category}
                 desc={listing.Description}
-                image={listing.Images?.[0] || ""}
+                image={
+                  // Prefer Images[0] if present, else base64images[0].data if present
+                  listing.Images?.[0] || (listing.base64images?.[0]?.data ?? "")
+                }
                 sellerId={listing.UserID}
             />
         </div>

@@ -1,13 +1,15 @@
 import datetime
 import random
+import os
+import sys
 
 import firebase_admin
 from firebase_admin import credentials, db
-from account_service import add_account, delete_acc
-from listing_service import add_listing, del_listing
-from review_service import add_review, del_review
-from transaction_service import add_transaction, delete_transaction
-from message_service import add_message
+from .account_service import add_account, delete_acc
+from .listing_service import add_listing, del_listing, get_all_listings_total
+from .review_service import add_review, del_review
+from .transaction_service import add_transaction, delete_transaction
+from .message_service import add_message
 
 INTRO_MSG = '''
 Welcome to the ReuseU Backend Testing Suite!
@@ -340,7 +342,8 @@ def generate_random_listing():
 
 # prints all the listings in the database
 def print_all_listings():
-    listings = ref.child('Listing').get()
+    listings = get_all_listings_total()
+    #listings = ref.child('Listing').get()
     if not listings:
         print("no listings found")
         return
@@ -558,6 +561,6 @@ def exit_testing_program():
     else: 
         print("Invalid input. Continuing...\n")
         
-#intro_menu()
+intro_menu()
 #print(generate_random_listing())
-print(generate_random_review())
+#print(generate_random_review())
