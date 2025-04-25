@@ -23,6 +23,13 @@ def create_app():
     })
 
     # Register blueprints
+    
+    # Disable strict slashes to prevent redirects without CORS headers
+    app.url_map.strict_slashes = False
+    
+    # Enable CORS for all routes
+    CORS(app)
+    
     app.register_blueprint(accounts_bp, url_prefix='/api/accounts')
     app.register_blueprint(listings_bp, url_prefix='/api/listings')
     app.register_blueprint(reviews_bp, url_prefix='/api/reviews')

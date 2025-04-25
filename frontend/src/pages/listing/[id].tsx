@@ -1,37 +1,37 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { NextPage } from "next";
-import Dashboard from "@/components/Dashboard";
-import FullListing from "@/components/Listings/FullListing";
-import { useApiWithAuth } from "@/lib/useApiWithAuth";
+import { useRouter } from "next/router"
+import { useEffect, useState } from "react"
+import { NextPage } from "next"
+import Dashboard from "@/components/Dashboard"
+import FullListing from "@/components/Listings/FullListing"
+import { useApiWithAuth } from "@/lib/useApiWithAuth"
 
 const ListingPage: NextPage = () => {
-  const router = useRouter();
-  const { id } = router.query;
-  const { listings } = useApiWithAuth();
+  const router = useRouter()
+  const { id } = router.query
+  const { listings } = useApiWithAuth()
 
-  const [listing, setListing] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [listing, setListing] = useState<any>(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    if (!router.isReady || !id) return;
+    if (!router.isReady || !id) return
 
     const fetchListing = async () => {
       try {
-        setIsLoading(true);
-        const data = await listings.getById(id as string); // Directly call, avoid destructuring
-        setListing(data);
+        setIsLoading(true)
+        const data = await listings.getById(id as string)
+        setListing(data)
       } catch (err) {
-        setError(err instanceof Error ? err.message : "Failed to fetch listing");
-        console.error("Error fetching listing:", err);
+        setError(err instanceof Error ? err.message : "Failed to fetch listing")
+        console.error("Error fetching listing:", err)
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
-    };
+    }
 
-    fetchListing();
-  }, [router.isReady, id]); // <- avoid including listings.getById here
+    fetchListing()
+  }, [router.isReady, id])
 
   if (isLoading) {
     return (
@@ -41,7 +41,7 @@ const ListingPage: NextPage = () => {
           <div className="text-xl">Loading...</div>
         </div>
       </div>
-    );
+    )
   }
 
   if (error) {
@@ -52,7 +52,7 @@ const ListingPage: NextPage = () => {
           <div className="text-xl text-red-500">Error: {error}</div>
         </div>
       </div>
-    );
+    )
   }
 
   if (!listing) {
@@ -63,7 +63,7 @@ const ListingPage: NextPage = () => {
           <div className="text-xl">Listing not found</div>
         </div>
       </div>
-    );
+    )
   }
 
   return (
@@ -74,11 +74,15 @@ const ListingPage: NextPage = () => {
         price={parseFloat(listing.Price)}
         tags={listing.Category}
         desc={listing.Description}
-        image={listing.Images?.[0] || ""}
+        image={
+          listing.Images?.[0] ||
+          listing.base64images?.[0]?.data ||
+          ""
+        }
         sellerId={listing.UserID}
       />
     </div>
-  );
-};
+  )
+}
 
-export default ListingPage;
+export default ListingPage
