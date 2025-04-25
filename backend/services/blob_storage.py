@@ -16,7 +16,12 @@ from botocore.client import Config
 import cv2
 import numpy as np
 
+'''
+connect_to_blob_db_resource()
 
+This function connects to the database we are using for image storage
+(cloudflare)
+'''
 def connect_to_blob_db_resource():
     # Get the absolute path to the credentials file
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -56,7 +61,11 @@ def get_all_files(s3_resource):
         )
     return all_files
 
+'''
+get_files_listing_id(s3_resource, listing_id)
 
+This function retrieves the ListingID associated with an image. 
+'''
 def get_files_listing_id(s3_resource, listing_id):
     bucket = s3_resource.Bucket("listing-images")
     listing_indicator = "x%Tz^Lp&"
