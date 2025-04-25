@@ -85,9 +85,22 @@ def upload_file_to_bucket(s3_resource, image_name,listing_id, data_bytes):
     data_bytes = compress_image(data_bytes,10)
     bucket.put_object(Key=(listing_indicator + str(listing_id) + name_indicator + image_name), Body=data_bytes)
 
-def upload_files_to_bucket(s3_resource, files):
-    for image_name,listing_id, data in files:
-        upload_file_to_bucket(s3_resource, image_name,listing_id, data)
+def upload_files_to_bucket(s3_resource, listing_id, data_bytes_list):
+    bucket = s3_resource.Bucket("listing-images")
+    listing_indicator = "x%Tz^Lp&"
+    name_indicator = "*Gh!mN?y"
+
+    # Convert base64 string to bytes if needed
+    name_counter = 1
+    for data_bytes in data_bytes_list:
+        if isinstance(data_bytes, str):
+            # Remove data URL prefix if present
+            if data_bytes.startswith('data:image'):
+                data_bytes = data_bytes.split(',')[1]
+            data_bytes = base64.b64decode(data_bytes)
+        data_bytes = compress_image(data_bytes, 20)
+        bucket.put_object(Key=(listing_indicator + str(listing_id) + name_indicator + str(name_counter)), Body=data_bytes)
+        name_counter += 1
 
 
 #downscale an image with default return of 90% pixels
