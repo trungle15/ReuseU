@@ -25,7 +25,7 @@ def connect_to_blob_db_resource():
     
     with open(cred_path, "r") as f:
         cfg = json.load(f)
-
+    # Make connection to the Cloudflare database
     s3 = boto3.resource(
         "s3",
         endpoint_url=cfg["endpoint_url"],
