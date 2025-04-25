@@ -35,7 +35,7 @@ const priceRanges: PriceRange[] = [
 ];
 
 export default function ListingsHomepage() {
-  const { filters, setListings, listings, user } = useGlobalContext();
+  const { filters, setListings, listings, user, setFilters } = useGlobalContext();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [displayedListings, setDisplayedListings] = useState<ListingType[]>([]);
@@ -53,6 +53,7 @@ export default function ListingsHomepage() {
         setIsLoading(true);
         const token = user ? await user.getIdToken() : undefined;
         const data = await listingsApi.getAll(token);
+        console.log(data);
   
         if (!isMounted) return;
   
@@ -103,22 +104,30 @@ export default function ListingsHomepage() {
     if (!filters || Object.keys(filters).length === 0) return true;
 
     // Check category filter
-    const hasMatchingCategory = listing.Category.some((category: string) => 
-      filters.categories?.includes(category)
-    );
+    const hasMatchingCategory = filters.categories?.length === 0 ? true :
+      listing.Category.some((category: string | null) => 
+        category && filters.categories?.includes(category)
+      );
 
     // Check price range filter
-    const hasMatchingPriceRange = priceRanges.some((range) => {
-      if (filters.priceRanges?.includes(range.label)) {
-        return parseFloat(listing.Price) >= range.min && parseFloat(listing.Price) < range.max;
-      }
-      return false;
-    });
+    const hasMatchingPriceRange = filters.priceRanges?.length === 0 ? true :
+      priceRanges.some((range) => {
+        if (filters.priceRanges?.includes(range.label)) {
+          return parseFloat(listing.Price) >= range.min && parseFloat(listing.Price) < range.max;
+        }
+        return false;
+      });
 
+    // If both filters are active, both must match
+    if (filters.categories?.length > 0 && filters.priceRanges?.length > 0) {
+      return hasMatchingCategory && hasMatchingPriceRange;
+    }
+
+    // If only one filter is active, that one must match
     return hasMatchingCategory || hasMatchingPriceRange;
   });
 
-  // Only show load more button if we're not showing my listings
+  // Only show load more button if we're not showing my listings and there are more listings to show
   const showLoadMore = !showMyListings && displayedListings.length < (listings?.length || 0);
 
   // Loading state
@@ -180,7 +189,13 @@ export default function ListingsHomepage() {
           </div>
           <div className="flex-1">
             <div className="bg-white p-8 rounded-lg shadow-sm text-center">
-              <p className="text-gray-500">No listings found</p>
+              <p className="text-gray-500">No listings found matching your filters</p>
+              <button 
+                onClick={() => setFilters({ categories: [], priceRanges: [] })}
+                className="mt-4 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors"
+              >
+                Clear Filters
+              </button>
             </div>
           </div>
         </div>
