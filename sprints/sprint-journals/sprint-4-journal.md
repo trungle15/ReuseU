@@ -1,6 +1,50 @@
 # Sprint 4 Journal 
 
 ## Part 1: External Documentation and Stakeholder Meetings
+
+Who you met with
+Melina Kouidou, Student. Meeting held on 4/18/2025 at 12pm.
+
+
+Description of the test session and feedback
+
+The stakeholder was presented with the following list of prompts:
+1. Create a listing selling a chair
+2. Search for an item of your choice on the home page
+3. Modify your profile information (e.g. email, name)
+4. Try messaging someone
+5. Identify any listing and then view detailed information about it.
+
+
+Below are descriptions of how the user navigated each of the prompts and what worked well or needs to be fixed: 
+
+* Prompt 1: User found the button independently after a few seconds. Filled in all fields. Struggled with submitting a listing because chats were blockign the "SUBMIT" button. Chats need to be moved.
+* Prompt 2: User navigated to search bar, which obviously didn't work... then user found filters. Noticed the scrolling issue with the filters. Continued to use filter. Specifically, she filtered by items above $500 and bottoms, but only electronics showed up. Filters don’t seem to really work by categories. Needs fixing.
+* Prompt 3:  This wasy easy. User immediately found the profile page, identified the edit button and edited the information about herself. 
+* Prompt 4: Clearly found the chats window and sent a message, though the message never appeared as sent (our issue)
+* Prompt 5: Successfully completed, Melina clicked on a dell laptop to expand's its full description (also laughed at funny description).
+
+
+The user quickly glanced over the documentation at the beginning and then quickly decided to continue completing the prompts.
+Overall, the user succeeded with completing all the tasks to the extent the website made it possible. That is, the user only failed to complete a task if there was a clear functional issue with the website (e.g. search the bar not working), but otherwise Melina seemed to have a pretty intiutive interaction with the site. She also did not seem to need to rely on documentation very much. Once she quickly reviewed it at the beginning, she did not have to look back at it, which frankly is a good result which shows that our website is intuitive just given its visual interface.
+
+
+No feedback was given on documentation as user's interactions with it were minimal, and the documentation appeared unimportant to the  user.
+
+
+We further asked Melina the following questions, to which she provided the following answers:
+
+* How simple / intuitive is it to navigate the website and achieve what you want to / need to do:
+- pretty intuitive overall, though there's definitely some functional limitations like the serach bar.
+* What have you encountered that might make you less likely to use the website?
+- Chats. The chats were pretty annoying with being in the way. Also the search bar needs to work. Marketplace button is not super intuitive. I kind of remembered it from paper prototyping.
+* What changes / additions would make you more likely to use the website?
+- Move chats or make them collapsible and draggable. Fix the search bar, and change the marketplace icon. 
+
+
+
+
+
 Cam Haaland, Research Associate. 4/27/25 7:00 PM
 Candidate was in DASIL, immediately approached and interacted. Gave layout of how meeting would be undertaken.
 Showed docs, then gave signin screen. Signed in, navigated around website while casually chatting.
@@ -127,21 +171,30 @@ dece7f506bf111c2b9515c5b0cfc91694c6d9b62
   https://github.com/dicarlosofia/ReuseU/compare/main...labdoc2
 ---
 
+
+
+
+
+
+
 ## Part 3: Self-Selected Work toward Minimum Viable Product (MVP)
-Our MVP: ## 3. Non-functional Requirements
+
+#### Non-functional Requirements
 
 1. Users must have a **.edu email address** for security.
 2. Each university’s email network should have a **separate webpage/database** accessible only by users of that university.
 3. User emails should be hidden from other users—only usernames should be visible.
 
-## 4. External Requirements
+
+
+#### External Requirements
 
 - ReuseU will be a web-based platform accessible via a public URL.
 - Instructions will be provided for setting up another instance of the website on a local server.
 - Security measures will be implemented, including requiring a university email.
 - The project will include documentation to facilitate contributions and system understanding.
 
-### REQUIREMENT UPDATES FROM PEER FEEDBACK
+##### REQUIREMENT UPDATES FROM PEER FEEDBACK
     - to prevent malignant usage and emphasize code stability, ReuseU will not be made open source.
     - Users should be able to list items for sale and trade with price parameters they define themselves
     - A **moderation** system should allow administrators to report or remove inappropriate listings
@@ -149,26 +202,26 @@ Our MVP: ## 3. Non-functional Requirements
     - A **category-based search and filter should be implemented for easy item searching**
     - interface should be **mobile-friendly**
 
-### REQUIREMENT UPDATES FROM CIDER LAB
+##### REQUIREMENT UPDATES FROM CIDER LAB
     - preferred payment method tags will be added as to not be restrictive
     - there will be an optional "delivery method" tag that can be used if items are large/far away, etc.
 
-### PHYSICAL REQUIREMENTS FROM PROTOTYPE TESTING
+##### PHYSICAL REQUIREMENTS FROM PROTOTYPE TESTING
     - Report functionality for a listing/user
     - Profile section with settings
     - back buttons
     - better tag placement
 
-## 5. Scope and Feature List
+#### Scope and Feature List
 
-### **Major Features**
+#### **Major Features**
 1. Unique **Databases** for each university **.edu address**.
 2. Page displaying **available products** at each university.
 3. **Login implementation** with unique users grouped by university.
 4. Separate **buying and selling interfaces**.
 
 
-Work remaining to MVP:
+#### Work remaining to MVP:
 Each university’s email network should have a **separate webpage/database** accessible only by users of that university.
 ReuseU will be a web-based platform accessible via a public URL.
 - The project will include documentation to facilitate contributions and system understanding. (not entirely done)
@@ -184,6 +237,9 @@ Unique **Databases** for each university **.edu address**.
 
 
 
+
+
+
 ## Part 4: Generative AI Experiment
 * Sofia used OpenAI to implement a Price suggestion feature.
    1. Going into using OpenAI for the first time in this way, I was expecting the AI to very in the price range that it gave. I was hoping that this AI would help circumvent our need to cross-check different listings in our database and use the LLM's database instead for price-matching. Especially because there may not always be many, or any other listings of the same type to cross-reference in thr first place.
@@ -195,9 +251,6 @@ Unique **Databases** for each university **.edu address**.
 
 
 
-
-
-
 * Sofia and Timur used cursor to implement a delete_chat function in the backend/services/message_service.py file
    1.  Going into using Cursor, we were expecting it to assist us in coding the function with its auto-complete suggestions. The goal was to write this function faster, and hopefully validating its correctness with a few potential fixes.
    2. We didn't have to promopt Cursor AI explicitly. Instead, we identified roughly 4-5 steps of what the function is supposed to achieve and how, and wrote those out as comments in the code, a skeleton so to speak. Then, as we started writing code and the cursor would automatically suggest to finish lines of code and/or write additional ones. 
@@ -205,4 +258,4 @@ Unique **Databases** for each university **.edu address**.
    Here is a [link to a Pull Request](https://github.com/dicarlosofia/ReuseU/pull/145) where this function can be found
    4. We think the use of Cursor AI achieved our goals of writing the function and confirmed our expectations pretty well. It was easy to use, assisted us in th process, and was very clear to understand. We also liked that we didn't have to go out of our way much to have it work and be seamlessly integrated into the IDE.
 
-## Part 5: Demo 2 and Presentation
+
