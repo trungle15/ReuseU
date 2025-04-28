@@ -1,13 +1,59 @@
 # Sprint 4 Journal 
 
 ## Part 1: External Documentation and Stakeholder Meetings
+Cam Haaland, Research Associate. 4/27/25 7:00 PM
+Candidate was in DASIL, immediately approached and interacted. Gave layout of how meeting would be undertaken.
+Showed docs, then gave signin screen. Signed in, navigated around website while casually chatting.
+
+Found the documentation pretty intuitive, quickly jumped into navigating website with no problem. Said that the documentation was intuitive and sufficient.
+
+They absolutely succeeded in utilizing the website.
+
+Our two questions:
+
+Did you see any potential points of improvement when it comes to intuitiveness?
+
+No, not really, I feel like I found everything ok.
+
+
+What are your thoughts on the website design?
+
+Its uh, pretty good. Layouts good. Solid aesthetics, no complaints. 
+
+From this stakeholder meeting we will update our website with: adding actual chat functionality, fixing filter bug
+
+Mason O'Bryan, Student (unemployed) 4/27/25 7:30 PM
+Candidate was in DASIL, waiting his turn after previous candidate. Gave layout of how meeting would be undertaken.
+Showed docs, then gave signin screen. Signed in, navigated around website while casually chatting.
+
+Mason also fund documentation intuitive, started website navigation quickly and seemingly without issue. Said that documentation was good.
+
+Succeeded in utilizing website.
+
+Our two questions:
+
+Did you see any potential points of improvement when it comes to intuitiveness?
+
+I thought it was pretty intuitive overall, I found all the buttons.
+
+
+What are your thoughts on the website design?
+
+Seems like a good design, looks like the paper prototype if I remember correctly, you guys did well.
+However, as an aside, I think the listings loading time is far too long. 
+
+From this stakeholder meeting we will update ReuseU with: Fixing backend query time.
+
+
+
+
+
 
 
 ## Part 2: Internal Documentation
 
 ### Team 1: Krishna, Peter, Timur. 
 Timur and Peter reviewing Krishna’s code
-	
 #### Code we worked on: 
 ReuseU/backend/services/test_suite.py lines 1-566
 
@@ -73,12 +119,70 @@ I found the doc strings at function definitions that talk about input formats we
 * I found help from existing prop and function docstrings in GlobalContext.tsx and component files; Menu comments and logical section comments in both backend and frontend files.
 
 #### Commit hash for new documentation and link:
-* Commit hash: 
+* Commit hash(es)
+dece7f506bf111c2b9515c5b0cfc91694c6d9b62
+4091b4ba36d6499275a1b6b5e42b5ff7c5279f1b
+1dccc4f9d6adb7b87203611f6f9a1c8a8e924047
 * Link:
-  
+  https://github.com/dicarlosofia/ReuseU/compare/main...labdoc2
 ---
 
 ## Part 3: Self-Selected Work toward Minimum Viable Product (MVP)
+Our MVP: ## 3. Non-functional Requirements
+
+1. Users must have a **.edu email address** for security.
+2. Each university’s email network should have a **separate webpage/database** accessible only by users of that university.
+3. User emails should be hidden from other users—only usernames should be visible.
+
+## 4. External Requirements
+
+- ReuseU will be a web-based platform accessible via a public URL.
+- Instructions will be provided for setting up another instance of the website on a local server.
+- Security measures will be implemented, including requiring a university email.
+- The project will include documentation to facilitate contributions and system understanding.
+
+### REQUIREMENT UPDATES FROM PEER FEEDBACK
+    - to prevent malignant usage and emphasize code stability, ReuseU will not be made open source.
+    - Users should be able to list items for sale and trade with price parameters they define themselves
+    - A **moderation** system should allow administrators to report or remove inappropriate listings
+    - Listings should **expire automatically** after a set period to prevent outdated post clutter
+    - A **category-based search and filter should be implemented for easy item searching**
+    - interface should be **mobile-friendly**
+
+### REQUIREMENT UPDATES FROM CIDER LAB
+    - preferred payment method tags will be added as to not be restrictive
+    - there will be an optional "delivery method" tag that can be used if items are large/far away, etc.
+
+### PHYSICAL REQUIREMENTS FROM PROTOTYPE TESTING
+    - Report functionality for a listing/user
+    - Profile section with settings
+    - back buttons
+    - better tag placement
+
+## 5. Scope and Feature List
+
+### **Major Features**
+1. Unique **Databases** for each university **.edu address**.
+2. Page displaying **available products** at each university.
+3. **Login implementation** with unique users grouped by university.
+4. Separate **buying and selling interfaces**.
+
+
+Work remaining to MVP:
+Each university’s email network should have a **separate webpage/database** accessible only by users of that university.
+ReuseU will be a web-based platform accessible via a public URL.
+- The project will include documentation to facilitate contributions and system understanding. (not entirely done)
+- A **moderation** system should allow administrators to report or remove inappropriate listings
+- Listings should **expire automatically** after a set period to prevent outdated post clutter
+interface should be **mobile-friendly**
+- preferred payment method tags will be added as to not be restrictive
+    - there will be an optional "delivery method" tag that can be used if items are large/far away, etc.
+    - Report functionality for a listing/user
+    - better tag placement
+Unique **Databases** for each university **.edu address**.
+**Login implementation** with unique users grouped by university.
+
+
 
 ## Part 4: Generative AI Experiment
 * Sofia used OpenAI to implement a Price suggestion feature.
