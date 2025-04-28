@@ -76,7 +76,6 @@ def add_message(message_data):
         target_chat["Messages"] = target_chat["Messages"] + (str(message_data))
         # not new key but existing key
         ref.child('Chat').child(str(listing_id_temp)).set(target_chat)
-    # create new chat corresponding to a listing id since one does not exist already
     else:
         new_key = listing_id_temp
         new_chat = {}
