@@ -246,7 +246,7 @@ Unique **Databases** for each university **.edu address**.
    2. How I prompted it: In my function, `get_price_prediction`, I pass in `name`, `category`(s), and `description`(optional), and use these aspects of a listing to generate a price range suggestion to provide when a user creates a listing and goes to input a price. I used the following prompt: 
       1. _"Give me a good general price for `{name}`, in the `{category}` category(s), described as `{description}`"_
       2. I put the following in the `instructions` field: _"Do not restate the prompt, just provide the price range for the item with no dollar signs in this format: `<lower_price>-<upper_price>`"_
-   3. **TODO; Discuss with other team members**: _How did this use of AI affect your product development or other sprint deliverables? If you integrated any of its output directly into your code base, include a link to a pull request where the generated output can be clearly distinguished._
+   3. This Ai experiment helped me move on to help complete other pressing matters more quickly. We were unable to create an API route for it in time. But, without OpenAI, I wouldn’t not have been able to help Timur fix the messages service.
    4. *OpenAI* helped immensely with easing the process of price suggestions. It is a feature that we originally pushed off as a stretch goal due to the complexity of our original approach, but this turned it into a very doable deliverable.
 
 
