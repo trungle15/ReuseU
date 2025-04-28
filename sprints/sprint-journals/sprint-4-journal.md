@@ -155,7 +155,7 @@ I found the doc strings at function definitions that talk about input formats we
 * ReuseU/backend/services blob_storage.py lines 28-64
 
 #### Changes we made: 
-* Added comprehensive docstrings to GlobalContext, describing all state, methods, and usage patterns for global app state, authentication, and filters.
+* Trung on Howie: Added comprehensive docstrings to GlobalContext, describing all state, methods, and usage patterns for global app state, authentication, and filters.
 * Example usage and filter/category structures are now clearly documented for future contributors.
 * Sofia: Added documentation to `connect_to_blob_db_resource()`, and added header comments to `get_all_files()` and `(get_files_listing_id)`
 
@@ -258,4 +258,12 @@ Unique **Databases** for each university **.edu address**.
    Here is a [link to a Pull Request](https://github.com/dicarlosofia/ReuseU/pull/145) where this function can be found
    4. We think the use of Cursor AI achieved our goals of writing the function and confirmed our expectations pretty well. It was easy to use, assisted us in th process, and was very clear to understand. We also liked that we didn't have to go out of our way much to have it work and be seamlessly integrated into the IDE.
 
-
+* Trung used Windsurf GPT-4.1 to debug and implement image display from Cloudflare blob storage
+   1. While working on displaying images for listings, I noticed that the TypeScript type used for listing data was missing an image field. This omission was preventing the frontend from accessing and displaying images retrieved from the backend.
+   2. I realized that the images returned from the backend were encoded in base64, and that the frontend needed to properly decode these images to display them in the UI. This required both updating the TypeScript types and implementing base64 decoding logic in the React components.
+   3. To address these issues efficiently, I prompted Windsurf GPT-4.1 for help. The AI assisted me in:
+      - Updating the TypeScript type definitions to include the image field.
+      - Writing the logic to decode base64 image data and render it as an image element in React.
+      - Debugging integration issues between the backend (Cloudflare blob storage) and the frontend display.
+   4. Using Windsurf GPT-4.1 made it much faster to identify and resolve the missing type and decoding logic, compared to searching for solutions manually. The AI provided clear code suggestions and explanations that I could adapt directly into the codebase.
+   5. This experiment demonstrated how generative AI can accelerate debugging and implementation, especially when dealing with full-stack integrations involving both backend data formats and frontend rendering logic.
