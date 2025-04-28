@@ -13,7 +13,7 @@
 
 - **Peter**: I implemented blob storage for uploading and receiving one or multiple images for a particular listing. The listing routes automatically handle image data. I also implemented image downscaling during listing creation.
  
-- **Krishna**: Configured GitHub Actions for automated testing and further expanded the test_suite.py to ensure backend works as intended and for intuitive debugging/insight into the database's work.
+- **Krishna**: I’ve made significant progress on the CI/CD testing suite and automation. When a push is made, the test files now run automatically. All that remains now is to implement automated deployment and similar test files for newly implemented chat functions.
 
  
 
