@@ -268,7 +268,7 @@ Unique **Databases** for each university **.edu address**.
       - Decoding color/black-white data into a parsable format
    4. Using Windsurf GPT-4.1 made it much faster to identify and resolve the missing type and decoding logic, compared to searching for solutions manually. The AI provided clear code suggestions and explanations that I could adapt directly into the codebase.
  
-* Krishna and Trung used Grok to safely copy a private key for our database safely into the repository for the automation to run.
+* Krishna and Howie used Grok to safely copy a private key for our database safely into the repository for the automation to run.
 
 	1. Going into using Grok, we expected it would give us a possible solution to copying in the private key. We could not simply commit it from our local drives to the repo, but it was needed for our backend functions to run.
 	2. Using placeholder names for our files, we directly gave it the issue and asked how to safely transfer the key into the repo to run.
