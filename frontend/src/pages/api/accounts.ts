@@ -9,11 +9,12 @@ export interface Message {
 }
 
 export interface AccountData {
-  id: string;
-  firstName: string;
-  lastName: string;
-  username: string;
-  birthday: string;
+  UserID: string,
+  First_Name: string,
+  Last_Name: string,
+  School: string,
+  Username: string,
+  dateTime_creation: string,
 }
 
 export interface Chat {
