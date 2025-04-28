@@ -141,8 +141,8 @@ I found the doc strings at function definitions that talk about input formats we
 
 
 #### Commit hash for new documentation and link:
-* Commit hash: 
-* Link:
+* Commit hash: c70dad086cc1f5a4007907259da851a32f817040
+* Link: https://github.com/dicarlosofia/ReuseU/commit/c70dad086cc1f5a4007907259da851a32f817040
 
 
 
