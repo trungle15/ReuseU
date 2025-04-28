@@ -114,8 +114,8 @@ We found menu comments/directions in the test-suite for the tester to follow to 
 The larger one-line comments that separate code into logical sections
 
 #### Commit hash for new documentation and link:
-* Commit hash: 
-* Link:
+* Commit hash: 48e5318a88c1532675d863914aade1209df3989f
+* Link: https://github.com/dicarlosofia/ReuseU/commit/48e5318a88c1532675d863914aade1209df3989f
 
 
 
