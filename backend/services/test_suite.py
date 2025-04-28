@@ -101,7 +101,7 @@ def load_dummy_accounts(num):
 
 # delete all accounts with a certain id range
 def delete_acc_range(min,max):
-    for i in range(min,max):
+    for i in range(min,max+1):
         delete_acc(i)
         
         
@@ -143,7 +143,7 @@ def print_all_transactions():
 
 # delete all transactions in a certain listing id range
 def delete_transaction_range(min,max):
-    for i in range(min,max):
+    for i in range(min,max+1):
         delete_transaction(i)
 
 # **********MESSAGES**********
@@ -362,7 +362,7 @@ def load_dummy_listings(num):
 
 # deletes all listings with a certain id range
 def delete_listings_range(min,max):
-    for i in range(min,max):
+    for i in range(min,max+1):
         del_listing(i)
 
 # **********REVIEWS**********
@@ -465,7 +465,7 @@ def load_dummy_reviews(num):
 
 # deletes all reviews with a certain listing id range
 def delete_reviews_range(min,max):
-    for i in range(min,max):
+    for i in range(min,max+1):
         del_review(i)
             
 '''
@@ -490,7 +490,7 @@ def intro_menu():
             min_id = int(input("Enter min account id delete range: "))
             max_id = int(input("Enter max account id delete range: "))
             delete_acc_range(min_id,max_id)
-            print(f"Account ids {min_id} though {max_id} were deleted. Navigate to database to see additions.")
+            print(f"Account ids {min_id} though {max_id} (inclusive) were deleted. Navigate to database to see additions.")
             exit_testing_program()
         # ---Transactions Testing---
         elif user_input == "4":
@@ -510,7 +510,7 @@ def intro_menu():
             min_id = int(input("Enter min account id delete range for transactions: "))
             max_id = int(input("Enter max account id delete range for transactions: "))
             delete_transaction_range(min_id, max_id)
-            print(f"Listings ids {min_id} though {max_id} were deleted in the transaction table. Navigate to database to see additions.")
+            print(f"Listings ids {min_id} though {max_id} (inclusive) were deleted in the transaction table. Navigate to database to see additions.")
             exit_testing_program()
         # ---Listings Testing---
         elif user_input == "7":
@@ -528,7 +528,7 @@ def intro_menu():
             min_id = int(input("Enter min listing id delete range for listings: "))
             max_id = int(input("Enter max listing id delete range for listings: "))
             delete_listings_range(min_id, max_id)
-            print(f"Listing ids {min_id} though {max_id} were deleted in the listings table. Navigate to database to see additions.")
+            print(f"Listing ids {min_id} though {max_id} (inclusive) were deleted in the listings table. Navigate to database to see additions.")
             exit_testing_program()
         # ---Reviews Testing---
         elif user_input == "10":
@@ -547,7 +547,7 @@ def intro_menu():
             max_id = int(input("Enter max listing id delete range for reviews: "))
             delete_reviews_range(min_id, max_id)
             print(
-                f"Listing ids {min_id} though {max_id} were deleted in the reviews table. Navigate to database to see additions.")
+                f"Listing ids {min_id} though {max_id} (inclusive) were deleted in the reviews table. Navigate to database to see additions.")
         # ---Messages testing---
         elif user_input == "13":
             # Load n messages

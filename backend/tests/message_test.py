@@ -2,7 +2,7 @@ import firebase_admin
 import pytest
 from firebase_admin import credentials, db
 
-from services.message_service import add_message, delete_message
+from services.message_service import add_message, delete_chat
 from services.exceptions import NotFoundError
 
 
@@ -38,7 +38,7 @@ message_id = add_message({
 #    assert compare['Username'] == 'kanayar21'
 #    assert compare['dateTime_creation'] == '2025-04-08T18:56:02.560105Z'
 
-delete_message(message_id)
+delete_chat(message_id)
 
 #def test_deletion():
 #    if not ref.child('Account').get():

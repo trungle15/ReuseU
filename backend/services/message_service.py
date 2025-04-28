@@ -52,7 +52,7 @@ def add_message(message_data):
     #                 chat_exists = True
     
     # Check if chat tied to listing ID exists
-    print((type(chat) for chat in chats))
+    #print((type(chat) for chat in chats))
 
     # If the chats table has # of chats >= 2
     if isinstance(chats, list):
