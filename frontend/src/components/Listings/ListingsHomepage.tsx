@@ -41,7 +41,7 @@ export default function ListingsHomepage() {
   const [currentPage, setCurrentPage] = useState(1)
   const [showMyListings, setShowMyListings] = useState(false)
   const itemsPerPage = 25
-  const currentUserId = user?.uid
+  const currentUserId = user ? user.uid : "";
 
   // Fetch all listings on component mount
   useEffect(() => {
@@ -133,7 +133,7 @@ export default function ListingsHomepage() {
   // Filtering logic
   const filteredListings = listings.filter((listing: ListingType) => {
     // First check if we're showing only user's listings
-    if (showMyListings && String(listing.UserID) !== "8675309") {
+    if (showMyListings && String(listing.UserID) !== currentUserId) {
       return false
     }
 

@@ -9,7 +9,7 @@ export interface Listing {
   Category: string[]
   Images?: string[]
   base64images?: { data: string; key?: string }[]
-  UserID: number
+  UserID: string
   SellStatus: number
   CreateTime?: string
 }
