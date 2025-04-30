@@ -92,9 +92,12 @@ export default function CreateListing({ onSubmit }: CreateListingProps) {
         UserID: UserID,
         Images: listingData.Images
       }
-      console.log('Request body:', body);
       
-      const response = await listingsApi.create(body, "1");
+      if(!user){
+        return false;
+      }
+      const token = await user.getIdToken();  
+      const response = await listingsApi.create(body, token);
       console.log('Server response:', response);
       
       setShowSuccess(true);
