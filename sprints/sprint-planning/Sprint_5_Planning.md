@@ -17,15 +17,17 @@ that time.
 ### 2.Self-Selected Work
 
 * Implement "leave a review" feature - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/159)
+* Implement page caching - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/167)
+* ...
 
 
 ### 3.Bug Logging
 
 * Identify at least three bugs to report and track work on - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/155)
 
-* Bug 1: Profile Page Not Loading - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/163)
-* Bug 2: Delete_message function serves its purpose, but still returns an error - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/166)
-* Bug 3: No Reset Password - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/162)
+- Bug 1: Profile Page Not Loading - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/163)
+- Bug 2: Delete_message function serves its purpose, but still returns an error - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/166)
+- Bug 3: No Reset Password - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/162)
 
 
 
@@ -44,17 +46,18 @@ that time.
 
 ### 7.Blog post
 
+* Write the blog post - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/168)
 
 
 
 ## Assignment: (what people will do)
 
 Additional work everyone completes: 
-* Timur: Implement the review feature on frontend/backend, help on bug 1
+* Timur: Implement the review feature on frontend/backend, help on bug 1, write the blog post
 * Howie: 
 * Krishna: 
 * Trung: 
-* Peter: 
+* Peter: Bug 1, page caching.
 * Sofia: Works on adoption plan, licence research, finalizing backend implementation 
 
 
