@@ -12,14 +12,15 @@ that time.
 ## Goals and Task Breakdown: 
 
 ### 1.Adoption Plan 
- Write up adoption plan in the journal - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/153)
+* Write up adoption plan in the journal - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/153)
 
 ### 2.Self-Selected Work
 
 * Implement "leave a review" feature - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/159)
 
 ### 3.Bug Logging
- Identify at least three bugs to report and track work on - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/155)
+
+* Identify at least three bugs to report and track work on - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/155)
 
 
 ### 4.License
@@ -34,6 +35,8 @@ that time.
 ### 7.Blog post
 
 
+
+
 ## Assignment: (what people will do)
 
 Additional work everyone completes: 
@@ -43,6 +46,7 @@ Additional work everyone completes:
 * Trung: 
 * Peter: 
 * Sofia: Works on adoption plan, licence research, finalizing backend implementation 
+
 
 
 ## Issue Tracker:
