@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from services.message_service import add_messag
+from services.message_service import add_message
 
 messages_bp = Blueprint('messages', __name__)
 
