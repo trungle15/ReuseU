@@ -2,11 +2,13 @@
 from flask import Blueprint, jsonify, request
 from services.account_service import account_service
 from services.exceptions import NotFoundError, DatabaseError
+from services.jwt_middleware import jwt_required
 
 accounts_bp = Blueprint('accounts', __name__, url_prefix='/api/accounts')
 
 @accounts_bp.route('/<string:account_id>', methods=['GET'])
-def get_account(account_id):
+@jwt_required
+def get_account(current_user, account_id):
     try:
         data = account_service.get_acc(account_id)
         return jsonify(data), 200
@@ -16,7 +18,8 @@ def get_account(account_id):
         return jsonify({"error": str(e)}), 500
 
 @accounts_bp.route('/', methods=['POST'])
-def create_account():
+@jwt_required
+def create_account(current_user):
     payload = request.get_json() or {}
     try:
         new_id = account_service.add_account(payload)
@@ -28,7 +31,8 @@ def create_account():
         return jsonify({"error": str(e)}), 400
 
 @accounts_bp.route('/<string:account_id>', methods=['DELETE'])
-def delete_account(account_id):
+@jwt_required
+def delete_account(current_user, account_id):
     try:
         account_service.delete_acc(account_id)
         return jsonify({"message": f"Account {account_id} deleted"}), 200
@@ -38,7 +42,8 @@ def delete_account(account_id):
         return jsonify({"error": str(e)}), 500
 
 @accounts_bp.route('/<string:account_id>', methods=['PUT'])
-def update_account(account_id):
+@jwt_required
+def update_account(current_user, account_id):
     payload = request.get_json() or {}
     try:
         updated_account = account_service.update_acc(account_id, payload)
