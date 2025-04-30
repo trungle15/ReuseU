@@ -1,3 +1,13 @@
+import { useState, useRef, useContext } from "react";
+import { HeartIcon as HeartOutline, TrashIcon, UserIcon, ChatBubbleLeftIcon } from "@heroicons/react/24/outline";
+import { HeartIcon as HeartSolid } from "@heroicons/react/24/solid";
+import { useRouter } from "next/router";
+import { listingsApi } from "@/pages/api/listings";
+import { useGlobalContext } from "@/Context/GlobalContext";
+import { chatsApi } from "@/pages/api/chats";
+import { useChat } from '@/Context/ChatContext';
+import { GlobalChatRefContext } from '@/pages/_app';
+
 /**
  * Listing Component
  * 
@@ -10,18 +20,10 @@
  * - Price display
  * - Favorite button
  * - Delete button (only for user's own listings)
+ * - Profile and message buttons (for other users' listings)
  * 
  * The component is used in the listings grid on the homepage.
  */
-
-import { useState } from "react";
-import { HeartIcon as HeartOutline, TrashIcon } from "@heroicons/react/24/outline";
-import { HeartIcon as HeartSolid } from "@heroicons/react/24/solid";
-import FullListing from "./FullListing";
-import { FullListingProps } from "./FullListing";
-import { useGlobalContext } from "@/Context/GlobalContext";
-import { useRouter } from "next/router";
-import { listingsApi } from "@/pages/api/listings";
 
 // Props interface for the Listing component
 export interface ListingProps {
@@ -29,63 +31,85 @@ export interface ListingProps {
   price: number;
   tags: string[];
   desc: string;
-  image?: string;
+  image?: string; // signed S3 URL
   ListingID: string;
-  UserID: number;
-}
-
-// Helper to ensure image src is a valid data URL
-function getImageSrc(image?: string): string {
-  if (!image || typeof image !== 'string') return '';
-  // If already a data URL, return as is
-  if (image.startsWith('data:image/')) return image;
-  // Default to jpeg; you may want to detect type more robustly
-  return `data:image/jpeg;base64,${image}`;
+  UserID: string;
 }
 
 export default function Listing({ title, price, tags, desc, image, ListingID, UserID }: ListingProps) {
+  const globalChatRef = useContext(GlobalChatRefContext);
   const router = useRouter();
   const { listings, setTitle, setListings } = useGlobalContext();
+  const { user } = useGlobalContext();
   const [isFavorited, setIsFavorited] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [showDeleteSuccess, setShowDeleteSuccess] = useState(false);
   const [isRemoved, setIsRemoved] = useState(false);
-  const currentUserId = 8675309; // This should come from your auth context
+  const currentUserId = user ? user.uid : "";
 
   // Toggle favorite status
   const onFavoriteClick = () => {
     setIsFavorited(!isFavorited);
-  }
+  };
 
   // Handle title click to navigate to full listing page
   const handleTitleClick = (title: string) => {
     setTitle(title);
-    console.log(ListingID);
     router.push(`/listing/${ListingID}`);
-  }
+  };
 
   // Handle delete listing
   const handleDelete = async () => {
     try {
       setIsDeleting(true);
-      await listingsApi.delete(ListingID);
+      if (!user) {
+        console.error('User not authenticated');
+        setIsDeleting(false);
+        return;
+      }
+      const token = await user.getIdToken();
+      await listingsApi.delete(ListingID, token);
       setShowDeleteSuccess(true);
-      // Wait for the success message to show
       setTimeout(() => {
         setShowDeleteSuccess(false);
-        // Add fade-out animation
         setIsRemoved(true);
-        // Remove from listings after animation
         setTimeout(() => {
           setListings(listings.filter((listing: any) => listing.ListingID !== ListingID));
-        }, 300); // Match this with the CSS transition duration
+        }, 300);
       }, 2000);
     } catch (error) {
       console.error('Error deleting listing:', error);
     } finally {
       setIsDeleting(false);
     }
-  }
+  };
+
+  const { openChat } = useChat();
+
+  const handleStartChat = async () => {
+    try {
+      if (!user) {
+        console.error('User not authenticated');
+        return;
+      }
+      const token = await user.getIdToken();
+      const newChat = await chatsApi.create({
+        listing_id: String(ListingID),
+        buyer_id: String(currentUserId),
+        seller_id: String(UserID)
+      }, token);
+      openChat(newChat);
+      if (globalChatRef && globalChatRef.current) {
+        globalChatRef.current.fetchChats();
+      }
+    } catch (error) {
+      console.error('Error starting chat:', error);
+    }
+  };
+
+  const handleViewProfile = () => {
+    router.push(`/profile/${UserID}`);
+  };
 
   // Main listing card layout
   return (
@@ -97,18 +121,21 @@ export default function Listing({ title, price, tags, desc, image, ListingID, Us
           <span className="text-white font-semibold">Listing deleted successfully!</span>
         </div>
       )}
+
       {/* Image container */}
       <div className="w-1/4 aspect-square bg-gray-100 rounded-lg">
-        {image && <img src={getImageSrc(image)} alt={title} className="w-full h-full object-cover rounded-lg" />}
+        {image && <img src={image} alt={title} className="w-full h-full object-cover rounded-lg" />}
       </div>
 
       {/* Content container */}
       <div className="flex-1 flex flex-col min-w-0">
-        <h3 className="text-lg font-semibold line-clamp-1 mb-2 cursor-pointer hover:underline"
-            onClick={() => handleTitleClick(title)}>
-              {title}
+        <h3
+          className="text-lg font-semibold line-clamp-1 mb-2 cursor-pointer hover:underline"
+          onClick={() => handleTitleClick(title)}
+        >
+          {title}
         </h3>
-        
+
         {/* Tags display */}
         <div className="flex flex-wrap gap-1.5 mb-2">
           {Array.isArray(tags) && tags.map((tag, index) => (
@@ -136,6 +163,24 @@ export default function Listing({ title, price, tags, desc, image, ListingID, Us
               <HeartOutline className="w-5 h-5" />
             )}
           </button>
+          {UserID !== currentUserId && (
+            <>
+              <button
+                onClick={handleViewProfile}
+                className="p-1.5 hover:bg-gray-100 rounded-full transition-colors"
+                title="View Profile"
+              >
+                <UserIcon className="w-5 h-5 text-gray-600" />
+              </button>
+              <button
+                onClick={handleStartChat}
+                className="p-1.5 hover:bg-gray-100 rounded-full transition-colors"
+                title="Message Seller"
+              >
+                <ChatBubbleLeftIcon className="w-5 h-5 text-gray-600" />
+              </button>
+            </>
+          )}
           {UserID === currentUserId && (
             <button
               onClick={handleDelete}
