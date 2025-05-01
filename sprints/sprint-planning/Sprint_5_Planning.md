@@ -16,6 +16,7 @@ that time.
 
 * Implement "leave a review" feature - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/159)
 * Implement page caching - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/167)
+* Add profile picture feature - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/170)
 * Finalize website colors - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/66#issue-2948178065)
 * Create "About Us" Page - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/171#issue-3032962342)
 
@@ -56,7 +57,7 @@ Additional work everyone completes:
 * Howie: Finalize profiles, implement chats, websocket, faster loading screen, transactions
 * Krishna: Automate deployment, Bug 2 along with Trung, artistic elements such as logo/mascot along with Sofia
 * Trung: 
-* Peter: Bug 1, page caching.
+* Peter: Will help on Bug 1. Implementing profile picture feature, transaction service, and page caching.
 * Sofia: Works on adoption plan, licence research, finalizing backend implementation, as well as the blog post and website pallete changes. 
 
 
