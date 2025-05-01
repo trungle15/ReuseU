@@ -23,6 +23,13 @@
 ## (3) Bug Logging
 FOR COMPLETING THIS PART, SOFIA PUT THE INSTRUCTIONS IN [THIS ISSUE](https://github.com/dicarlosofia/ReuseU/issues/155)
 
+<!--- (ADD LINKS BELOW) -->
+
+* [BUG 1: Profile Page Not Loading](https://github.com/dicarlosofia/ReuseU/issues/163)
+* [BUG 2: Delete_message function serves its purpose, but still returns an error](https://github.com/dicarlosofia/ReuseU/issues/166)
+* [BUG 3: No Reset Password](https://github.com/dicarlosofia/ReuseU/issues/162) 
+
+
 
 ## (4) License
 We have chosen the following license: **GNU General Public License v3.0**
