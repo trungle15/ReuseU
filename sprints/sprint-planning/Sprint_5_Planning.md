@@ -9,7 +9,7 @@ that time.
 
 ## Goals and Task Breakdown: 
 
-### 1. Adoption Plan 
+### 1. Adoption Plan
 * Write up adoption plan in the journal - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/153)
 
 ### 2. Self-Selected Work
@@ -26,7 +26,7 @@ that time.
 * Identify at least three bugs to report and track work on - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/155)
 
 - Bug 1: Profile Page Not Loading - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/163)
-- Bug 2: Delete_message function serves its purpose, but still returns an error - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/166)
+- Bug 2: Messages not working in real time - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/166)
 - Bug 3: No Reset Password - [Issue Link](https://github.com/dicarlosofia/ReuseU/issues/162)
 
 
@@ -56,7 +56,7 @@ Additional work everyone completes:
 * Timur: Implement the review feature on frontend/backend, help on bug 1, write the blog post
 * Howie: Finalize profiles, implement chats, websocket, faster loading screen, transactions
 * Krishna: Automate deployment, Bug 2 along with Trung, artistic elements such as logo/mascot along with Sofia
-* Trung: 
+* Trung: Work with deployment on Vercel with Krishna. Fix real-time chat messages. Implement reset password.
 * Peter: Will help on Bug 1. Implementing profile picture feature, transaction service, and page caching. 
 * Sofia: Works on adoption plan, licence research, finalizing backend implementation, as well as the blog post and website pallete changes. 
 
