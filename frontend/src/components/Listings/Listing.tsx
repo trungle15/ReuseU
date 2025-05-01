@@ -7,6 +7,7 @@ import { useGlobalContext } from "@/Context/GlobalContext";
 import { chatsApi } from "@/pages/api/chats";
 import { useChat } from '@/Context/ChatContext';
 import { GlobalChatRefContext } from '@/pages/_app';
+import { accountsApi } from "@/pages/api/accounts";
 
 /**
  * Listing Component
@@ -107,9 +108,25 @@ export default function Listing({ title, price, tags, desc, image, ListingID, Us
     }
   };
 
-  const handleViewProfile = () => {
-    router.push(`/profile/${UserID}`);
+  const handleViewProfile = async () => {
+    try {
+      // Fetch account by UserID (from listing)
+      if(!user){
+        return;
+      }
+      const token = await user.getIdToken();
+      const data = await accountsApi.getAccount(UserID, token);
+      console.log(data);
+      if (data && data.Username) {
+        router.push(`/profile/${data.Username}`);
+      } else {
+        alert("Profile not found");
+      }
+    } catch (e) {
+      alert("Profile not found");
+    }
   };
+
 
   // Main listing card layout
   return (
