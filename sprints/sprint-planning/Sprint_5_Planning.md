@@ -55,7 +55,7 @@ that time.
 Additional work everyone completes: 
 * Timur: Implement the review feature on frontend/backend, help on bug 1, write the blog post
 * Howie: 
-* Krishna: 
+* Krishna: Automate deployment, Bug 2 along with Trung, artistic elements such as logo/mascot along with Sofia
 * Trung: 
 * Peter: Bug 1, page caching.
 * Sofia: Works on adoption plan, licence research, finalizing backend implementation 
