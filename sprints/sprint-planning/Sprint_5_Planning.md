@@ -57,7 +57,7 @@ Additional work everyone completes:
 * Howie: Finalize profiles, implement chats, websocket, faster loading screen, transactions
 * Krishna: Automate deployment, Bug 2 along with Trung, artistic elements such as logo/mascot along with Sofia
 * Trung: 
-* Peter: Will help on Bug 1. Implementing profile picture feature, transaction service, and page caching.
+* Peter: Will help on Bug 1. Implementing profile picture feature, transaction service, and page caching. 
 * Sofia: Works on adoption plan, licence research, finalizing backend implementation, as well as the blog post and website pallete changes. 
 
 
