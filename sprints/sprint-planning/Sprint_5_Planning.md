@@ -41,7 +41,7 @@ that time.
 
 Additional work everyone completes: 
 * Timur: Implement the review feature on frontend/backend
-* Howie: 
+* Howie: Finalize profiles, implement chats, websocket, faster loading screen, transactions
 * Krishna: 
 * Trung: 
 * Peter: 
