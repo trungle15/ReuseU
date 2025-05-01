@@ -53,14 +53,14 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({ isOpen, onClose, in
             </svg>
             <h2 className="text-2xl font-bold text-green-800">Edit Profile</h2>
           </div>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700 bg-gray-100 rounded-full p-2">
+          <button onClick={onClose} className="text-gray-500 hover:text-cyan-950 bg-cyan-100 rounded-full p-2">
             <XMarkIcon className="w-5 h-5" />
           </button>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
+            <label htmlFor="username" className="block text-sm font-medium text-cyan-950">Username</label>
             <input
               type="text"
               id="username"
@@ -72,7 +72,7 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({ isOpen, onClose, in
           </div>
 
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+            <label htmlFor="name" className="block text-sm font-medium text-cyan-950">Name</label>
             <input
               type="text"
               id="name"
@@ -84,7 +84,7 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({ isOpen, onClose, in
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+            <label htmlFor="email" className="block text-sm font-medium text-cyan-950">Email</label>
             <input
               type="email"
               id="email"
@@ -96,7 +96,7 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({ isOpen, onClose, in
           </div>
 
           <div>
-            <label htmlFor="pronouns" className="block text-sm font-medium text-gray-700">Pronouns</label>
+            <label htmlFor="pronouns" className="block text-sm font-medium text-cyan-950">Pronouns</label>
             <input
               type="text"
               id="pronouns"
@@ -108,7 +108,7 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({ isOpen, onClose, in
           </div>
 
           <div>
-            <label htmlFor="aboutMe" className="block text-sm font-medium text-gray-700">About Me</label>
+            <label htmlFor="aboutMe" className="block text-sm font-medium text-cyan-950">About Me</label>
             <textarea
               id="aboutMe"
               name="aboutMe"
@@ -124,7 +124,7 @@ const EditProfileModal: React.FC<EditProfileModalProps> = ({ isOpen, onClose, in
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors duration-200"
+              className="px-4 py-2 text-sm font-medium text-cyan-950 bg-cyan-100 rounded-md hover:bg-gray-200 transition-colors duration-200"
             >
               Cancel
             </button>
