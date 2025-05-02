@@ -158,17 +158,17 @@ export default function FullListing({
                   <div className="absolute bottom-0 left-0 right-0 flex justify-between p-4">
                     <button
                       onClick={handlePrevImage}
-                      className="bg-white/90 hover:bg-lime-500 hover:text-white rounded-full p-2 shadow-md transition-colors duration-300"
+                      className="text-lime-800 bg-white/90 hover:bg-lime-500 hover:text-white rounded-full p-2 shadow-md transition-colors duration-300"
                       aria-label="Previous image"
                     >
                       <ChevronLeft className="w-6 h-6" />
                     </button>
-                    <div className="bg-white/90 px-3 py-1 rounded-full text-sm font-medium shadow-md">
+                    <div className="text-lime-800 bg-white/90 px-3 py-1 rounded-full text-sm font-medium shadow-md">
                       {currentImageIndex + 1} / {allImages.length}
                     </div>
                     <button
                       onClick={handleNextImage}
-                      className="bg-white/90 hover:bg-lime-500 hover:text-white rounded-full p-2 shadow-md transition-colors duration-300"
+                      className="text-lime-800 bg-white/90 hover:bg-lime-500 hover:text-white rounded-full p-2 shadow-md transition-colors duration-300"
                       aria-label="Next image"
                     >
                       <ChevronRight className="w-6 h-6" />
