@@ -175,8 +175,8 @@ export default function ListingsHomepage() {
     return (
       <div className="min-h-screen pt-20 flex justify-center items-center bg-cyan-100">
         <div className="flex flex-col items-center text-lime-800">
-          <div className="animate-spin rounded-full h-12 w-12 border-4 border-emerald-200 border-t-lime-800"></div>
-          <p className="mt-4 font-medium">Loading listings...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-4 border-lime-500 border-t-lime-800"></div>
+          <p className="text-lime-800 mt-4 font-medium">Loading listings...</p>
         </div>
       </div>
     )
