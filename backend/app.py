@@ -15,7 +15,8 @@ def create_app():
         r"/api/*": {
             "origins": [
                 "http://localhost:3000",
-                "http://127.0.0.1:3000"
+                "http://127.0.0.1:3000",
+                "https://reuse-u-ruddy.vercel.app"
             ],
             "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
             "allow_headers": ["Content-Type", "Authorization"]
@@ -27,8 +28,8 @@ def create_app():
     # Disable strict slashes to prevent redirects without CORS headers
     app.url_map.strict_slashes = False
     
-    # Enable CORS for all routes
-    CORS(app)
+    # Enable CORS for all routes with proper configuration
+    CORS(app, origins=["http://localhost:3000", "http://127.0.0.1:3000", "https://reuse-u-ruddy.vercel.app"], supports_credentials=True)
     
     app.register_blueprint(accounts_bp, url_prefix='/api/accounts')
     app.register_blueprint(listings_bp, url_prefix='/api/listings')
