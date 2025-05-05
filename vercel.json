@@ -5,16 +5,14 @@
       { 
         "src": "backend/app.py",
         "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb" }
+        "config": { 
+          "maxLambdaSize": "15mb",
+          "includeFiles": "backend/**"
+        }
       }
     ],
     "routes": [
       { "src": "/api/(.*)", "dest": "backend/app.py" },
       { "src": "/(.*)",     "dest": "frontend/$1" }
-    ],
-    "functions": {
-      "backend/app.py": {
-        "includeFiles": "backend/**"
-      }
-    }
+    ]
   }
