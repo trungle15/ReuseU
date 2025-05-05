@@ -26,7 +26,6 @@ def get_db_root():
     logger.debug("Returning database root reference")
     return db.reference('/')
 
-
 '''
 *********************************Listings**************************************
 Inputs: dictionary listing data of form:
@@ -61,7 +60,7 @@ class ListingService:
             if 'Images' not in listing_data:
                 logger.error("No 'Images' field found in listing data")
                 raise ValidationError("Listing must include at least one image")
-                
+
             images = listing_data.pop('Images')
             if not images or len(images) == 0:
                 logger.error("No images provided in the listing")
@@ -73,30 +72,32 @@ class ListingService:
             logger.debug("Connecting to blob storage")
             s3 = blob_storage.connect_to_blob_db_resource()
             logger.debug("Successfully connected to blob storage")
-            
+
             # Get new listing ID
             logger.debug("Getting current listings to determine new ID")
             listings = self.ref.child('Listing').get()
             new_key = str(len(listings)) if listings else "1"
             logger.debug(f"Generated new listing ID: {new_key}")
-            
+
             # Add listing ID to data
             listing_data['ListingID'] = new_key
             logger.debug(f"Added ListingID to data: {listing_data}")
-            
+
             # Upload image to blob storage
             logger.debug(f"Uploading image to blob storage with key: {new_key}")
-            blob_storage.upload_files_to_bucket(s3, listing_data['ListingID'], images)
+            uploaded_keys = blob_storage.upload_files_to_bucket(s3, listing_data['ListingID'], images)
+            if uploaded_keys:
+                listing_data["CoverImageKey"] = uploaded_keys[0]
             logger.debug("Successfully uploaded image to blob storage")
-            
+
             # Save listing to database
             logger.debug(f"Saving listing to database with key: {new_key}")
             self.ref.child('Listing').child(new_key).set(listing_data)
             logger.debug("Successfully saved listing to database")
-            
+
             logger.info(f"Successfully added new listing with ID: {new_key}")
             return new_key
-            
+
         except Exception as e:
             logger.error(f"Error in add_listing: {str(e)}", exc_info=True)
             raise DatabaseError(f"Failed to add listing: {e}")
@@ -120,14 +121,14 @@ class ListingService:
         except Exception as e:
             raise DatabaseError(f"Failed to delete listing: {e}")
 
-# gets content of a listing in dictionary format from a listing_id
+    # gets content of a listing in dictionary format from a listing_id
     def get_listing(self, listing_id: str) -> Optional[Dict[str, Any]]:
         """Get listing dictionary by listing_id."""
         try:
             listings = self.ref.child('Listing').get()
             if not listings:
                 raise NotFoundError("No listings found.")
-            
+
             # Find the specific listing
             target_listing = None
             for listing in listings:
@@ -138,38 +139,37 @@ class ListingService:
                             break
                     if target_listing:
                         break
-            
+
             if not target_listing:
                 raise NotFoundError(f"Listing {listing_id} not found.")
-            
+
             # Connect to blob storage
             logger.debug("Connecting to blob storage")
             s3 = blob_storage.connect_to_blob_db_resource()
             logger.debug("Successfully connected to blob storage")
-            
+
             # Get images from blob storage
             logger.debug(f"Getting images for listing {listing_id}")
             images = blob_storage.get_images_from_bucket(s3, listing_id)
             logger.debug(f"Found {len(images)} images")
-            
-            # Process images and add to listing data
+
+            # Generate signed URLs for images
             if images:
-                base64_images = []
-                for key, data in images:
-                    base64_str = base64.b64encode(data).decode('utf-8')
-                    base64_images.append({'key': key, 'data': base64_str})
-                target_listing["Images"] = base64_images
-                logger.debug(f"Added base64 images to listing data: {target_listing}")
-            
+                image_urls = []
+                for key, _ in images:
+                    signed_url = blob_storage.get_image_url_from_key(key, s3_resource=s3)
+                    image_urls.append(signed_url)
+                target_listing["ImageUrls"] = image_urls
+
             return target_listing
-            
+
         except ServiceError:
             raise
         except Exception as e:
             logger.error(f"Error in get_listing: {str(e)}", exc_info=True)
             raise DatabaseError(f"Failed to get listing: {e}")
 
-# returns a list of all listings (dictionary format)  from a particular account
+    # returns a list of all listings (dictionary format) from a particular account
     def get_all_listings_user(self, account_id: str) -> List[Dict[str, Any]]:
         """Get all listings for a particular user."""
         try:
@@ -177,20 +177,26 @@ class ListingService:
             found_listings = []
             if not listings:
                 raise NotFoundError("No listings found.")
+
+            s3 = blob_storage.connect_to_blob_db_resource()
             for listing in listings:
-                if listing is not None:
-                    for field, value in listing.items():
-                        if field == "UserID" and int(value) == int(account_id):
-                            found_listings.append(listing)
+                if listing is not None and int(listing.get("UserID", -1)) == int(account_id):
+                    if "CoverImageKey" in listing:
+                        listing["CoverImageUrl"] = blob_storage.get_image_url_from_key(
+                            listing["CoverImageKey"], s3_resource=s3
+                        )
+                    found_listings.append(listing)
+
             if not found_listings:
                 raise NotFoundError(f"User {account_id} has no listings.")
             return found_listings
+
         except ServiceError:
             raise
         except Exception as e:
             raise DatabaseError(f"Failed to get user's listings: {e}")
 
-# gets ALL listings in the database
+    # gets ALL listings in the database
     def get_all_listings_total(self) -> List[Dict[str, Any]]:
         """Get all listings in the database."""
         try:
@@ -198,27 +204,23 @@ class ListingService:
             all_listings = []
             if not listings:
                 raise NotFoundError("No listings found.")
+
             s3 = blob_storage.connect_to_blob_db_resource()
             for listing in listings:
                 if listing is not None:
+                    if "CoverImageKey" in listing:
+                        listing["CoverImageUrl"] = blob_storage.get_image_url_from_key(
+                            listing["CoverImageKey"], s3_resource=s3
+                        )
                     all_listings.append(listing)
-                    listing_id_str = listing['ListingID']
-                    images = blob_storage.get_images_from_bucket(s3, listing_id_str)
-                    if not images:
-                        pass
-                    else:
-                        base64_images = []
-                        for key, data in images:
-                            base64_str = base64.b64encode(data).decode('utf-8')
-                            base64_images.append({'key': key, 'data': base64_str})
-                        listing["base64images"] = base64_images
             return all_listings
+
         except ServiceError:
             raise
         except Exception as e:
             raise DatabaseError(f"Failed to get all listings: {e}")
 
-# a duplicate function as get_listing
+    # a duplicate function as get_listing
     def get_listing_by_id(self, listing_id: str) -> Optional[Dict[str, Any]]:
         """Duplicate function for get_listing (for compatibility)."""
         return self.get_listing(listing_id)
@@ -231,8 +233,3 @@ get_listing = listing_service.get_listing
 get_all_listings_user = listing_service.get_all_listings_user
 get_all_listings_total = listing_service.get_all_listings_total
 get_listing_by_id = listing_service.get_listing_by_id
-
-
-#get_listing(1)
-#get_all_listings_user(802)
-#get_all_listings_total()
