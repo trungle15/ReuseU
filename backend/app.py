@@ -31,12 +31,12 @@ def create_app():
     # Enable CORS for all routes with proper configuration
     CORS(app, origins=["http://localhost:3000", "http://127.0.0.1:3000", "https://reuse-u-ruddy.vercel.app"], supports_credentials=True)
     
-    app.register_blueprint(accounts_bp, url_prefix='/api/accounts')
-    app.register_blueprint(listings_bp, url_prefix='/api/listings')
-    app.register_blueprint(reviews_bp, url_prefix='/api/reviews')
-    app.register_blueprint(chats_bp, url_prefix='/api/chats')
-    app.register_blueprint(transactions_bp, url_prefix='/api/transactions')
-    app.register_blueprint(messages_bp, url_prefix='/api/messages')
+    app.register_blueprint(accounts_bp, url_prefix='/backend-api/accounts')
+    app.register_blueprint(listings_bp, url_prefix='/backend-api/listings')
+    app.register_blueprint(reviews_bp, url_prefix='/backend-api/reviews')
+    app.register_blueprint(chats_bp, url_prefix='/backend-api/chats')
+    app.register_blueprint(transactions_bp, url_prefix='/backend-api/transactions')
+    app.register_blueprint(messages_bp, url_prefix='/backend-api/messages')
 
     @app.route("/")
     def home():
