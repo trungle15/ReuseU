@@ -123,14 +123,14 @@ export default function Listing({ title, price, tags, desc, image, ListingID, Us
       )}
 
       {/* Image container */}
-      <div className="w-1/4 aspect-square bg-gray-100 rounded-lg">
-        {image && <img src={image} alt={title} className="w-full h-full object-cover rounded-lg" />}
+      <div className="w-1/4 aspect-square bg-lime-100 rounded-lg">
+        {image && <img src={image} alt={title} className="text-cyan-300 w-full h-full object-cover rounded-lg" />}
       </div>
 
       {/* Content container */}
       <div className="flex-1 flex flex-col min-w-0">
         <h3
-          className="text-lg font-semibold line-clamp-1 mb-2 cursor-pointer hover:underline"
+          className="text-cyan-800 text-lg font-semibold line-clamp-1 mb-2 cursor-pointer hover:underline"
           onClick={() => handleTitleClick(title)}
         >
           {title}
@@ -139,23 +139,23 @@ export default function Listing({ title, price, tags, desc, image, ListingID, Us
         {/* Tags display */}
         <div className="flex flex-wrap gap-1.5 mb-2">
           {Array.isArray(tags) && tags.map((tag, index) => (
-            <span key={index} className="px-2 py-0.5 bg-gray-100 rounded text-sm text-gray-600">
+            <span key={index} className="px-2 py-0.5 bg-lime-300 rounded text-sm text-cyan-950">
               {tag}
             </span>
           ))}
         </div>
 
         {/* Description preview */}
-        <p className="text-gray-600 text-sm line-clamp-2 flex-grow">{desc}</p>
+        <p className="text-cyan-800 text-sm line-clamp-2 flex-grow">{desc}</p>
       </div>
 
       {/* Price and buttons section */}
       <div className="w-20 flex flex-col items-end justify-between">
-        <div className="text-lg font-bold">${price.toFixed(2)}</div>
+        <div className="text-lime-700 text-lg font-bold">${price.toFixed(2)}</div>
         <div className="flex flex-col gap-2">
           <button 
             onClick={onFavoriteClick}
-            className="p-1.5 hover:bg-gray-100 rounded-full transition-colors"
+            className="text-cyan-800 p-1.5 hover:bg-cyan-100 rounded-full transition-colors"
           >
             {isFavorited ? (
               <HeartSolid className="w-5 h-5 text-red-500" />
@@ -167,17 +167,17 @@ export default function Listing({ title, price, tags, desc, image, ListingID, Us
             <>
               <button
                 onClick={handleViewProfile}
-                className="p-1.5 hover:bg-gray-100 rounded-full transition-colors"
+                className="p-1.5 hover:bg-cyan-100 rounded-full transition-colors"
                 title="View Profile"
               >
-                <UserIcon className="w-5 h-5 text-gray-600" />
+                <UserIcon className="w-5 h-5 text-cyan-800" />
               </button>
               <button
                 onClick={handleStartChat}
-                className="p-1.5 hover:bg-gray-100 rounded-full transition-colors"
+                className="p-1.5 hover:bg-cyan-100 rounded-full transition-colors"
                 title="Message Seller"
               >
-                <ChatBubbleLeftIcon className="w-5 h-5 text-gray-600" />
+                <ChatBubbleLeftIcon className="w-5 h-5 text-cyan-800" />
               </button>
             </>
           )}
@@ -187,7 +187,7 @@ export default function Listing({ title, price, tags, desc, image, ListingID, Us
               disabled={isDeleting}
               className={`p-1.5 rounded-full transition-colors ${
                 isDeleting 
-                  ? 'bg-gray-100 cursor-not-allowed' 
+                  ? 'bg-cyan-100 cursor-not-allowed' 
                   : 'hover:bg-red-100 text-red-500'
               }`}
               title="Delete listing"
