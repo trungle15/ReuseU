@@ -4,7 +4,24 @@ from typing import Optional, Dict, Any, List
 import logging
 import base64
 
-from . import blob_storage
+# from . import blob_storage  # disabled blob storage integration to reduce package size
+class blob_storage:
+    @staticmethod
+    def connect_to_blob_db_resource():
+        return None
+
+    @staticmethod
+    def upload_files_to_bucket(s3, listing_id, images):
+        return []
+
+    @staticmethod
+    def get_images_from_bucket(s3, listing_id):
+        return []
+
+    @staticmethod
+    def get_image_url_from_key(key, s3_resource=None):
+        return None
+
 from .exceptions import ServiceError, NotFoundError, ValidationError, DatabaseError
 
 # Configure logging

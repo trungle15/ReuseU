@@ -11,11 +11,28 @@ import os
 import base64
 import random
 
-import boto3
-from botocore.client import Config
-import cv2
 import numpy as np
 
+"""
+# Disabled blob_storage implementation to cut down deployment size
+import logging
+logger = logging.getLogger(__name__)
+class cv2:
+    @staticmethod
+    def imdecode(data, flags):
+        logger.debug("Stub cv2.imdecode")
+        return None
+    @staticmethod
+    def imencode(ext, img):
+        logger.debug("Stub cv2.imencode")
+        return (True, b"")
+
+class boto3:
+    @staticmethod
+    def resource(service_name):
+        logger.debug(f"Stub boto3.resource {service_name}")
+        return None
+"""
 
 def connect_to_blob_db_resource():
     # Get the absolute path to the credentials file
@@ -32,10 +49,7 @@ def connect_to_blob_db_resource():
         aws_access_key_id=cfg["aws_access_key_id"],
         aws_secret_access_key=cfg["aws_secret_access_key"],
         region_name=cfg.get("region_name", "auto"),
-        config=Config(
-            signature_version="s3v4",
-            s3={"addressing_style": "path"}
-        )
+        config={"signature_version": "s3v4", "s3": {"addressing_style": "path"}}
     )
     return s3
 
