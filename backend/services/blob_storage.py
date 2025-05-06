@@ -11,11 +11,28 @@ import os
 import base64
 import random
 
-import boto3
-from botocore.client import Config
-import cv2
 import numpy as np
 
+"""
+# Disabled blob_storage implementation to cut down deployment size
+import logging
+logger = logging.getLogger(__name__)
+class cv2:
+    @staticmethod
+    def imdecode(data, flags):
+        logger.debug("Stub cv2.imdecode")
+        return None
+    @staticmethod
+    def imencode(ext, img):
+        logger.debug("Stub cv2.imencode")
+        return (True, b"")
+
+class boto3:
+    @staticmethod
+    def resource(service_name):
+        logger.debug(f"Stub boto3.resource {service_name}")
+        return None
+"""
 
 def connect_to_blob_db_resource():
     # Get the absolute path to the credentials file
@@ -32,13 +49,9 @@ def connect_to_blob_db_resource():
         aws_access_key_id=cfg["aws_access_key_id"],
         aws_secret_access_key=cfg["aws_secret_access_key"],
         region_name=cfg.get("region_name", "auto"),
-        config=Config(
-            signature_version="s3v4",
-            s3={"addressing_style": "path"}
-        )
+        config={"signature_version": "s3v4", "s3": {"addressing_style": "path"}}
     )
     return s3
-
 
 
 def get_all_files(s3_resource):
@@ -79,7 +92,7 @@ def get_files_listing_id(s3_resource, listing_id):
     return matched_files
 
 
-#this should not be used...could cause duplicatation errors, use upload_files instead
+# this should not be used...could cause duplicatation errors, use upload_files instead
 def upload_file_to_bucket(s3_resource, listing_id, data_bytes):
     bucket = s3_resource.Bucket("listing-images")
     listing_indicator = "x%Tz^Lp&"
@@ -102,7 +115,7 @@ def upload_files_to_bucket(s3_resource, listing_id, data_bytes_list):
     listing_indicator = "x%Tz^Lp&"
     name_indicator = "*Gh!mN?y"
 
-    # Convert base64 string to bytes if needed
+    uploaded_keys = []
     name_counter = 1
     for data_bytes in data_bytes_list:
         if isinstance(data_bytes, str):
@@ -110,8 +123,11 @@ def upload_files_to_bucket(s3_resource, listing_id, data_bytes_list):
             if data_bytes.startswith('data:image'):
                 data_bytes = data_bytes.split(',')[1]
             data_bytes = base64.b64decode(data_bytes)
-        bucket.put_object(Key=(listing_indicator + str(listing_id) + name_indicator + str(name_counter)), Body=data_bytes)
+        key = listing_indicator + str(listing_id) + name_indicator + str(name_counter)
+        bucket.put_object(Key=key, Body=data_bytes)
+        uploaded_keys.append(key)
         name_counter += 1
+    return uploaded_keys
 
 
 def get_images_from_bucket(s3_resource, listing_id):
@@ -125,15 +141,25 @@ def get_images_from_bucket(s3_resource, listing_id):
     return images
 
 
+# Generate a signed URL to access a private image file
+def get_image_url_from_key(key: str, s3_resource=None) -> str:
+    bucket_name = "listing-images"
+    s3_resource = s3_resource or connect_to_blob_db_resource()
+    return s3_resource.meta.client.generate_presigned_url(
+        'get_object',
+        Params={'Bucket': bucket_name, 'Key': key},
+        ExpiresIn=3600  # 1 hour
+    )
 
-#downscale an image with default return of 90% pixels
+
+# downscale an image with default return of 90% pixels
 def downscale_image(img, scale=0.9):
     h, w = img.shape[:2]
     new_dim = (int(w * scale), int(h * scale))
     return cv2.resize(img, new_dim)
 
 
-#return a compressed image until we have the correct size
+# return a compressed image until we have the correct size
 def compress_image(img, max_kb):
     # Convert input to numpy array if it's not already
     if isinstance(img, (bytes, bytearray)):
@@ -164,17 +190,17 @@ def compress_image(img, max_kb):
             return buf.tobytes()
         compressed = downscale_image(compressed)
 
+
 if __name__ == "__main__":
     s3 = connect_to_blob_db_resource()
-    files  = get_all_files(s3)
-    #files = get_files_listing_id(s3,1)
+    files = get_all_files(s3)
     print("Downloaded", len(files), "objects.")
     for key, data in files:
         print(key, len(data), "bytes")
 
-    #with open("/Users/pmurphy01/Desktop/howies_meat.jpg", "rb") as f:
-    #    data = f.read()
+    # with open("/Users/pmurphy01/Desktop/howies_meat.jpg", "rb") as f:
+    #     data = f.read()
 
-    #data = compress_image(data,1000)
+    # data = compress_image(data,1000)
 
-    #upload_file_to_bucket(s3,"howies_meat_1mb_limit", 1, data)
+    # upload_file_to_bucket(s3,"howies_meat_1mb_limit", 1, data)  -> start here

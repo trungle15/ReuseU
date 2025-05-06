@@ -283,14 +283,7 @@ export default function ListingsHomepage() {
                 price={parseFloat(listing.Price)}
                 tags={listing.Category}
                 desc={listing.Description}
-                image={
-                  typeof listing.Images?.[0] === "string"
-                    ? listing.Images[0]
-                    : Array.isArray(listing.base64images) &&
-                      typeof listing.base64images[0]?.data === "string"
-                    ? listing.base64images[0].data
-                    : ""
-                }
+                image={listing.CoverImageUrl || "/placeholder.jpg"}
                 ListingID={listing.ListingID || ""}
                 UserID={listing.UserID}
               />

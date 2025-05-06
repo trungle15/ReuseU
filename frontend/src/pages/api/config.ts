@@ -1,4 +1,8 @@
-export const API_BASE_URL = 'http://127.0.0.1:5000/api';
+export const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_BASE_URL ||
+  (typeof window !== 'undefined' && window.location.hostname.includes('localhost')
+    ? 'http://127.0.0.1:5000/backend-api'
+    : '/backend-api');
 
 /*
 This file contains the configuration for the API.
