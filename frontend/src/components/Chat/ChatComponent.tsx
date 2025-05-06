@@ -85,7 +85,7 @@ const ChatComponent = forwardRef<{ fetchChats: () => void }, ChatComponentProps>
       setLoadingChats(true);
       try {
         const token = await user.getIdToken();
-        const { chats: apiChats }: { chats: ApiChat[] } = await chatsApi.getByUserId(user.uid, token);
+        const { chats: apiChats }: { chats: ApiChat[] } = await chatsApi.getByUserId(token);
         console.log(apiChats);
         // Dedupe by id
         const unique = apiChats.filter((c, i, a) => a.findIndex(x => x.id === c.id) === i);
@@ -209,7 +209,7 @@ const ChatComponent = forwardRef<{ fetchChats: () => void }, ChatComponentProps>
     return (
       <div className="fixed bottom-4 right-4 z-50 w-96">
         {/* Chat header */}
-        <div className="bg-gray-800 text-white p-4 rounded-t-lg flex justify-between items-center">
+        <div className="bg-cyan-950 text-white p-4 rounded-t-lg flex justify-between items-center">
           <h2 className="text-lg font-semibold">{headerTitle}</h2>
           <div className="flex items-center">
             {selectedChat && (
@@ -235,7 +235,7 @@ const ChatComponent = forwardRef<{ fetchChats: () => void }, ChatComponentProps>
                 /* Loading spinner */
                 <div className="flex items-center justify-center h-32">
                   <svg
-                    className="animate-spin h-8 w-8 text-blue-600"
+                    className="animate-spin h-8 w-8 text-cyan-600"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -262,19 +262,19 @@ const ChatComponent = forwardRef<{ fetchChats: () => void }, ChatComponentProps>
                     <button
                       key={chat.id}
                       onClick={() => openChat(chat)}
-                      className="w-full p-3 flex items-center justify-between hover:bg-gray-100 border-b last:border-b-0"
+                      className="w-full p-3 flex items-center justify-between hover:bg-cyan-100 border-b last:border-b-0"
                     >
                       <div className="flex items-center gap-3">
                         <UserCircleIcon className="h-8 w-8 text-gray-400" />
                         <div className="text-left">
-                          <div className="font-medium">{chat.participant.name}</div>
+                          <div className="text-cyan-800 font-medium">{chat.participant.name}</div>
                           <div className="text-sm text-gray-500">{chat.title}</div>
                         </div>
                       </div>
                       <div className="text-right">
                         <div className="text-xs text-gray-500">{chat.lastMessageTime}</div>
                         {chat.unreadCount > 0 && (
-                          <div className="mt-1 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                          <div className="mt-1 bg-cyan-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                             {chat.unreadCount}
                           </div>
                         )}
@@ -297,8 +297,8 @@ const ChatComponent = forwardRef<{ fetchChats: () => void }, ChatComponentProps>
                       <div
                         className={`inline-block p-2 rounded-lg ${
                           message.sender === 'user'
-                            ? 'bg-blue-600 text-white'
-                            : 'bg-gray-200 text-gray-800'
+                            ? 'bg-cyan-600 text-white'
+                            : 'bg-gray-200 text-cyan-950'
                         }`}
                       >
                         {message.text}
@@ -309,18 +309,18 @@ const ChatComponent = forwardRef<{ fetchChats: () => void }, ChatComponentProps>
                 </div>
                 {/* Message input */}
                 <form
-                  className="flex items-center gap-2 p-4 border-t bg-gray-100 rounded-b-lg"
+                  className="text-cyan-700 flex items-center gap-2 p-4 border-t bg-cyan-50 rounded-b-lg"
                   onSubmit={e => handleSendMessage(selectedChat.id, e)}
                 >
                   <input
                     type="text"
-                    className="flex-1 rounded border px-3 py-2"
+                    className="bg-white border-cyan-800 flex-1 rounded border px-3 py-2"
                     placeholder="Type a message..."
                     value={newMessage}
                     onChange={e => setNewMessage(e.target.value)}
                     autoFocus
                   />
-                  <button type="submit" className="bg-blue-600 text-white rounded px-4 py-2">
+                  <button type="submit" className="bg-cyan-600 text-white rounded px-4 py-2">
                     Send
                   </button>
                 </form>
