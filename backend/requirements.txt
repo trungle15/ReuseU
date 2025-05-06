@@ -3,4 +3,5 @@ flask
 flask_cors
 pytest
 PyJWT
+opencv-python
 -e backend/.
