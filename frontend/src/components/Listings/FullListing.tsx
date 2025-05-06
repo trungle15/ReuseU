@@ -79,11 +79,22 @@ export default function FullListing({
   const handleNextImage = () =>
     setCurrentImageIndex((prev) => (prev === allImages.length - 1 ? 0 : prev + 1));
 
-  const handleViewProfile = () => {
-    if (sellerId) {
-      router.push(`/profile/${sellerId}`);
+  const handleViewProfile = async () => {
+    if (sellerId && user) {
+      try {
+        const token = await user.getIdToken();
+        const data = await import("@/pages/api/accounts").then(m => m.accountsApi.getAccount(sellerId, token));
+        if (data && data.Username) {
+          router.push(`/profile/${data.Username}`);
+        } else {
+          alert("Profile not found");
+        }
+      } catch (e) {
+        alert("Profile not found");
+      }
     }
   };
+
 
   const handleMessageSeller = async () => {
     try {
