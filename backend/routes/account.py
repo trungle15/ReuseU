@@ -12,7 +12,10 @@ accounts_bp = Blueprint('accounts', __name__, url_prefix='/api/accounts')
 def get_account(account_id):
     # User context is available via flask.g
     try:
-        data = account_service.get_acc(account_id)
+        try:
+            data = account_service.get_acc(account_id)
+        except NotFoundError:
+            data = account_service.get_acc_by_username(account_id)
         return jsonify(data), 200
     except NotFoundError as e:
         return jsonify({"message": str(e)}), 404

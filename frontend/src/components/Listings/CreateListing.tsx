@@ -17,7 +17,6 @@
 
 import { useState } from 'react';
 import { ArrowUpTrayIcon, XMarkIcon, ChevronLeftIcon, ChevronRightIcon, ArrowsPointingOutIcon } from '@heroicons/react/24/outline';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { listingsApi } from '@/pages/api/listings';
 import { useGlobalContext } from '@/Context/GlobalContext';

@@ -82,7 +82,7 @@ export const GlobalProvider: React.FC<{ children: React.ReactNode }> = ({ childr
             School: '',
             Username: cred.user.email?.split('@')[0] || cred.user.uid,
             dateTime_creation: new Date().toISOString(),
-            Email: cred.user.email || '',
+            email: cred.user.email || '',
             Pronouns: '',
             AboutMe: '',
           };
@@ -133,7 +133,7 @@ export const GlobalProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         School: school,
         Username: username,
         dateTime_creation: new Date().toISOString(),
-        Email: email,
+        email: email,
         Pronouns: "",
         AboutMe: "",
       }

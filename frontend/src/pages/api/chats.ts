@@ -11,7 +11,7 @@ export interface Message {
 export interface Chat {
   id: string;
   listing_id: string;
-  buyer_id: string;
+  buyer_id?: string; // Optional for backend chat creation
   seller_id: string;
   created_at?: string;
   updated_at?: string;
@@ -39,7 +39,7 @@ export const chatsApi = {
 
   // Create a new chat
   create: async (chat: Omit<Chat, 'id' | 'created_at' | 'updated_at' | 'messages'>, token: string) => {
-    const response = await fetch(`${API_BASE_URL}/chats/start`, {
+    const response = await fetch(`${API_BASE_URL}/chats`, {
       method: 'POST',
       headers: getAuthHeaders(token),
       body: JSON.stringify(chat),
