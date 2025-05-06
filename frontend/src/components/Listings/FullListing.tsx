@@ -148,7 +148,7 @@ export default function FullListing({
         <div className={`max-w-7xl pt-[20vh] mx-auto p-6 transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${isRemoved ? 'opacity-0' : 'opacity-100'}`}>
           <div>
             <button
-              className="flex items-center text-emerald-700 hover:text-emerald-500 mb-6 group transition-all duration-300"
+              className="flex items-center text-lime-800 hover:text-lime-500 mb-6 group transition-all duration-300"
               onClick={handleBackClick}
             >
               <ArrowLeft className="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform duration-300" />
@@ -156,10 +156,10 @@ export default function FullListing({
             </button>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-emerald-100">
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-lime-800">
             <div className="lg:flex">
               {/* Image Section */}
-              <div className="lg:w-1/2 relative bg-emerald-50">
+              <div className="lg:w-1/2 relative bg-cyan-100">
                 <div className="relative h-96 lg:h-full overflow-hidden">
                   <img
                     src={allImages[currentImageIndex]}
@@ -169,17 +169,17 @@ export default function FullListing({
                   <div className="absolute bottom-0 left-0 right-0 flex justify-between p-4">
                     <button
                       onClick={handlePrevImage}
-                      className="bg-white/90 hover:bg-emerald-500 hover:text-white rounded-full p-2 shadow-md transition-colors duration-300"
+                      className="text-lime-800 bg-white/90 hover:bg-lime-500 hover:text-white rounded-full p-2 shadow-md transition-colors duration-300"
                       aria-label="Previous image"
                     >
                       <ChevronLeft className="w-6 h-6" />
                     </button>
-                    <div className="bg-white/90 px-3 py-1 rounded-full text-sm font-medium shadow-md">
+                    <div className="text-lime-800 bg-white/90 px-3 py-1 rounded-full text-sm font-medium shadow-md">
                       {currentImageIndex + 1} / {allImages.length}
                     </div>
                     <button
                       onClick={handleNextImage}
-                      className="bg-white/90 hover:bg-emerald-500 hover:text-white rounded-full p-2 shadow-md transition-colors duration-300"
+                      className="text-lime-800 bg-white/90 hover:bg-lime-500 hover:text-white rounded-full p-2 shadow-md transition-colors duration-300"
                       aria-label="Next image"
                     >
                       <ChevronRight className="w-6 h-6" />
@@ -191,15 +191,15 @@ export default function FullListing({
               {/* Details Section */}
               <div className="lg:w-1/2 p-6 lg:p-8">
                 <div className="flex items-center mb-4">
-                  <Leaf className="text-emerald-500 w-5 h-5 mr-2" />
-                  <span className="text-sm font-medium text-emerald-500">Recycled Item</span>
+                  <Leaf className="text-lime-500 w-5 h-5 mr-2" />
+                  <span className="text-sm font-medium text-lime-500">Recycled Item</span>
                 </div>
 
-                <h1 className="text-3xl font-bold text-gray-800 mb-2">{title}</h1>
+                <h1 className="text-3xl font-bold text-cyan-950 mb-2">{title}</h1>
 
                 <div className="flex items-center mb-6">
-                  <span className="text-2xl font-bold text-emerald-600">${price.toFixed(2)}</span>
-                  <div className="ml-4 bg-emerald-100 text-emerald-800 text-sm font-medium px-3 py-1 rounded-full">
+                  <span className="text-2xl font-bold text-lime-700">${price.toFixed(2)}</span>
+                  <div className="ml-4 bg-lime-500 text-lime-800 text-sm font-medium px-3 py-1 rounded-full">
                     Available Now
                   </div>
                 </div>
@@ -208,7 +208,7 @@ export default function FullListing({
                   {safeTags.map((tag, index) => (
                     <span
                       key={index}
-                      className="bg-gray-100 hover:bg-emerald-100 text-gray-700 text-xs font-medium px-3 py-1 rounded-full transition-colors duration-300"
+                      className="bg-cyan-100 hover:bg-cyan-600 text-cyan-950 text-xs font-medium px-3 py-1 rounded-full transition-colors duration-300"
                     >
                       {tag}
                     </span>
@@ -216,15 +216,15 @@ export default function FullListing({
                 </div>
 
                 <div className="prose mb-8">
-                  <h3 className="text-lg font-medium text-gray-700 mb-2">Description</h3>
-                  <p className="text-emerald-600 leading-relaxed">
-                    <span className="text-gray-600 text-m font-serif">{desc}</span>
+                  <h3 className="text-lg font-medium text-cyan-950 mb-2">Description</h3>
+                  <p className="text-lime-700 leading-relaxed">
+                    <span className="text-cyan-950 text-m font-serif">{desc}</span>
                   </p>
                 </div>
 
-                <div className="bg-emerald-50 rounded-lg p-4 mb-6 border-l-4 border-emerald-500">
-                  <h3 className="text-sm font-medium text-emerald-800 mb-1">Environmental Impact</h3>
-                  <p className="text-xs text-emerald-700">
+                <div className="bg-lime-100 rounded-lg p-4 mb-6 border-l-4 border-lime-500">
+                  <h3 className="text-sm font-medium text-lime-800 mb-1">Environmental Impact</h3>
+                  <p className="text-xs text-lime-800">
                     By purchasing this recycled item, you're helping reduce waste and supporting sustainable practices.
                   </p>
                 </div>
@@ -234,14 +234,14 @@ export default function FullListing({
                     <div className="flex space-x-4">
                       <button
                         onClick={handleViewProfile}
-                        className="flex-1 bg-emerald-100 hover:bg-emerald-200 text-emerald-800 font-medium py-3 px-6 rounded-lg shadow-md flex items-center justify-center transition-all duration-300 hover:shadow-lg"
+                        className="flex-1 bg-lime-700 hover:bg-lime-500 text-white font-medium py-3 px-6 rounded-lg shadow-md flex items-center justify-center transition-all duration-300 hover:shadow-lg"
                       >
                         <UserCircleIcon className="w-5 h-5 mr-2" />
                         View Profile
                       </button>
                       <button
                         onClick={handleMessageSeller}
-                        className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 px-6 rounded-lg shadow-md flex items-center justify-center transition-all duration-300 hover:shadow-lg"
+                        className="flex-1 bg-lime-700 hover:bg-lime-500 text-white font-medium py-3 px-6 rounded-lg shadow-md flex items-center justify-center transition-all duration-300 hover:shadow-lg"
                       >
                         <MessageCircleIcon className="w-5 h-5 mr-2" />
                         Message Seller
