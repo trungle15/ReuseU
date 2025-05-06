@@ -39,7 +39,7 @@ export const chatsApi = {
 
   // Create a new chat
   create: async (chat: Omit<Chat, 'id' | 'created_at' | 'updated_at' | 'messages'>, token: string) => {
-    const response = await fetch(`${API_BASE_URL}/chats/start`, {
+    const response = await fetch(`${API_BASE_URL}/chats`, {
       method: 'POST',
       headers: getAuthHeaders(token),
       body: JSON.stringify(chat),
