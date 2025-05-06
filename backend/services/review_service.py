@@ -1,5 +1,6 @@
 import firebase_admin
 from firebase_admin import credentials, db
+import os, json
 from typing import Optional, Dict, Any, List
 from .exceptions import ServiceError, NotFoundError, ValidationError, DatabaseError
 from .listing_service import get_listing
@@ -9,9 +10,16 @@ def get_db_root():
     try:
         firebase_admin.get_app()
     except ValueError:
-        cred = credentials.Certificate("pk.json")
+        # load credentials from env or file
+        pk_env = os.getenv("PK_JSON")
+        if pk_env:
+            cert = json.loads(pk_env)
+            cred = credentials.Certificate(cert)
+        else:
+            path = os.path.join(os.path.dirname(__file__), "../pk.json")
+            cred = credentials.Certificate(path)
         firebase_admin.initialize_app(cred, {
-            'databaseURL': 'https://reuseu-e42b8-default-rtdb.firebaseio.com/'
+            'databaseURL': os.getenv("FIREBASE_DB_URL", 'https://reuseu-e42b8-default-rtdb.firebaseio.com/')
         })
     return db.reference('/')
 

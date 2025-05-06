@@ -3,6 +3,8 @@ from firebase_admin import credentials, db
 from typing import Optional, Dict, Any, List
 import logging
 import base64
+import os
+import json
 
 # from . import blob_storage  # disabled blob storage integration to reduce package size
 class blob_storage:
@@ -36,9 +38,18 @@ def get_db_root():
         firebase_admin.get_app()
     except ValueError:
         logger.debug("No existing Firebase app found, initializing new app")
-        cred = credentials.Certificate("pk.json")
+        # Load Firebase credentials from env var or file
+        pk_env = os.getenv("PK_JSON")
+        if pk_env:
+            logger.debug("Loading Firebase credentials from PK_JSON env var")
+            cert_dict = json.loads(pk_env)
+            cred = credentials.Certificate(cert_dict)
+        else:
+            path = os.path.join(os.path.dirname(__file__), "../pk.json")
+            logger.debug(f"Loading Firebase credentials from file {path}")
+            cred = credentials.Certificate(path)
         firebase_admin.initialize_app(cred, {
-            'databaseURL': 'https://reuseu-e42b8-default-rtdb.firebaseio.com/'
+            'databaseURL': os.getenv("FIREBASE_DB_URL", 'https://reuseu-e42b8-default-rtdb.firebaseio.com/')
         })
     logger.debug("Returning database root reference")
     return db.reference('/')
