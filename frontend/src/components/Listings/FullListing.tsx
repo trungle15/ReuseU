@@ -137,7 +137,7 @@ export default function FullListing({
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="bg-cyan-800 container mx-auto px-4 py-8">
       {showChatComponent && (
         <ChatComponent
           listingId={listingId}
@@ -145,10 +145,10 @@ export default function FullListing({
         />
       )}
       {title && (<>
-        <div className={`max-w-7xl pt-[20vh] mx-auto p-6 transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${isRemoved ? 'opacity-0' : 'opacity-100'}`}>
+        <div className={`max-w-7xl pt-[20vh] mx-auto bg-cyan-800 p-6 transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${isRemoved ? 'opacity-0' : 'opacity-100'}`}>
           <div>
             <button
-              className="flex items-center text-lime-800 hover:text-lime-500 mb-6 group transition-all duration-300"
+              className="flex items-center text-lime-500 hover:text-cyan-300 mb-6 group transition-all duration-300"
               onClick={handleBackClick}
             >
               <ArrowLeft className="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform duration-300" />
@@ -156,7 +156,7 @@ export default function FullListing({
             </button>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-lime-800">
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-cyan-950">
             <div className="lg:flex">
               {/* Image Section */}
               <div className="lg:w-1/2 relative bg-cyan-100">
