@@ -83,7 +83,7 @@ export default function FullListing({
     if (sellerId && user) {
       try {
         const token = await user.getIdToken();
-        const data = await import("@/pages/api/accounts").then(m => m.accountsApi.getAccount(sellerId, token));
+        const data = await import("@/pages/api/accounts").then(m => m.accountsApi.getAccountByUsername(sellerId, token));
         if (data && data.Username) {
           router.push(`/profile/${data.Username}`);
         } else {

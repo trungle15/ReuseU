@@ -55,6 +55,18 @@ class AccountService:
     def __init__(self, db_ref=None):
         self.ref = db_ref or get_db_root()
 
+    def get_acc_by_username(self, username: str) -> dict:
+        """
+        Retrieve account data by Username (case-insensitive).
+        """
+        accounts = self.ref.child('Account').get() or {}
+        for acc in accounts.values():
+            if acc.get('Username', '').lower() == username.lower():
+                return acc
+        raise NotFoundError(f"Account with username {username} not found.")
+
+        self.ref = db_ref or get_db_root()
+
     def add_account(self, account_data: Dict[str, Any]) -> str:
         """
         Use the provided UserID (Firebase UID) as the key. Derive and store marketplace_id from email.

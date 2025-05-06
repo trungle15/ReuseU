@@ -21,6 +21,7 @@ const PublicProfile: React.FC = () => {
         let data: AccountData | null = null;
         try {
           data = await accountsApi.getAccount(profileParam, "");
+          console.log(data);
           if (data && data.Username && data.Username !== profileParam) {
             // Redirect to canonical username URL
             router.replace(`/profile/${data.Username}`);
@@ -65,7 +66,7 @@ const PublicProfile: React.FC = () => {
         <div>
           <h2 className="text-2xl font-bold mb-1">{profileData.Username}</h2>
           <p className="text-gray-600">{profileData.First_Name} {profileData.Last_Name}</p>
-          <p className="text-sm text-gray-400">{profileData.Email}</p>
+          <p className="text-sm text-gray-400">{profileData.email}</p>
         </div>
       </div>
       <div className="mb-4">

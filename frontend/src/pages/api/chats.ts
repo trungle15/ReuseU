@@ -11,7 +11,7 @@ export interface Message {
 export interface Chat {
   id: string;
   listing_id: string;
-  buyer_id: string;
+  buyer_id?: string; // Optional for backend chat creation
   seller_id: string;
   created_at?: string;
   updated_at?: string;

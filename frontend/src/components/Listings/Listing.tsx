@@ -94,9 +94,9 @@ export default function Listing({ title, price, tags, desc, image, ListingID, Us
         return;
       }
       const token = await user.getIdToken();
+      // Backend expects only listing_id and seller_id; buyer is inferred from JWT
       const newChat = await chatsApi.create({
         listing_id: String(ListingID),
-        buyer_id: String(currentUserId),
         seller_id: String(UserID)
       }, token);
       openChat(newChat);
@@ -111,22 +111,28 @@ export default function Listing({ title, price, tags, desc, image, ListingID, Us
   const handleViewProfile = async () => {
     try {
       // Fetch account by UserID (from listing)
-      if(!user){
+      if (!user) {
         return;
       }
       const token = await user.getIdToken();
-      const data = await accountsApi.getAccount(UserID, token);
-      console.log(data);
+      let data = null;
+      try {
+        data = await accountsApi.getAccountByUsername(UserID, token);
+        console.log(data);
+      } catch (err) {
+        console.error('Account not found for user:', UserID, err);
+        router.push('/404'); // or show a not found page
+        return;
+      }
       if (data && data.Username) {
         router.push(`/profile/${data.Username}`);
       } else {
-        alert("Profile not found");
+        router.push('/404');
       }
-    } catch (e) {
-      alert("Profile not found");
+    } catch (error) {
+      console.error('Error viewing profile:', error);
     }
   };
-
 
   // Main listing card layout
   return (
