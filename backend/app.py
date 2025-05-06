@@ -1,5 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import os, sys  # Added to ensure backend directory is on PYTHONPATH in serverless env
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from routes.listing import listings_bp
 from routes.review import reviews_bp
 from routes.chat import chats_bp
