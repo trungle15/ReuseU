@@ -91,7 +91,7 @@ export default function Dashboard() {
           <div className="absolute right-0 top-full mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
             <button
               onClick={handleLogout}
-              className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg"
             >
               <ArrowRightEndOnRectangleIcon className="h-5 w-5 mr-2 text-gray-700" />
               Log Out
@@ -99,7 +99,7 @@ export default function Dashboard() {
             {/* Button to take the user to the About Us page */}
             <button
               onClick={handleAboutUs}
-              className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg"
             >
               <InformationCircleIcon className="h-5 w-5 mr-2 text-gray-700" />
               About Us
